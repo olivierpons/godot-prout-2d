@@ -6,6 +6,7 @@ extends Sprite2D
 var pressing: bool = false
 var just_released: bool = false
 var dead_zone: int = 4
+var is_moving: bool = false
 
 func _ready():
 	dead_zone = parent.dead_zone
@@ -25,14 +26,21 @@ func _process(delta):
 		if (y > -.33) and (y < .33):
 			if x < -.5:
 				Input.action_press("move_left")
+				is_moving = true
 			elif x > .5:
-					Input.action_press("move_right")
+				Input.action_press("move_right")
+				is_moving = true
+			else:
+				Input.action_release("move_left")
+				Input.action_release("move_right")
+				is_moving = false
 	else:
 		if just_released:
 			just_released = false
 			Input.action_release("move_left")
 			Input.action_release("move_right")
-			
+			is_moving = false
+
 		global_position = lerp(global_position, parent.global_position, delta*50)
 		parent.pos_vector = Vector2(0,0)
 		

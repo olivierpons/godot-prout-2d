@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpjysr1oeb3yc"]
+
+[ext_resource type="Script" path="res://scripts/mobile_actions.gd" id="1_3uca5"]
+[ext_resource type="Texture2D" uid="uid://ceimseawi8b07" path="res://assets/sprites/joystick_mobile/knob.png" id="1_4e3wx"]
+
+[node name="mobile_actions" type="Node2D"]
+script = ExtResource("1_3uca5")
+
+[node name="Knob" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.560784)
+texture = ExtResource("1_4e3wx")
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -99.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 99.0
+action_mode = 0
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

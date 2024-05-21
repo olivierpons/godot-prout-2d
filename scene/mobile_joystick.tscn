@@ -9,9 +9,11 @@
 script = ExtResource("1_jlxgm")
 
 [node name="circle" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.654902)
 texture = ExtResource("2_x8wem")
 
 [node name="Knob" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.639216)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("3_os3ag")
 script = ExtResource("4_jocw1")
