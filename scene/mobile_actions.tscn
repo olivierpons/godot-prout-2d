@@ -16,7 +16,7 @@ offset_left = -99.0
 offset_top = -100.0
 offset_right = 100.0
 offset_bottom = 99.0
-action_mode = 0
+flat = true
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

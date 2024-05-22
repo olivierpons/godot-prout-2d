@@ -34,6 +34,10 @@ func _process(delta):
 				Input.action_release("move_left")
 				Input.action_release("move_right")
 				is_moving = false
+		else:
+			Input.action_release("move_left")
+			Input.action_release("move_right")
+			is_moving = false
 	else:
 		if just_released:
 			just_released = false
