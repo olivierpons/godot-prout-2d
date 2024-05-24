@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1325krtc8eqb"
-path="res://.godot/imported/index.180x180.png-02e0038480fc6c8c52604a2c4abdaa9d.ctex"
+uid="uid://u3tghlvejiml"
+path="res://.godot/imported/arrow-right.png-7a5137de97e221b7bd3a71131d7c3819.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://export/index.180x180.png"
-dest_files=["res://.godot/imported/index.180x180.png-02e0038480fc6c8c52604a2c4abdaa9d.ctex"]
+source_file="res://assets/sprites/joystick_mobile/arrow-right.png"
+dest_files=["res://.godot/imported/arrow-right.png-7a5137de97e221b7bd3a71131d7c3819.ctex"]
 
 [params]
 

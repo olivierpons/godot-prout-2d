@@ -1,7 +1,25 @@
-[gd_scene load_steps=26 format=3 uid="uid://cspicwn3k6q4e"]
+[gd_scene load_steps=41 format=3 uid="uid://cspicwn3k6q4e"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0cted"]
 [ext_resource type="Texture2D" uid="uid://cbyff7pbwxcmo" path="res://assets/sprites/knight.png" id="1_fu0lj"]
+[ext_resource type="AudioStream" uid="uid://c65v0i0rjudgb" path="res://assets/sounds/hurt/ZombieWoman001_Hurt_A_001.mp3" id="2_0bl7w"]
+[ext_resource type="AudioStream" uid="uid://y4j4lwinqg7q" path="res://assets/sounds/hurt/ZombieWoman001_Hurt_A_002.mp3" id="3_sg1dg"]
+[ext_resource type="AudioStream" uid="uid://buer0gk3x4st6" path="res://assets/sounds/hurt/ZombieWoman001_Hurt_A_003.mp3" id="4_733gv"]
+[ext_resource type="AudioStream" uid="uid://bywo7a8kbfgf1" path="res://assets/sounds/hurt/ZombieWoman001_Hurt_A_004.mp3" id="5_la7et"]
+[ext_resource type="AudioStream" uid="uid://cm5ad1icb00k3" path="res://assets/sounds/hurt/ZombieWoman001_Hurt_A_005.mp3" id="6_rwisw"]
+[ext_resource type="AudioStream" uid="uid://nbhsapwiriah" path="res://assets/sounds/hurt/ZombieWoman001_Hurt_A_006.mp3" id="7_i8wb3"]
+[ext_resource type="AudioStream" uid="uid://bq6xn8w53m78b" path="res://assets/sounds/hurt/ZombieWoman001_Hurt_A_007.mp3" id="8_0akb2"]
+[ext_resource type="AudioStream" uid="uid://wkw1u2il3aoe" path="res://assets/sounds/hurt/ZombieWoman001_Hurt_A_008.mp3" id="9_teg7q"]
+[ext_resource type="AudioStream" uid="uid://bjlkcr7xrfmwc" path="res://assets/sounds/hurt/ZombieWoman001_Hurt_A_009.mp3" id="10_f34ia"]
+[ext_resource type="AudioStream" uid="uid://c0ctgdv0ac07t" path="res://assets/sounds/hurt/ZombieWoman001_Hurt_A_010.mp3" id="11_d556t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la4yh"]
+atlas = ExtResource("1_fu0lj")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeeiw"]
+atlas = ExtResource("1_fu0lj")
+region = Rect2(0, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_15qu4"]
 atlas = ExtResource("1_fu0lj")
@@ -91,6 +109,17 @@ region = Rect2(224, 96, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_la4yh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qeeiw")
+}],
+"loop": true,
+"name": &"die",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_15qu4")
 }, {
 "duration": 1.0,
@@ -171,19 +200,98 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_a6dex"]
 radius = 5.0
 
+[sub_resource type="Animation" id="Animation_qcjr8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g2a1y"]
+resource_name = "die"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(10, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"die"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2oo6"]
+_data = {
+"RESET": SubResource("Animation_qcjr8"),
+"die": SubResource("Animation_g2a1y")
+}
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_0cted")
+sounds_you_won = Array[AudioStreamMP3]([ExtResource("2_0bl7w"), ExtResource("3_sg1dg"), ExtResource("4_733gv"), ExtResource("5_la7et"), ExtResource("6_rwisw"), ExtResource("7_i8wb3"), ExtResource("8_0akb2"), ExtResource("9_teg7q"), ExtResource("10_f34ia"), ExtResource("11_d556t")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_p31yl")
-animation = &"run"
+animation = &"die"
 autoplay = "idle"
-frame = 8
-frame_progress = 0.781602
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_a6dex")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h2oo6")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

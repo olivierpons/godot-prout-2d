@@ -3,15 +3,24 @@ extends CharacterBody2D
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 
+@export var sounds_you_won: Array[AudioStreamMP3]
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var is_dying: bool = false
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	add_to_group("player")
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+
+	if is_dying:
+		move_and_slide()
+		return
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -41,3 +50,6 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func play_random_hurt():
+	global.play_rand_sound(audio_stream_player_2d, sounds_you_won)

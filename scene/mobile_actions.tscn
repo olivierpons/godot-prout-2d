@@ -7,16 +7,11 @@
 script = ExtResource("1_3uca5")
 
 [node name="Knob" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.560784)
+self_modulate = Color(1, 1, 1, 0.388235)
 texture = ExtResource("1_4e3wx")
 
-[node name="Button" type="Button" parent="."]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = -99.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 99.0
-flat = true
-
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
-[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+position = Vector2(-100, -100)
+texture_normal = ExtResource("1_4e3wx")
+action = "jump"
