@@ -3,15 +3,23 @@ extends CharacterBody2D
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 
-@export var sounds_you_won: Array[AudioStreamMP3]
+@export var sounds_you_died: Array[AudioStreamMP3]
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var is_dying: bool = false
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var animation_player = $AnimationPlayer
+@onready var collision_shape_2d = $CollisionShape2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	add_to_group("player")
+	# (!) initialize global fade_in_out_node each time the player spawns:
+	global.fade_in_out_node = get_tree().root.find_child("FadeInOut", true, false)
+
+func _input(_event):
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().quit()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -51,5 +59,8 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-func play_random_hurt():
-	global.play_rand_sound(audio_stream_player_2d, sounds_you_won)
+func die():
+	is_dying = true
+	animation_player.play("die")
+	collision_shape_2d.queue_free()
+	global.play_rand_sound(audio_stream_player_2d, sounds_you_died)

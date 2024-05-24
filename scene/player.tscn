@@ -276,13 +276,14 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
+input_pickable = true
 script = ExtResource("1_0cted")
-sounds_you_won = Array[AudioStreamMP3]([ExtResource("2_0bl7w"), ExtResource("3_sg1dg"), ExtResource("4_733gv"), ExtResource("5_la7et"), ExtResource("6_rwisw"), ExtResource("7_i8wb3"), ExtResource("8_0akb2"), ExtResource("9_teg7q"), ExtResource("10_f34ia"), ExtResource("11_d556t")])
+sounds_you_died = Array[AudioStreamMP3]([ExtResource("2_0bl7w"), ExtResource("3_sg1dg"), ExtResource("4_733gv"), ExtResource("5_la7et"), ExtResource("6_rwisw"), ExtResource("7_i8wb3"), ExtResource("8_0akb2"), ExtResource("9_teg7q"), ExtResource("10_f34ia"), ExtResource("11_d556t")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_p31yl")
-animation = &"die"
+animation = &"run"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

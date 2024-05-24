@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://rs1emuruss23"]
+[gd_scene load_steps=27 format=3 uid="uid://rs1emuruss23"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_3obbs"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="1_ag6gl"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://u7iwxa41ssg4" path="res://scene/Slime.tscn" id="6_vn86b"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="8_5h6jg"]
 [ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="9_0lukh"]
+[ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="11_kbsyo"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_egyyn"]
 tile_data = PackedInt32Array(0, 1, 11, 65536, 1, 11, 131072, 1, 12, 196608, 1, 13, 262144, 1, 13, 327680, 1, 13, 393216, 1, 13, 458752, 1, 13, 524288, 1, 13)
@@ -706,7 +707,16 @@ offset_left = -169.0
 offset_top = -77.0
 offset_right = -129.0
 offset_bottom = -54.0
-text = "0.1d"
+text = "0.1e"
+
+[node name="FadeInOut" parent="Player" instance=ExtResource("11_kbsyo")]
+visible = false
+z_index = 4096
+offset_left = -175.0
+offset_top = -92.0
+offset_right = 1225.0
+offset_bottom = 556.0
+scale = Vector2(0.25, 0.25)
 
 [node name="Killzone" parent="." instance=ExtResource("5_642ec")]
 position = Vector2(176, 15)
