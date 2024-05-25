@@ -140,6 +140,7 @@ theme_override_fonts/font = ExtResource("4_s2q55")
 theme_override_font_sizes/font_size = 8
 text = "Grab XXX coins."
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="mobile_actions" parent="Player/Camera2D" instance=ExtResource("5_hgluh")]
 position = Vector2(144, 49)
@@ -157,6 +158,7 @@ offset_bottom = -69.0
 theme_override_fonts/font = ExtResource("7_0h8vq")
 theme_override_font_sizes/font_size = 8
 text = "Level 03"
+metadata/_edit_use_anchors_ = true
 
 [node name="FadeInOut" parent="Player" instance=ExtResource("8_2r44u")]
 visible = false
@@ -246,3 +248,4 @@ metadata/_edit_use_anchors_ = true
 [node name="exit_door" parent="." instance=ExtResource("13_4n27x")]
 z_index = -1
 position = Vector2(-344, -93)
+next_level = 3

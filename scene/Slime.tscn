@@ -60,8 +60,8 @@ shape = SubResource("RectangleShape2D_6phg8")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(0, 6)
-target_position = Vector2(10, 0)
+target_position = Vector2(6, 0)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, 6)
-target_position = Vector2(-10, 0)
+target_position = Vector2(-6, 0)
