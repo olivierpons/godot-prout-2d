@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=3 uid="uid://dbwulrbhchhqc"]
+
+[ext_resource type="Script" path="res://scripts/exit_door.gd" id="1_ebc77"]
+[ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="1_jh7ym"]
+[ext_resource type="AudioStream" uid="uid://bu7fnof0dbhec" path="res://assets/sounds/power_up.wav" id="3_yekb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnq1h"]
+size = Vector2(14, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6fm8"]
+atlas = ExtResource("1_jh7ym")
+region = Rect2(176, 48, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrh6c"]
+atlas = ExtResource("1_jh7ym")
+region = Rect2(160, 48, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5jxmq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6fm8")
+}],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrh6c")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_v7720"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_d28so"]
+resource_name = "open_door"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"open", 0.1, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aeiie"]
+_data = {
+"RESET": SubResource("Animation_v7720"),
+"open_door": SubResource("Animation_d28so")
+}
+
+[node name="exit_door" type="Area2D" groups=["exit"]]
+collision_mask = 2
+script = ExtResource("1_ebc77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_hnq1h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5jxmq")
+animation = &"locked"
+offset = Vector2(0, -16)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_yekb7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aeiie")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
