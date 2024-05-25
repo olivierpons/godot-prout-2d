@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://kwenmeocnk1u"]
+[gd_scene load_steps=6 format=3 uid="uid://kwenmeocnk1u"]
 
 [ext_resource type="AudioStream" uid="uid://c5pai82ndbi0l" path="res://assets/music/time_for_adventure.mp3" id="1_ov2rh"]
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_w45ma"]
 [ext_resource type="PackedScene" uid="uid://rs1emuruss23" path="res://scene/game_01.tscn" id="2_500ww"]
 [ext_resource type="PackedScene" uid="uid://be4bsvsdngcrg" path="res://scene/game_02.tscn" id="3_5rkdc"]
+[ext_resource type="PackedScene" uid="uid://cdvid2atvfnnr" path="res://scene/game_03.tscn" id="4_bagpr"]
 
 [node name="global" type="Node"]
 script = ExtResource("1_w45ma")
-scenes = Array[PackedScene]([ExtResource("2_500ww"), ExtResource("3_5rkdc")])
+scenes = Array[PackedScene]([ExtResource("2_500ww"), ExtResource("3_5rkdc"), ExtResource("4_bagpr")])
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_ov2rh")
-autoplay = true
 bus = &"Music"
