@@ -4,6 +4,7 @@ const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 
 @export var sounds_you_died: Array[AudioStreamMP3]
+@export var sounds_jump: Array[AudioStreamMP3]
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var is_dying: bool = false
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
@@ -33,6 +34,7 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		global.play_rand_sound(audio_stream_player_2d, sounds_jump)
 
 	# Get input : direction = -1, 0, 1	
 	var direction = Input.get_axis("move_left", "move_right")
@@ -49,13 +51,18 @@ func _physics_process(delta):
 			animated_sprite.play("idle")
 		else:
 			animated_sprite.play("run")
-	else:
-		animated_sprite.play("jump")
+	#else:
+	#	animated_sprite.play("jump")
 		
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	if velocity.y < 0.0:
+		animated_sprite.play("up")
+	elif velocity.y > 0.0:
+		animated_sprite.play("down")
 
 	move_and_slide()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://rs1emuruss23"]
+[gd_scene load_steps=28 format=3 uid="uid://rs1emuruss23"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_3obbs"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="1_ag6gl"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="5_642ec"]
 [ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="6_nhh5j"]
 [ext_resource type="PackedScene" uid="uid://u7iwxa41ssg4" path="res://scene/Slime.tscn" id="6_vn86b"]
+[ext_resource type="FontFile" uid="uid://bs6mhkgo5fbma" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_sjpyw"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="8_5h6jg"]
 [ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="9_0lukh"]
 [ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="11_kbsyo"]
@@ -206,11 +207,11 @@ texture = ExtResource("2_ubej6")
 10:0/0 = 0
 10:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:0/0/physics_layer_0/angular_velocity = 0.0
-10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.73876, 8, -5.3856, 8, 0.441442, -8, 0.529731)
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.73876, 8, -5.82705, 8, 0.794597, -8, 0.971174)
 11:0/0 = 0
 11:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:0/0/physics_layer_0/angular_velocity = 0.0
-11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.73876, 8, -5.3856, 8, 0.441442, -8, 0.529731)
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.73876, 8, -8, 8, -1.50091, -8, 0.529731)
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
@@ -654,7 +655,7 @@ metadata/_edit_vertical_guides_ = [-146.0]
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 follow_viewport_enabled = true
-follow_viewport_scale = 0.9
+follow_viewport_scale = 0.7
 
 [node name="TileMap" type="TileMap" parent="CanvasLayer"]
 tile_set = SubResource("TileSet_by52f")
@@ -703,11 +704,13 @@ position = Vector2(-104, 40)
 scale = Vector2(0.4, 0.4)
 
 [node name="Label" type="Label" parent="Player/Camera2D"]
-offset_left = -169.0
-offset_top = -77.0
-offset_right = -129.0
-offset_bottom = -54.0
-text = "0.1e"
+offset_left = -174.0
+offset_top = -79.0
+offset_right = -41.0
+offset_bottom = -69.0
+theme_override_fonts/font = ExtResource("7_sjpyw")
+theme_override_font_sizes/font_size = 9
+text = "2024-05-25 08:04"
 
 [node name="FadeInOut" parent="Player" instance=ExtResource("11_kbsyo")]
 visible = false
