@@ -1,2 +1,13 @@
-# Godot 4+ specific ignores
+/.godot/
+/.import/
 .godot/
+*.tmp
+*.log
+*.import
+*.imported
+*.reimported
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
