@@ -1,13 +1,13 @@
-/.godot/
-/.import/
-.godot/
-*.tmp
-*.log
+ .godot/
 *.import
 *.imported
+*.log
 *.reimported
-
+*.tmp
+++ b/.gitignore
+-- a/.gitignore
 .DS_Store
+/.godot/
+/.import/
 Thumbs.db
 desktop.ini
-
