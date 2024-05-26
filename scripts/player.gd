@@ -78,7 +78,7 @@ func _physics_process(delta):
 			horizontal_acceleration_time / MAX_HORIZONTAL_ACCELERATION_TIME
 		)
 		var target_speed: float = MAX_HORIZONTAL_SPEED * direction
-		print(direction, " / ", velocity.x, "-",  target_speed, "-", acceleration_factor)
+		print(direction, " / velocity.x: ", velocity.x, " / target_speed: ",  target_speed, " / acceleration_factor: ", acceleration_factor)
 		velocity.x = lerp(velocity.x, target_speed, acceleration_factor)
 	else:
 		is_accelerating = false
@@ -86,7 +86,7 @@ func _physics_process(delta):
 		horizontal_acceleration_time = 0
 
 		if velocity.x != 0:
-			print("slowing  / ", velocity.x, "-",  0, "-", DECELERATION * delta)
+			print("slowing  / velocity.x: ", velocity.x, " / ",  0, " / DECELERATION * delta: ", DECELERATION * delta)
 			velocity.x = move_toward(velocity.x, 0, DECELERATION * delta)
 	print("=> ", velocity.x)
 
