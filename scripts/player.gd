@@ -8,7 +8,10 @@ const JUMP_VELOCITY = -300.0
 @export var sounds_you_died: Array[AudioStreamMP3]
 @export var sounds_jump: Array[AudioStreamMP3]
 @onready var animated_sprite = $AnimatedSprite2D
+
 @onready var is_dying: bool = false
+@onready var is_waiting_end_level: bool = false
+
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 @onready var animation_player = $AnimationPlayer
 @onready var collision_shape_2d = $CollisionShape2D
@@ -31,7 +34,7 @@ func _ready():
 	global.fade_in_out_node = get_tree().root.find_child("FadeInOut", true, false)
 
 func _input(_event):
-	if Input.is_action_pressed("ui_cancel"):
+	if Input.is_action_pressed("quit"):
 		get_tree().quit()
 
 func _physics_process(delta):
@@ -39,7 +42,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	if is_dying:
+	if is_dying or is_waiting_end_level:
 		move_and_slide()
 		return
 
@@ -62,11 +65,10 @@ func _physics_process(delta):
 		is_jumping = false
 
 	# Handle horizontal movement.
-	direction = Input.get_axis("move_left", "move_right")
+	direction = int(Input.get_axis("move_left", "move_right"))
 
 	if direction != 0:
 		if not is_accelerating:
-			print("is_accelerating = true")
 			is_accelerating = true
 			horizontal_acceleration_time = 0
 		else:
@@ -78,17 +80,13 @@ func _physics_process(delta):
 			horizontal_acceleration_time / MAX_HORIZONTAL_ACCELERATION_TIME
 		)
 		var target_speed: float = MAX_HORIZONTAL_SPEED * direction
-		print(direction, " / velocity.x: ", velocity.x, " / target_speed: ",  target_speed, " / acceleration_factor: ", acceleration_factor)
 		velocity.x = lerp(velocity.x, target_speed, acceleration_factor)
 	else:
 		is_accelerating = false
-		print("is_accelerating = false")
 		horizontal_acceleration_time = 0
 
 		if velocity.x != 0:
-			print("slowing  / velocity.x: ", velocity.x, " / ",  0, " / DECELERATION * delta: ", DECELERATION * delta)
 			velocity.x = move_toward(velocity.x, 0, DECELERATION * delta)
-	print("=> ", velocity.x)
 
 	# Check for horizontal collisions and reset speed if colliding
 	if is_on_wall():

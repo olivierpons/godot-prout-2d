@@ -259,8 +259,9 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_a6dex"]
-radius = 5.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y6q63"]
+radius = 4.0
+height = 14.0
 
 [sub_resource type="Animation" id="Animation_qcjr8"]
 length = 0.001
@@ -350,8 +351,8 @@ animation = &"down"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_a6dex")
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_y6q63")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

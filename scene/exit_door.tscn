@@ -35,7 +35,6 @@ animations = [{
 }]
 
 [sub_resource type="Animation" id="Animation_v7720"]
-length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -106,8 +105,4 @@ libraries = {
 "": SubResource("AnimationLibrary_aeiie")
 }
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.6
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
