@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://buy8x3y4cvoqt"]
+[gd_scene load_steps=14 format=3 uid="uid://buy8x3y4cvoqt"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_pj2cg"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_dd46c"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="8_kh3fe"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="9_p3ovr"]
 [ext_resource type="PackedScene" uid="uid://dac5wao2fkvh6" path="res://scene/coin.tscn" id="10_mgh35"]
+[ext_resource type="PackedScene" uid="uid://bse51yprsspn5" path="res://scene/monsters/death_slime.tscn" id="12_wpy46"]
 [ext_resource type="PackedScene" uid="uid://dbwulrbhchhqc" path="res://scene/exit_door.tscn" id="16_qsdgc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ph35v"]
@@ -34,7 +35,7 @@ layer_0/tile_data = PackedInt32Array(-131058, 131072, 13, -65522, 131072, 13, 14
 tile_set = ExtResource("2_dd46c")
 format = 2
 layer_0/name = "Background"
-layer_0/tile_data = PackedInt32Array(-65557, 65538, 1, -65556, 131074, 1, -65555, 131074, 1, -65554, 131074, 1, -65553, 131074, 1, -65552, 131074, 1, -65551, 131074, 1, -65550, 131074, 1, -65549, 131074, 1, -65548, 327682, 1, -11, 327682, 1, 65526, 327682, 1)
+layer_0/tile_data = PackedInt32Array(-65557, 65538, 1, -65556, 131074, 1, -65555, 131074, 1, -65554, 131074, 1, -65553, 131074, 1, -65552, 131074, 1, -65551, 131074, 1, -65550, 131074, 1, -65549, 131074, 1, -65548, 327682, 1, -11, 327682, 1, 65526, 327682, 1, -327690, 0, 0, -327685, 0, 0, -262154, 0, 0, -196618, 0, 0, -131082, 0, 0, -262149, 0, 0, -196613, 0, 0, -131077, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -262150, 0, 0)
 layer_1/name = "Mid"
 layer_1/tile_data = PackedInt32Array()
 layer_2/name = "Foreground"
@@ -117,3 +118,6 @@ position = Vector2(-228, -115)
 [node name="exit_door" parent="." instance=ExtResource("16_qsdgc")]
 z_index = -1
 position = Vector2(-254, -97)
+
+[node name="Deathslime" parent="." instance=ExtResource("12_wpy46")]
+position = Vector2(-134, -88)
