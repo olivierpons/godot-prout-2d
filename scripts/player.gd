@@ -92,6 +92,9 @@ func _physics_process(delta):
 	if is_on_wall():
 		velocity.x = 0
 
+	if is_on_wall() and is_on_floor():
+		position.y += .1
+
 	# Flip the sprite:
 	if direction > 0:
 		animated_sprite.flip_h = false

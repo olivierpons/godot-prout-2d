@@ -270,7 +270,7 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_constants/shadow_outline_size = 4
 theme_override_fonts/font = ExtResource("8_kc2pe")
 theme_override_font_sizes/font_size = 8
-text = "2024-05-25 13:54"
+text = "2024-05-26 15:34"
 
 [node name="FadeInOut" parent="Player" instance=ExtResource("9_4sgkj")]
 visible = false
@@ -290,22 +290,32 @@ shape = SubResource("WorldBoundaryShape2D_e1f2y")
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("11_s67r7")]
-position = Vector2(124, 18)
+position = Vector2(120, -31)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("11_s67r7")]
+position = Vector2(142, -33)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("11_s67r7")]
+position = Vector2(153, -25)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("11_s67r7")]
+position = Vector2(166, -32)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("11_s67r7")]
-position = Vector2(19, -118)
+position = Vector2(19, -138)
 
 [node name="Coin6" parent="Coins" instance=ExtResource("11_s67r7")]
-position = Vector2(-8, -134)
+position = Vector2(-8, -138)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("11_s67r7")]
-position = Vector2(42, -118)
+position = Vector2(36, -138)
 
 [node name="Coin5" parent="Coins" instance=ExtResource("11_s67r7")]
-position = Vector2(87, -152)
+position = Vector2(87, -153)
+is_falling_at_start = false
 
 [node name="Coin4" parent="Coins" instance=ExtResource("11_s67r7")]
-position = Vector2(91, 13)
+position = Vector2(97, -32)
 
 [node name="Platforms" type="Node" parent="."]
 

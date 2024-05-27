@@ -235,7 +235,8 @@ _data = {
 }
 
 [node name="Coin" type="Area2D" groups=["coin"]]
-collision_mask = 2
+collision_mask = 3
+gravity_point = true
 script = ExtResource("1_sccr2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -255,3 +256,4 @@ libraries = {
 }
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
