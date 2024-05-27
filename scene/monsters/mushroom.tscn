@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://b4pjie74sibrc"]
+
+[ext_resource type="Texture2D" uid="uid://yugt3devu8jx" path="res://assets/sprites/monsters/Red Cap/RedCapIdleSide.png" id="1_iiy5e"]
+[ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="2_l1utq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tbx0"]
+atlas = ExtResource("1_iiy5e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr0n6"]
+atlas = ExtResource("1_iiy5e")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfh44"]
+atlas = ExtResource("1_iiy5e")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbebo"]
+atlas = ExtResource("1_iiy5e")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5u1vq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tbx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr0n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfh44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbebo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hib8u"]
+size = Vector2(5, 9.5)
+
+[node name="Mushroom" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5u1vq")
+autoplay = "default"
+frame_progress = 0.911635
+
+[node name="Killzone" parent="." instance=ExtResource("2_l1utq")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 2.75)
+shape = SubResource("RectangleShape2D_hib8u")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://buy8x3y4cvoqt"]
+[gd_scene load_steps=15 format=3 uid="uid://buy8x3y4cvoqt"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_pj2cg"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_dd46c"]
@@ -10,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="8_kh3fe"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="9_p3ovr"]
 [ext_resource type="PackedScene" uid="uid://dac5wao2fkvh6" path="res://scene/coin.tscn" id="10_mgh35"]
-[ext_resource type="PackedScene" uid="uid://bse51yprsspn5" path="res://scene/monsters/death_slime.tscn" id="12_wpy46"]
+[ext_resource type="PackedScene" uid="uid://b4pjie74sibrc" path="res://scene/monsters/mushroom.tscn" id="12_ogckg"]
+[ext_resource type="PackedScene" uid="uid://3t6eurk5jo4d" path="res://scene/monsters/skeletton.tscn" id="13_vsc5f"]
 [ext_resource type="PackedScene" uid="uid://dbwulrbhchhqc" path="res://scene/exit_door.tscn" id="16_qsdgc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ph35v"]
@@ -35,12 +36,11 @@ layer_0/tile_data = PackedInt32Array(-131058, 131072, 13, -65522, 131072, 13, 14
 tile_set = ExtResource("2_dd46c")
 format = 2
 layer_0/name = "Background"
-layer_0/tile_data = PackedInt32Array(-65557, 65538, 1, -65556, 131074, 1, -65555, 131074, 1, -65554, 131074, 1, -65553, 131074, 1, -65552, 131074, 1, -65551, 131074, 1, -65550, 131074, 1, -65549, 131074, 1, -65548, 327682, 1, -11, 327682, 1, 65526, 327682, 1, -327690, 0, 0, -327685, 0, 0, -262154, 0, 0, -196618, 0, 0, -131082, 0, 0, -262149, 0, 0, -196613, 0, 0, -131077, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -262150, 0, 0)
 layer_1/name = "Mid"
-layer_1/tile_data = PackedInt32Array()
+layer_1/tile_data = PackedInt32Array(-65546, 0, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -65542, 0, 0, -65541, 0, 0, -327690, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -262150, 0, 0, -327685, 0, 0, -262155, 0, 0, -196620, 0, 0, -131085, 0, 0, -65550, 0, 0, -65551, 0, 0, -65552, 0, 0, -65553, 0, 0, -65554, 0, 0, -65555, 0, 0, -65556, 0, 0, -65557, 0, 0, -65558, 0, 0, -65559, 0, 0, -23, 65536, 0, -21, 65536, 0, 65515, 65536, 1, -19, 65536, 0, 65517, 65536, 1, -17, 65536, 0, 65519, 65536, 1, -15, 65536, 0, 65521, 65536, 1, -65549, 65536, 0, -13, 65536, 1, -196619, 65536, 0, -131083, 65536, 1, 65514, 65536, 0, 65516, 65536, 0, 65518, 65536, 0, 65520, 65536, 0, 65522, 65536, 0, -131084, 65536, 0, -65548, 65536, 1, -22, 65536, 1, -20, 65536, 1, -18, 65536, 1, -16, 65536, 1, -14, 65536, 1, 65513, 65536, 1, -131076, 0, 0)
 layer_2/name = "Foreground"
 layer_2/z_index = 10
-layer_2/tile_data = PackedInt32Array(-393235, 1, 0, -393233, 1, 0, -393231, 1, 0, -393229, 1, 0, -262163, 1, 1, -262161, 1, 1)
+layer_2/tile_data = PackedInt32Array(-393235, 1, 0, -393233, 1, 0, -393231, 1, 0, -393229, 1, 0, -262163, 1, 1, -262161, 1, 1, -131080, 458752, 15, -131079, 524288, 15, -131078, 458752, 15, -131077, 524288, 15, -131081, 458752, 16)
 
 [node name="Player" parent="." instance=ExtResource("3_ulsyu")]
 position = Vector2(-278, -174)
@@ -106,6 +106,21 @@ position = Vector2(-307, -131)
 [node name="Coin2" parent="Coins" instance=ExtResource("10_mgh35")]
 position = Vector2(-218, -130)
 
+[node name="Coin4" parent="Coins" instance=ExtResource("10_mgh35")]
+position = Vector2(-177, -231)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("10_mgh35")]
+position = Vector2(-221, -232)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("10_mgh35")]
+position = Vector2(-202, -245)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("10_mgh35")]
+position = Vector2(-231, -305)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("10_mgh35")]
+position = Vector2(-196, -338)
+
 [node name="Coin3" parent="Coins" instance=ExtResource("10_mgh35")]
 position = Vector2(-228, -115)
 
@@ -115,9 +130,15 @@ position = Vector2(-228, -115)
 
 [node name="Monsters" type="Node" parent="."]
 
+[node name="Mushroom" parent="Monsters" instance=ExtResource("12_ogckg")]
+position = Vector2(-152, -104)
+
+[node name="Mushroom2" parent="Monsters" instance=ExtResource("12_ogckg")]
+position = Vector2(-72, -104)
+
+[node name="Skeletton" parent="Monsters" instance=ExtResource("13_vsc5f")]
+position = Vector2(-139, -87)
+
 [node name="exit_door" parent="." instance=ExtResource("16_qsdgc")]
 z_index = -1
-position = Vector2(-254, -97)
-
-[node name="Deathslime" parent="." instance=ExtResource("12_wpy46")]
-position = Vector2(-134, -88)
+position = Vector2(-140, -29)
