@@ -7,7 +7,6 @@ func _on_body_entered(body):
 		if not body.is_waiting_end_level:
 			Engine.time_scale = 0.4
 			body.die()
-			global.fade_in_out_node.animation_player.play("normal_to_black")
 			timer.start()
 
 func _on_timer_timeout():

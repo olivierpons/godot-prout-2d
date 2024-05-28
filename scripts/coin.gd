@@ -3,8 +3,8 @@ extends Area2D
 @onready var game_manager = $"../../GameManager"
 @onready var animation_player = $AnimationPlayer
 @export var is_falling_at_start: bool = true
+@export var falling_speed_gravity: int = 98
 
-var custom_gravity : float = 98
 var velocity: Vector2 = Vector2.ZERO
 var is_touching: bool = false
 
@@ -20,11 +20,11 @@ func _on_body_entered(body):
 	else:
 		is_touching = true
 		velocity = Vector2.ZERO
-		custom_gravity = 0
+		falling_speed_gravity = 0
 
 func _physics_process(delta):
 	# Appliquer la gravité
-	velocity.y += custom_gravity  * delta
+	velocity.y += falling_speed_gravity  * delta
 	
 	# Déplacer l'Area2D selon la vitesse
 	position += velocity * delta

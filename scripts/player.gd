@@ -5,6 +5,7 @@ const MAX_HORIZONTAL_ACCELERATION_TIME = 3.0 # Temps pour atteindre la vitesse m
 const DECELERATION = 1000.0 # Vitesse de déccélération lorsque la direction change
 const JUMP_VELOCITY = -300.0
 
+@export var audio_stream: AudioStream = null
 @export var sounds_you_died: Array[AudioStreamMP3]
 @export var sounds_jump: Array[AudioStreamMP3]
 @onready var animated_sprite = $AnimatedSprite2D
@@ -30,6 +31,8 @@ var direction: int = 0
 
 func _ready():
 	add_to_group("player")
+	if audio_stream:
+		global.crossfade_to(audio_stream)
 	# (!) initialize global fade_in_out_node each time the player spawns:
 	global.fade_in_out_node = get_tree().root.find_child("FadeInOut", true, false)
 
@@ -122,3 +125,6 @@ func die():
 	animation_player.play("die")
 	collision_shape_2d.queue_free()
 	global.play_rand_sound(audio_stream_player_2d, sounds_you_died)
+	global.fade_all()
+	global.fade_in_out_node.animation_player.play("normal_to_black")
+

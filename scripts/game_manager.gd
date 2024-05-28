@@ -1,6 +1,7 @@
 extends Node
 
 @onready var label_score = %LabelScore
+
 var to_collect = 0
 var exit_door: Node
 
