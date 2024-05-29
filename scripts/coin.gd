@@ -4,6 +4,8 @@ extends Area2D
 @onready var animation_player = $AnimationPlayer
 @export var delay_before_falling: float = 0
 @export var falling_speed_gravity: int = 98
+@onready var collision_shape_2d = $CollisionShape2D
+
 @onready var timer = $Timer
 
 var velocity: Vector2 = Vector2.ZERO
@@ -17,6 +19,7 @@ func _ready():
 	
 func _on_body_entered(body):
 	if body.is_in_group("player"):
+		collision_shape_2d.queue_free()
 		animation_player.play("pickup")
 		game_manager.add_point()
 	else:

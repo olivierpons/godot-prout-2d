@@ -4,8 +4,10 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var gpu_particles_2d = $GPUParticles2D
 
 func open_door():
+	gpu_particles_2d.emitting = true
 	animation_player.play("open_door")
 
 func _on_body_entered(body):
