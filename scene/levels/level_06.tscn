@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d2tlu4kl4mufv"]
+[gd_scene load_steps=24 format=3 uid="uid://d2tlu4kl4mufv"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_pj2cg"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_dd46c"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://b147c0usww2oe" path="res://scene/monsters/worm.tscn" id="13_hpnmh"]
 [ext_resource type="PackedScene" uid="uid://3t6eurk5jo4d" path="res://scene/monsters/skeletton.tscn" id="13_vsc5f"]
 [ext_resource type="PackedScene" uid="uid://bpvnekktpbi2g" path="res://scene/monsters/pig.tscn" id="14_abtjb"]
-[ext_resource type="AudioStream" uid="uid://ci0dj6pkje5kj" path="res://assets/music/Calm_Collection_V1_3min_4s_Loop.mp3" id="14_pdykk"]
 [ext_resource type="PackedScene" uid="uid://u7iwxa41ssg4" path="res://scene/monsters/slime.tscn" id="16_30xet"]
 [ext_resource type="PackedScene" uid="uid://dbwulrbhchhqc" path="res://scene/exit_door.tscn" id="16_qsdgc"]
 
@@ -125,7 +124,6 @@ layer_2/tile_data = PackedInt32Array(-65534, 131072, 4, 65545, 65536, 5, 65542, 
 
 [node name="Player" parent="." instance=ExtResource("3_ulsyu")]
 position = Vector2(-345, -256)
-audio_stream = ExtResource("14_pdykk")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -11)

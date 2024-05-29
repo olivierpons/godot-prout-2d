@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://be4bsvsdngcrg"]
+[gd_scene load_steps=14 format=3 uid="uid://be4bsvsdngcrg"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ogeul"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_1pj8n"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_kh7id"]
-[ext_resource type="AudioStream" uid="uid://vkkf766wo183" path="res://assets/music/Calm_Collection_V4_3min_5s_Loop.mp3" id="4_0otlu"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="4_gyne6"]
 [ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="5_ttq5o"]
 [ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="6_c62jt"]
@@ -44,7 +43,6 @@ layer_2/tile_data = PackedInt32Array(-720881, 327680, 3, -655345, 327680, 4, -58
 
 [node name="Player" parent="." instance=ExtResource("3_kh7id")]
 position = Vector2(-335, -103)
-audio_stream = ExtResource("4_0otlu")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -11)

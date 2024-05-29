@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://bpmtayehk5j2h"]
+[gd_scene load_steps=21 format=3 uid="uid://bpmtayehk5j2h"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_2tc5d"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_8ofe7"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_exoec"]
-[ext_resource type="AudioStream" uid="uid://bee3tj413quio" path="res://assets/music/Fluttering_Breeze_loop_-1min_18s.mp3" id="4_kf7nm"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="4_uwvoh"]
 [ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="5_pekb8"]
 [ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="6_y26xe"]
@@ -122,7 +121,6 @@ layer_2/tile_data = PackedInt32Array(-65534, 131072, 4, 65545, 65536, 5, 65542, 
 
 [node name="Player" parent="." instance=ExtResource("3_exoec")]
 position = Vector2(-103, -473)
-audio_stream = ExtResource("4_kf7nm")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -11)

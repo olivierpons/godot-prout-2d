@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_left = $RayCastLeft
-@export var speed: int = 60
+@export var speed: int = 90
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 var direction = 1

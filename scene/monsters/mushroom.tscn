@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b4pjie74sibrc"]
 
-[ext_resource type="Texture2D" uid="uid://yugt3devu8jx" path="res://assets/sprites/monsters/Red Cap/RedCapIdleSide.png" id="1_iiy5e"]
+[ext_resource type="Texture2D" uid="uid://5lg1ivomvnt" path="res://assets/sprites/monsters/Red Cap/RedCapIdleSide.png" id="1_iiy5e"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="2_l1utq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3tbx0"]

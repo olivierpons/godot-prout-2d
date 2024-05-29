@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bse51yprsspn5"]
 
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_0fwqo"]
-[ext_resource type="Texture2D" uid="uid://ddtudstjkidc7" path="res://assets/sprites/monsters/Death Slime/DeathSlimeIdleSide.png" id="1_gu5k3"]
+[ext_resource type="Texture2D" uid="uid://c2af3q1r08aqm" path="res://assets/sprites/monsters/Death Slime/DeathSlimeIdleSide.png" id="1_gu5k3"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="2_w2glx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3anq"]
@@ -45,7 +45,6 @@ size = Vector2(12, 7.5)
 
 [node name="Deathslime" type="Node2D"]
 script = ExtResource("1_0fwqo")
-speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3g58k")

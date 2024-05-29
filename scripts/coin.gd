@@ -2,16 +2,18 @@ extends Area2D
 
 @onready var game_manager = $"../../GameManager"
 @onready var animation_player = $AnimationPlayer
-@export var is_falling_at_start: bool = true
+@export var delay_before_falling: float = 0
 @export var falling_speed_gravity: int = 98
+@onready var timer = $Timer
 
 var velocity: Vector2 = Vector2.ZERO
 var is_touching: bool = false
 
 func _ready():
-	if not is_falling_at_start:
-		# (!) hint: stop calling _physics_process():
-		set_physics_process(false)
+	# (!) this will stop call _physics_process():
+	set_physics_process(false)
+	if delay_before_falling > 0:
+		timer.start(delay_before_falling)
 	
 func _on_body_entered(body):
 	if body.is_in_group("player"):
@@ -31,8 +33,10 @@ func _physics_process(delta):
 	if is_touching:
 		position.y -= 0.5
 
-
 func _on_body_exited(body):
 	is_touching = false
-	# (!) hint: stop calling _physics_process():
+	# (!) this will stop call _physics_process():
 	set_physics_process(false)
+
+func _on_timer_timeout():
+	set_physics_process(true)
