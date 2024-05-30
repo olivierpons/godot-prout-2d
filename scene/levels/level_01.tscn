@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="2_g0rbp"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="3_qir7c"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="4_4rjus"]
+[ext_resource type="AudioStream" uid="uid://ci0dj6pkje5kj" path="res://assets/music/Calm_Collection_V1_3min_4s_Loop.mp3" id="5_ak1b4"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="5_mnasp"]
-[ext_resource type="AudioStream" uid="uid://5ratdvkp2nsf" path="res://assets/music/EasyListening - Breeze Loop.mp3" id="5_v16gb"]
 [ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="6_56bt3"]
 [ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="7_mhucm"]
 [ext_resource type="FontFile" uid="uid://bs6mhkgo5fbma" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="8_kc2pe"]
@@ -270,7 +270,7 @@ layer_2/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("4_4rjus")]
 position = Vector2(-539, -247)
-audio_stream = ExtResource("5_v16gb")
+audio_stream = ExtResource("5_ak1b4")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -11)
@@ -360,7 +360,7 @@ delay_before_falling = 5000.0
 falling_speed_gravity = 392
 
 [node name="Coin7" parent="Coins" instance=ExtResource("11_s67r7")]
-position = Vector2(234, -191)
+position = Vector2(144, -194)
 delay_before_falling = 5000.0
 falling_speed_gravity = 392
 
@@ -425,10 +425,10 @@ anchor_left = -0.612143
 anchor_top = -0.0447531
 anchor_right = -0.612143
 anchor_bottom = -0.0277778
-offset_left = 920.0
-offset_top = -193.0
-offset_right = 1181.0
-offset_bottom = -174.0
+offset_left = 917.0
+offset_top = -209.0
+offset_right = 1178.0
+offset_bottom = -179.0
 scale = Vector2(1.24676, 1.21628)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -437,9 +437,10 @@ theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 0
 theme_override_fonts/font = ExtResource("5_mnasp")
 theme_override_font_sizes/font_size = 8
-text = "Collect last coin, and
- the door will open!
-<====-            -======>"
+text = "Collect all coins,
+and the door
+will open!
+<=-      -=>"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -453,7 +454,7 @@ collision_mask = 2
 script = ExtResource("14_tol1j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-402, -254)
+position = Vector2(-431, -254)
 shape = SubResource("RectangleShape2D_2q24w")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

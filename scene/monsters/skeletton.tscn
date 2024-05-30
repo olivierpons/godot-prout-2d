@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://3t6eurk5jo4d"]
 
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_cr8kr"]
-[ext_resource type="Texture2D" uid="uid://efwxyk0dpjyp" path="res://assets/sprites/monsters/skeleton_run.png" id="1_f7513"]
+[ext_resource type="Texture2D" uid="uid://cl0whjr11tgly" path="res://assets/sprites/monsters/skeleton_run.png" id="1_f7513"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="2_njrq3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nv0hb"]

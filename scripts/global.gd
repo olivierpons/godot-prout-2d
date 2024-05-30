@@ -18,13 +18,11 @@ func play_rand_sound(audio_stream_player:AudioStreamPlayer2D, tab:Array) -> void
 # properly adapted!
 func crossfade_to(audio_stream: AudioStream) -> void:
 	if audio_current == _track_1:
-		print("fade_to_track_2")
 		_track_2.stream = audio_stream
 		_track_2.play()
 		_anim_player.play("fade_to_track_2")
 		audio_current = _track_2
 	else:
-		print("fade_to_track_1")
 		_track_1.stream = audio_stream
 		_track_1.play()
 		_anim_player.play("fade_to_track_1")
