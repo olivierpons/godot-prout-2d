@@ -39,13 +39,13 @@ tile_set = ExtResource("2_dd46c")
 format = 2
 layer_0/name = "Background"
 layer_1/name = "Mid"
-layer_1/tile_data = PackedInt32Array(-65546, 0, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -65542, 0, 0, -65541, 0, 0, -327690, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -262150, 0, 0, -327685, 0, 0, -262155, 0, 0, -196620, 0, 0, -131085, 0, 0, -65550, 0, 0, -65551, 0, 0, -65552, 0, 0, -65553, 0, 0, -65554, 0, 0, -65555, 0, 0, -65556, 0, 0, -65557, 0, 0, -65558, 0, 0, -65559, 0, 0, -23, 65536, 0, -21, 65536, 0, 65515, 65536, 1, -19, 65536, 0, 65517, 65536, 1, -17, 65536, 0, 65519, 65536, 1, -15, 65536, 0, 65521, 65536, 1, -65549, 65536, 0, -13, 65536, 1, -196619, 65536, 0, -131083, 65536, 1, 65514, 65536, 0, 65516, 65536, 0, 65518, 65536, 0, 65520, 65536, 0, 65522, 65536, 0, -131084, 65536, 0, -65548, 65536, 1, -22, 65536, 1, -20, 65536, 1, -18, 65536, 1, -16, 65536, 1, -14, 65536, 1, 65513, 65536, 1, -131076, 0, 0)
+layer_1/tile_data = PackedInt32Array(-65546, 0, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -65542, 0, 0, -65541, 0, 0, -327690, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -262150, 0, 0, -327685, 0, 0, -262155, 0, 0, -196620, 0, 0, -131085, 0, 0, -65550, 983040, 0, -65551, 917504, 0, -65552, 851968, 0, -65553, 917504, 0, -65554, 851968, 0, -65555, 917504, 0, -65556, 851968, 0, -65557, 917504, 0, -65558, 851968, 0, -65559, 786432, 0, -131076, 0, 0, -65562, 589824, 1, -65561, 655360, 1, -65560, 720896, 1)
 layer_2/name = "Foreground"
 layer_2/z_index = 10
-layer_2/tile_data = PackedInt32Array(-393235, 1, 0, -393233, 1, 0, -393231, 1, 0, -393229, 1, 0, -262163, 1, 1, -262161, 1, 1, -131080, 458752, 15, -131079, 524288, 15, -131078, 458752, 15, -131077, 524288, 15, -131081, 458752, 16)
+layer_2/tile_data = PackedInt32Array(-131080, 458752, 15, -131079, 524288, 15, -131078, 458752, 15, -131077, 524288, 15, -131081, 458752, 16, -196629, 458753, 0, -131093, 458753, 1, -196625, 458753, 0, -131089, 458753, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_ulsyu")]
-position = Vector2(-278, -174)
+position = Vector2(-278, -119)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -11)
@@ -120,35 +120,43 @@ shape = SubResource("WorldBoundaryShape2D_ph35v")
 
 [node name="Coin" parent="Coins" instance=ExtResource("10_mgh35")]
 position = Vector2(-302, -223)
-delay_before_falling = 1.0
+delay_before_falling = 0.01
+falling_speed_gravity = 196
 
 [node name="Coin2" parent="Coins" instance=ExtResource("10_mgh35")]
 position = Vector2(-213, -222)
-delay_before_falling = 1.0
+delay_before_falling = 0.01
+falling_speed_gravity = 196
 
 [node name="Coin4" parent="Coins" instance=ExtResource("10_mgh35")]
 position = Vector2(-172, -323)
-delay_before_falling = 1.0
+delay_before_falling = 0.01
+falling_speed_gravity = 196
 
 [node name="Coin5" parent="Coins" instance=ExtResource("10_mgh35")]
 position = Vector2(-216, -324)
-delay_before_falling = 1.0
+delay_before_falling = 0.01
+falling_speed_gravity = 196
 
 [node name="Coin6" parent="Coins" instance=ExtResource("10_mgh35")]
 position = Vector2(-197, -337)
-delay_before_falling = 1.0
+delay_before_falling = 0.01
+falling_speed_gravity = 196
 
 [node name="Coin7" parent="Coins" instance=ExtResource("10_mgh35")]
 position = Vector2(-226, -397)
-delay_before_falling = 1.0
+delay_before_falling = 0.01
+falling_speed_gravity = 196
 
 [node name="Coin8" parent="Coins" instance=ExtResource("10_mgh35")]
 position = Vector2(-191, -430)
-delay_before_falling = 1.0
+delay_before_falling = 0.01
+falling_speed_gravity = 196
 
 [node name="Coin3" parent="Coins" instance=ExtResource("10_mgh35")]
 position = Vector2(-223, -207)
-delay_before_falling = 1.0
+delay_before_falling = 0.01
+falling_speed_gravity = 196
 
 [node name="Platforms" type="Node" parent="."]
 

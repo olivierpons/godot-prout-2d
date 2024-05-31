@@ -341,7 +341,6 @@ shape = SubResource("WorldBoundaryShape2D_a5dyb")
 
 [node name="Coin" parent="Coins" instance=ExtResource("10_87aw8")]
 position = Vector2(-56, -195)
-delay_before_falling = 0.1
 
 [node name="Platforms" type="Node" parent="."]
 

@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var game_manager = $"../../GameManager"
 @onready var animation_player = $AnimationPlayer
-@export var delay_before_falling: float = 0
+@export var delay_before_falling: float = 0.1
 @export var falling_speed_gravity: int = 98
 @onready var collision_shape_2d = $CollisionShape2D
 
