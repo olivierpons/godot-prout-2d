@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://dr6s6qitbkdru"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://dr6s6qitbkdru"]
 
 [ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="1_prylw"]
+[ext_resource type="Texture2D" uid="uid://dc5ydf2qmbku0" path="res://assets/sprites/world_dungeon.png" id="2_n63p0"]
 [ext_resource type="Texture2D" uid="uid://do6m7jpci3dmf" path="res://assets/sprites/platforms.png" id="3_lq33q"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_2ahun"]
@@ -519,6 +520,12 @@ texture = ExtResource("1_prylw")
 0:18/0/physics_layer_0/angular_velocity = 0.0
 0:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, -8, -8, 8, 8, 8, 8, -8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wx8de"]
+texture = ExtResource("2_n63p0")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjfcj"]
 texture = ExtResource("3_lq33q")
 0:0/0 = 0
@@ -594,5 +601,6 @@ texture = ExtResource("3_lq33q")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gr5qm")
 sources/2 = SubResource("TileSetAtlasSource_mjfcj")
+sources/1 = SubResource("TileSetAtlasSource_wx8de")
 pattern_0 = SubResource("TileMapPattern_2ahun")
 pattern_1 = SubResource("TileMapPattern_sod8x")

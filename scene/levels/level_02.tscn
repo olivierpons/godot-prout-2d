@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_oe2p5"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="4_kg50v"]
 [ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="5_6x2q5"]
-[ext_resource type="AudioStream" uid="uid://cw3gj3psm5p3b" path="res://assets/music/Calm_Collection_V2_3min_5s_Loop.mp3" id="5_ndnjy"]
+[ext_resource type="AudioStream" uid="uid://cdpust31xje3e" path="res://assets/music/Calm_Collection_V2_3min_5s_Loop.mp3" id="5_ndnjy"]
 [ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="6_osa01"]
 [ext_resource type="FontFile" uid="uid://bs6mhkgo5fbma" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_anomp"]
 [ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="8_gr4cb"]
@@ -252,10 +252,10 @@ layer_1/name = "Mid"
 layer_1/tile_data = PackedInt32Array()
 layer_2/name = "Foreground"
 layer_2/z_index = 10
-layer_2/tile_data = PackedInt32Array()
+layer_2/tile_data = PackedInt32Array(-851998, 65536, 6, -786462, 65536, 16, -851995, 1, 0, -1048600, 1, 0, -851989, 1, 0, -851977, 1, 0, -851985, 1, 0, -851981, 1, 0, -851973, 1, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_oe2p5")]
-position = Vector2(-539, -247)
+position = Vector2(-537, -186)
 audio_stream = ExtResource("5_ndnjy")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -296,7 +296,7 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_constants/shadow_outline_size = 4
 theme_override_fonts/font = ExtResource("7_anomp")
 theme_override_font_sizes/font_size = 8
-text = "Tutoriel: how to play!"
+text = "Not that hard!"
 
 [node name="FadeInOut" parent="Player" instance=ExtResource("8_gr4cb")]
 visible = false
@@ -327,7 +327,7 @@ shape = SubResource("WorldBoundaryShape2D_a5dyb")
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("10_th7tw")]
-position = Vector2(185, -210)
+position = Vector2(-56, -195)
 delay_before_falling = 0.1
 
 [node name="Platforms" type="Node" parent="."]
@@ -336,9 +336,46 @@ delay_before_falling = 0.1
 
 [node name="exit_door" parent="." instance=ExtResource("12_ekbo0")]
 z_index = -1
-position = Vector2(209, -184)
+position = Vector2(-568, -184)
 next_level = 2
 
-[node name="Clock" parent="." instance=ExtResource("14_a1qv7")]
-position = Vector2(-473, -191)
-player = NodePath("../Player")
+[node name="Monsters" type="Node" parent="."]
+
+[node name="Clock" parent="Monsters" instance=ExtResource("14_a1qv7")]
+position = Vector2(-496, -189)
+player = NodePath("../../Player")
+rotation_speed = 5.0
+
+[node name="Clock2" parent="Monsters" instance=ExtResource("14_a1qv7")]
+position = Vector2(-448, -191)
+player = NodePath("../../Player")
+rotation_speed = 10.0
+
+[node name="Clock3" parent="Monsters" instance=ExtResource("14_a1qv7")]
+position = Vector2(-400, -240)
+player = NodePath("../../Player")
+rotation_speed = 15.0
+
+[node name="Clock4" parent="Monsters" instance=ExtResource("14_a1qv7")]
+position = Vector2(-352, -192)
+player = NodePath("../../Player")
+
+[node name="Clock5" parent="Monsters" instance=ExtResource("14_a1qv7")]
+position = Vector2(-288, -192)
+player = NodePath("../../Player")
+rotation_speed = 2.0
+
+[node name="Clock6" parent="Monsters" instance=ExtResource("14_a1qv7")]
+position = Vector2(-224, -192)
+player = NodePath("../../Player")
+rotation_speed = 3.0
+
+[node name="Clock7" parent="Monsters" instance=ExtResource("14_a1qv7")]
+position = Vector2(-160, -192)
+player = NodePath("../../Player")
+rotation_speed = 4.0
+
+[node name="Clock8" parent="Monsters" instance=ExtResource("14_a1qv7")]
+position = Vector2(-96, -192)
+player = NodePath("../../Player")
+rotation_speed = 5.0

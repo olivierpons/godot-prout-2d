@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="2_g0rbp"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="3_qir7c"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="4_4rjus"]
-[ext_resource type="AudioStream" uid="uid://ci0dj6pkje5kj" path="res://assets/music/Calm_Collection_V1_3min_4s_Loop.mp3" id="5_ak1b4"]
+[ext_resource type="AudioStream" uid="uid://cownqn6o42oyv" path="res://assets/music/Calm_Collection_V1_3min_4s_Loop.mp3" id="5_ak1b4"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="5_mnasp"]
 [ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="6_56bt3"]
 [ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="7_mhucm"]

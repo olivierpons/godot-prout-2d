@@ -261,7 +261,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_23g5j"]
 radius = 4.0
-height = 12.0
+height = 16.0
 
 [sub_resource type="Animation" id="Animation_qcjr8"]
 length = 0.001
@@ -351,7 +351,7 @@ animation = &"down"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(0, -9)
 shape = SubResource("CapsuleShape2D_23g5j")
 one_way_collision_margin = 0.0
 

@@ -9,6 +9,12 @@ var fade_in_out_node: Node
 @onready var _track_2 := $Track2
 @onready var audio_current: AudioStreamPlayer = null
 
+var msg_previous: String = ""
+func out(msg: String) -> void:
+	if msg != msg_previous:
+		msg_previous = msg
+		print(msg)
+
 func play_rand_sound(audio_stream_player:AudioStreamPlayer2D, tab:Array) -> void:
 	var sound:AudioStreamMP3 = tab[randi() % tab.size()]
 	audio_stream_player.stream = sound

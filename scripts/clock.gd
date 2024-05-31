@@ -1,20 +1,20 @@
 extends Node2D
 
-@export var player : NodePath 
+@export var player: NodePath 
+@export var rotation_speed = 1.0
 
-func _process(delta):
-	if not player:
+var _player_node: Node
+
+func _ready():
+	if not player:  # never call _process() again:
 		set_physics_process(false)
 	
-	var player_node = get_node(player)
-	if not player_node:
-		return
-	var player_position = player_node.global_position
-	
+func _process(delta):
+	_player_node = get_node(player)
+	if not _player_node:  # never call _process() again:
+		set_physics_process(false)
+	var player_position = _player_node.global_position
+	player_position.y -= 12
 	var direction = player_position - global_position
-	
-	# Calcule l'angle en radians
-	var angle = direction.angle()
-	
-	# Applique la rotation à l'objet
-	rotation = angle
+	var target_angle = direction.angle() + PI / 2
+	rotation = lerp_angle(rotation, target_angle, rotation_speed * delta)
