@@ -1,8 +1,5 @@
 extends CharacterBody2D
 
-
-@export var audio_stream: AudioStream = null
-
 @export_group("Horizontal")
 @export var max_horizontal_speed = 200.0  # Max X speed
 @export var max_horizontal_acceleration_time:float = 3.0  # Time to reach max speed
@@ -23,7 +20,7 @@ extends CharacterBody2D
 @onready var is_dying: bool = false
 @onready var is_waiting_end_level: bool = false
 
-@onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var audio_stream_sfx = $AudioStreamPlayer2DSfx
 @onready var animation_player = $AnimationPlayer
 @onready var collision_shape_2d = $CollisionShape2D
 
@@ -37,10 +34,6 @@ var direction: int = 0
 
 func _ready():
 	add_to_group("player")
-	if audio_stream:
-		global.crossfade_to(audio_stream)
-	# (!) initialize global fade_in_out_node each time the player spawns:
-	global.fade_in_out_node = get_tree().root.find_child("FadeInOut", true, false)
 
 func _input(_event):
 	if Input.is_action_pressed("quit"):
@@ -57,7 +50,7 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		global.play_rand_sound(audio_stream_player_2d, sounds_jump)
+		global.play_rand_sound(audio_stream_sfx, sounds_jump)
 		is_jumping = true
 		jump_time = 0
 
@@ -127,7 +120,7 @@ func die():
 	is_dying = true
 	animation_player.play("die")
 	collision_shape_2d.queue_free()
-	global.play_rand_sound(audio_stream_player_2d, sounds_you_died)
+	global.play_rand_sound(audio_stream_sfx, sounds_you_died)
 	global.fade_all()
 	global.fade_in_out_node.animation_player.play("normal_to_black")
 

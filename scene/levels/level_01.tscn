@@ -245,6 +245,7 @@ metadata/_edit_vertical_guides_ = [-146.0]
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_ypnui")
+audio_stream = ExtResource("5_ak1b4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -270,7 +271,6 @@ layer_2/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("4_4rjus")]
 position = Vector2(-539, -247)
-audio_stream = ExtResource("5_ak1b4")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -11)
@@ -299,11 +299,24 @@ scale = Vector2(0.17, 0.17)
 position = Vector2(-104, 40)
 scale = Vector2(0.4, 0.4)
 
-[node name="Label" type="Label" parent="Player/Camera2D"]
-offset_left = -174.0
-offset_top = -79.0
-offset_right = -41.0
-offset_bottom = -69.0
+[node name="LabelLevel" type="Label" parent="Player/Camera2D"]
+offset_left = -176.0
+offset_top = -80.0
+offset_right = -24.0
+offset_bottom = -70.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("8_kc2pe")
+theme_override_font_sizes/font_size = 8
+text = "Level 01"
+
+[node name="LabelDesc" type="Label" parent="Player/Camera2D"]
+offset_left = -175.0
+offset_top = -68.0
+offset_right = -23.0
+offset_bottom = -58.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 0

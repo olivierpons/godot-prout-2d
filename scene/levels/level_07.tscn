@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_pj2cg"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_dd46c"]
+[ext_resource type="AudioStream" uid="uid://c1llxfu4rk7ti" path="res://assets/music/Fluttering_Breeze_Full_Track_with_Guitar_1min_20.mp3" id="2_rewgc"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_ulsyu"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="4_ort3o"]
-[ext_resource type="AudioStream" uid="uid://c00qfk711dhvi" path="res://assets/music/Fluttering_Breeze_Full_Track_with_Synth_1min_20.mp3" id="4_twh11"]
 [ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="5_jhylo"]
 [ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="6_xrl14"]
 [ext_resource type="FontFile" uid="uid://bs6mhkgo5fbma" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_g3oij"]
@@ -22,6 +22,7 @@ distance = -85.0
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_pj2cg")
+audio_stream = ExtResource("2_rewgc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -45,7 +46,6 @@ layer_2/tile_data = PackedInt32Array(-393235, 1, 0, -393233, 1, 0, -393231, 1, 0
 
 [node name="Player" parent="." instance=ExtResource("3_ulsyu")]
 position = Vector2(-278, -174)
-audio_stream = ExtResource("4_twh11")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -11)
@@ -75,15 +75,31 @@ scale = Vector2(0.17, 0.17)
 position = Vector2(-104, 40)
 scale = Vector2(0.4, 0.4)
 
-[node name="Label" type="Label" parent="Player/Camera2D"]
-offset_left = -174.0
-offset_top = -79.0
-offset_right = -41.0
-offset_bottom = -69.0
+[node name="LabelLevel" type="Label" parent="Player/Camera2D"]
+offset_left = -176.0
+offset_top = -80.0
+offset_right = -24.0
+offset_bottom = -70.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 4
 theme_override_fonts/font = ExtResource("7_g3oij")
 theme_override_font_sizes/font_size = 8
-text = "Level 06!"
-metadata/_edit_use_anchors_ = true
+text = "Level 07"
+
+[node name="LabelDesc" type="Label" parent="Player/Camera2D"]
+offset_left = -175.0
+offset_top = -68.0
+offset_right = -23.0
+offset_bottom = -58.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("7_g3oij")
+theme_override_font_sizes/font_size = 8
+text = "Oliver's level 05"
 
 [node name="FadeInOut" parent="Player" instance=ExtResource("8_kh3fe")]
 visible = false
@@ -103,28 +119,36 @@ shape = SubResource("WorldBoundaryShape2D_ph35v")
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-307, -131)
+position = Vector2(-302, -223)
+delay_before_falling = 1.0
 
 [node name="Coin2" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-218, -130)
+position = Vector2(-213, -222)
+delay_before_falling = 1.0
 
 [node name="Coin4" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-177, -231)
+position = Vector2(-172, -323)
+delay_before_falling = 1.0
 
 [node name="Coin5" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-221, -232)
+position = Vector2(-216, -324)
+delay_before_falling = 1.0
 
 [node name="Coin6" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-202, -245)
+position = Vector2(-197, -337)
+delay_before_falling = 1.0
 
 [node name="Coin7" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-231, -305)
+position = Vector2(-226, -397)
+delay_before_falling = 1.0
 
 [node name="Coin8" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-196, -338)
+position = Vector2(-191, -430)
+delay_before_falling = 1.0
 
 [node name="Coin3" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-228, -115)
+position = Vector2(-223, -207)
+delay_before_falling = 1.0
 
 [node name="Platforms" type="Node" parent="."]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://d2tlu4kl4mufv"]
+[gd_scene load_steps=25 format=3 uid="uid://d2tlu4kl4mufv"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_pj2cg"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_dd46c"]
+[ext_resource type="AudioStream" uid="uid://5ratdvkp2nsf" path="res://assets/music/EasyListening - Breeze Loop.mp3" id="2_nkdp0"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_ulsyu"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="4_ort3o"]
 [ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="5_jhylo"]
@@ -100,6 +101,7 @@ _data = {
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_pj2cg")
+audio_stream = ExtResource("2_nkdp0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -153,15 +155,31 @@ scale = Vector2(0.17, 0.17)
 position = Vector2(-104, 40)
 scale = Vector2(0.4, 0.4)
 
-[node name="Label" type="Label" parent="Player/Camera2D"]
-offset_left = -174.0
-offset_top = -79.0
-offset_right = -41.0
-offset_bottom = -69.0
+[node name="LabelLevel" type="Label" parent="Player/Camera2D"]
+offset_left = -176.0
+offset_top = -80.0
+offset_right = -24.0
+offset_bottom = -70.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 4
 theme_override_fonts/font = ExtResource("7_g3oij")
 theme_override_font_sizes/font_size = 8
-text = "Level 05"
-metadata/_edit_use_anchors_ = true
+text = "Level 06"
+
+[node name="LabelDesc" type="Label" parent="Player/Camera2D"]
+offset_left = -175.0
+offset_top = -68.0
+offset_right = -23.0
+offset_bottom = -58.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("7_g3oij")
+theme_override_font_sizes/font_size = 8
+text = "Oliver's level 04"
 
 [node name="FadeInOut" parent="Player" instance=ExtResource("8_kh3fe")]
 visible = false

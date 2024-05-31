@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://kwenmeocnk1u"]
+[gd_scene load_steps=17 format=3 uid="uid://kwenmeocnk1u"]
 
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_w45ma"]
 [ext_resource type="PackedScene" uid="uid://rs1emuruss23" path="res://scene/levels/level_01.tscn" id="2_500ww"]
-[ext_resource type="PackedScene" uid="uid://cwsdymarimgk4" path="res://scene/levels/level_02.tscn" id="3_5rkdc"]
+[ext_resource type="PackedScene" uid="uid://cwsdymarimgk4" path="res://scene/levels/level_03.tscn" id="3_5rkdc"]
 [ext_resource type="PackedScene" uid="uid://cdvid2atvfnnr" path="res://scene/levels/level_04.tscn" id="4_bagpr"]
-[ext_resource type="PackedScene" uid="uid://be4bsvsdngcrg" path="res://scene/levels/level_03.tscn" id="4_xcn82"]
+[ext_resource type="PackedScene" uid="uid://be4bsvsdngcrg" path="res://scene/levels/level_02.tscn" id="4_xcn82"]
 [ext_resource type="PackedScene" uid="uid://bpmtayehk5j2h" path="res://scene/levels/level_05.tscn" id="5_yua60"]
 [ext_resource type="PackedScene" uid="uid://d2tlu4kl4mufv" path="res://scene/levels/level_06.tscn" id="6_s6ra2"]
 [ext_resource type="PackedScene" uid="uid://buy8x3y4cvoqt" path="res://scene/levels/level_07.tscn" id="8_lbnpb"]
@@ -61,6 +61,22 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(5.65685, 1),
 "update": 0,
 "values": [0.0, -80.0]
+}
+
+[sub_resource type="Animation" id="Animation_ph6e6"]
+resource_name = "fade_in_only_track_2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Track2:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(5.65685, 1),
+"update": 0,
+"values": [-80.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_ik5o0"]
@@ -155,6 +171,7 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_v1rce"),
 "fade_all": SubResource("Animation_uqpng"),
+"fade_in_only_track_2": SubResource("Animation_ph6e6"),
 "fade_out_only_track_1": SubResource("Animation_ik5o0"),
 "fade_out_only_track_2": SubResource("Animation_ovtgt"),
 "fade_to_track_1": SubResource("Animation_dk54d"),
@@ -163,7 +180,7 @@ _data = {
 
 [node name="global" type="Node"]
 script = ExtResource("1_w45ma")
-scenes = Array[PackedScene]([ExtResource("2_500ww"), ExtResource("3_5rkdc"), ExtResource("4_xcn82"), ExtResource("4_bagpr"), ExtResource("5_yua60"), ExtResource("6_s6ra2"), ExtResource("8_lbnpb")])
+scenes = Array[PackedScene]([ExtResource("2_500ww"), ExtResource("4_xcn82"), ExtResource("3_5rkdc"), ExtResource("4_bagpr"), ExtResource("5_yua60"), ExtResource("6_s6ra2"), ExtResource("8_lbnpb")])
 
 [node name="Track1" type="AudioStreamPlayer" parent="."]
 
