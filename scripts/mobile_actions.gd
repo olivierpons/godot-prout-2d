@@ -3,7 +3,7 @@ extends Node2D
 var pressing: bool = false
 
 func _ready():
-	if OS.has_feature("mobile"): # or OS.has_feature("web"):
+	if OS.has_feature("mobile") or OS.has_feature("web"):
 		visible = true
 	else:
 		queue_free()

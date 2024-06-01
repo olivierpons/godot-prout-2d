@@ -1,10 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://rs1emuruss23"]
+[gd_scene load_steps=19 format=3 uid="uid://rs1emuruss23"]
 
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ypnui"]
+[ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="1_ma6tc"]
 [ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="2_g0rbp"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="3_qir7c"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="4_4rjus"]
-[ext_resource type="AudioStream" uid="uid://cownqn6o42oyv" path="res://assets/music/Calm_Collection_V1_3min_4s_Loop.mp3" id="5_ak1b4"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="5_mnasp"]
 [ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="6_56bt3"]
 [ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="7_mhucm"]
@@ -243,9 +242,7 @@ size = Vector2(29.5, 150)
 [node name="Game" type="Node2D"]
 metadata/_edit_vertical_guides_ = [-146.0]
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("1_ypnui")
-audio_stream = ExtResource("5_ak1b4")
+[node name="GameManager" parent="." instance=ExtResource("1_ma6tc")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -279,7 +276,6 @@ process_callback = 0
 limit_bottom = 160
 
 [node name="LabelScore" type="Label" parent="Player/Camera2D"]
-unique_name_in_owner = true
 offset_left = 68.0
 offset_top = -81.0
 offset_right = 174.0
@@ -457,11 +453,6 @@ will open!
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="exit_door" parent="." instance=ExtResource("13_uv2d0")]
-z_index = -1
-position = Vector2(47, -184)
-next_level = 1
-
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 2
 script = ExtResource("14_tol1j")
@@ -469,5 +460,10 @@ script = ExtResource("14_tol1j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-431, -254)
 shape = SubResource("RectangleShape2D_2q24w")
+
+[node name="exit_door" parent="." instance=ExtResource("13_uv2d0")]
+z_index = -1
+position = Vector2(47, -184)
+next_level = 1
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

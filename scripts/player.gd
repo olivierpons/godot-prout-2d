@@ -122,5 +122,5 @@ func die():
 	collision_shape_2d.queue_free()
 	global.play_rand_sound(audio_stream_sfx, sounds_you_died)
 	global.fade_all()
-	global.fade_in_out_node.animation_player.play("normal_to_black")
+	global.fade_in_out_anim_player.play("normal_to_black")
 

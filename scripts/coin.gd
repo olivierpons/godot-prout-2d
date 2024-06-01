@@ -20,8 +20,8 @@ func _ready():
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		collision_shape_2d.queue_free()
+		game_manager.refresh_collected(1)
 		animation_player.play("pickup")
-		game_manager.add_point()
 	else:
 		is_touching = true
 		velocity = Vector2.ZERO
@@ -36,7 +36,7 @@ func _physics_process(delta):
 	if is_touching:
 		position.y -= 0.5
 
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	is_touching = false
 	# (!) this will stop call _physics_process():
 	set_physics_process(false)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ogeul"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_1pj8n"]
-[ext_resource type="AudioStream" uid="uid://c0x123b8tsn7s" path="res://assets/music/Calm_Collection_V3_3min_4s_Loop.mp3" id="2_w5bgo"]
+[ext_resource type="AudioStream" uid="uid://ct2bymchfu7wv" path="res://assets/music/Calm_Collection_V3_3min_4s_Loop.mp3" id="2_w5bgo"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_kh7id"]
 [ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="3_mfuah"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="4_gyne6"]
