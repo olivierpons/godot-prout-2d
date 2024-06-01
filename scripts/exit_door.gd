@@ -14,3 +14,7 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		if animated_sprite_2d.animation == "open":
 			global.go_to_level(next_level, body, self)
+
+func _physics_process(delta):
+	if Input.is_action_just_pressed("next_level"):
+		global.go_to_level(next_level, null, self)

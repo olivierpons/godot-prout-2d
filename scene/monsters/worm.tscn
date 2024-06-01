@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://b147c0usww2oe"]
 
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_n403i"]
-[ext_resource type="Texture2D" uid="uid://on7k1yrqsje" path="res://assets/sprites/monsters/worm.png" id="1_ovkje"]
+[ext_resource type="Texture2D" uid="uid://dhlooe38n1fps" path="res://assets/sprites/monsters/worm.png" id="1_ovkje"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="2_rrgqg"]
 [ext_resource type="Texture2D" uid="uid://ceimseawi8b07" path="res://assets/sprites/joystick_mobile/knob.png" id="4_f26my"]
 

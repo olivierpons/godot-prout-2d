@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://b4oga02on8exd" path="res://assets/sounds/player/hurt/alex/Hero_Alex_Battle_Cry_4.mp3" id="5_4kdqm"]
 [ext_resource type="AudioStream" uid="uid://bkrxf6kt03yxm" path="res://assets/sounds/player/hurt/alex/Hero_Alex_Battle_Cry_5.mp3" id="6_ouaan"]
 [ext_resource type="AudioStream" uid="uid://dspw25r27cb2c" path="res://assets/sounds/player/hurt/alex/Hero_Alex_Battle_Cry_6.mp3" id="7_xrgaw"]
-[ext_resource type="AudioStream" uid="uid://dekn32y0fa0x0" path="res://assets/sounds/player/jump/Retro_8-Bit_Game-Gun_Pistol_Weapon_Shoot_Fire_03.mp3" id="8_2hnc1"]
+[ext_resource type="AudioStream" uid="uid://ck4y22ij3r3hk" path="res://assets/sounds/Spell General Generic Wand Sparks Spark-003.mp3" id="8_12clv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_la4yh"]
 atlas = ExtResource("1_fu0lj")
@@ -342,7 +342,7 @@ collision_layer = 2
 input_pickable = true
 script = ExtResource("1_0cted")
 sounds_you_died = Array[AudioStreamMP3]([ExtResource("2_6konh"), ExtResource("3_fifyx"), ExtResource("4_fgn6w"), ExtResource("5_4kdqm"), ExtResource("6_ouaan"), ExtResource("7_xrgaw")])
-sounds_jump = Array[AudioStreamMP3]([ExtResource("8_2hnc1")])
+sounds_jump = Array[AudioStreamMP3]([ExtResource("8_12clv")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)

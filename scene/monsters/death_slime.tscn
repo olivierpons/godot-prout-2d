@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bse51yprsspn5"]
 
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_0fwqo"]
-[ext_resource type="Texture2D" uid="uid://ddtudstjkidc7" path="res://assets/sprites/monsters/Death Slime/DeathSlimeIdleSide.png" id="1_gu5k3"]
+[ext_resource type="Texture2D" uid="uid://ddhi5qk7hsxx8" path="res://assets/sprites/monsters/Death Slime/DeathSlimeIdleSide.png" id="1_gu5k3"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="2_w2glx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3anq"]
