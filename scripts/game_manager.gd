@@ -2,7 +2,7 @@ extends Node
 
 @export var debug: bool = false
 @export var audio_stream: AudioStream = null
-@onready var timer_open_door = %TimerOpenDoor
+@onready var timer_open_door = $TimerOpenDoor
 
 var _label_score: Label = null
 var to_collect = 0

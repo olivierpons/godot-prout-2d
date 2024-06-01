@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://be4bsvsdngcrg"]
+[gd_scene load_steps=14 format=3 uid="uid://be4bsvsdngcrg"]
 
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_6wlji"]
+[ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="1_y57b0"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_3xocm"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_oe2p5"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="4_kg50v"]
 [ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="5_6x2q5"]
-[ext_resource type="AudioStream" uid="uid://5jcpj5fneyv6" path="res://assets/music/Calm_Collection_V2_3min_5s_Loop.mp3" id="5_ndnjy"]
 [ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="6_osa01"]
 [ext_resource type="FontFile" uid="uid://bs6mhkgo5fbma" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_anomp"]
 [ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="8_gr4cb"]
@@ -19,9 +18,8 @@ distance = -85.0
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("1_6wlji")
-audio_stream = ExtResource("5_ndnjy")
+[node name="GameManager" parent="." instance=ExtResource("1_y57b0")]
+debug = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1

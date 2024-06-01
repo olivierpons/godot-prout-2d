@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://buy8x3y4cvoqt"]
+[gd_scene load_steps=15 format=3 uid="uid://buy8x3y4cvoqt"]
 
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_pj2cg"]
+[ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="1_ncffl"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_dd46c"]
-[ext_resource type="AudioStream" uid="uid://lud1joo11kea" path="res://assets/music/Fluttering_Breeze_Full_Track_with_Guitar_1min_20.mp3" id="2_rewgc"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_ulsyu"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="4_ort3o"]
 [ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="5_jhylo"]
@@ -20,9 +19,7 @@ distance = -85.0
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("1_pj2cg")
-audio_stream = ExtResource("2_rewgc")
+[node name="GameManager" parent="." instance=ExtResource("1_ncffl")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1

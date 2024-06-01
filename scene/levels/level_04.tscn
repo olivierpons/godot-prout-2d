@@ -1,8 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://cdvid2atvfnnr"]
+[gd_scene load_steps=21 format=3 uid="uid://cdvid2atvfnnr"]
 
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_bao2g"]
+[ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="1_hr5o3"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_4ogxo"]
-[ext_resource type="AudioStream" uid="uid://bjj675p5ucxe5" path="res://assets/music/Calm_Collection_V4_3min_5s_Loop.mp3" id="2_rhty4"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_nt85t"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="4_53rnd"]
 [ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="5_nympk"]
@@ -96,9 +95,7 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("1_bao2g")
-audio_stream = ExtResource("2_rhty4")
+[node name="GameManager" parent="." instance=ExtResource("1_hr5o3")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1

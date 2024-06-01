@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cspicwn3k6q4e"]
+[gd_scene load_steps=54 format=3 uid="uid://cspicwn3k6q4e"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0cted"]
 [ext_resource type="Texture2D" uid="uid://cbyff7pbwxcmo" path="res://assets/sprites/knight.png" id="1_fu0lj"]
@@ -8,7 +8,16 @@
 [ext_resource type="AudioStream" uid="uid://b4oga02on8exd" path="res://assets/sounds/player/hurt/alex/Hero_Alex_Battle_Cry_4.mp3" id="5_4kdqm"]
 [ext_resource type="AudioStream" uid="uid://bkrxf6kt03yxm" path="res://assets/sounds/player/hurt/alex/Hero_Alex_Battle_Cry_5.mp3" id="6_ouaan"]
 [ext_resource type="AudioStream" uid="uid://dspw25r27cb2c" path="res://assets/sounds/player/hurt/alex/Hero_Alex_Battle_Cry_6.mp3" id="7_xrgaw"]
-[ext_resource type="AudioStream" uid="uid://ck4y22ij3r3hk" path="res://assets/sounds/Spell General Generic Wand Sparks Spark-003.mp3" id="8_12clv"]
+[ext_resource type="AudioStream" uid="uid://cmqei5jb0r2je" path="res://assets/sounds/player/jump/alex/Hero_Alex_Jumping_01.mp3" id="8_rfgmp"]
+[ext_resource type="AudioStream" uid="uid://dqoy3kk2smxsv" path="res://assets/sounds/player/jump/alex/Hero_Alex_Jumping_02.mp3" id="9_w57ei"]
+[ext_resource type="AudioStream" uid="uid://b51bflra10mf3" path="res://assets/sounds/player/jump/alex/Hero_Alex_Jumping_03.mp3" id="10_qi2n7"]
+[ext_resource type="AudioStream" uid="uid://bp6ro6wser8y5" path="res://assets/sounds/player/jump/alex/Hero_Alex_Jumping_04.mp3" id="11_gmdbo"]
+[ext_resource type="AudioStream" uid="uid://dgso2uofo32ja" path="res://assets/sounds/player/jump/alex/Hero_Alex_Jumping_05.mp3" id="12_varmb"]
+[ext_resource type="AudioStream" uid="uid://ckijr4bp1uq8b" path="res://assets/sounds/player/jump/alex/Hero_Alex_Jumping_06.mp3" id="13_xb5kx"]
+[ext_resource type="AudioStream" uid="uid://b57qbod37i5bi" path="res://assets/sounds/player/jump/alex/Hero_Alex_Jumping_07.mp3" id="14_ofglu"]
+[ext_resource type="AudioStream" uid="uid://dt1wlhawpjmuc" path="res://assets/sounds/player/jump/alex/Hero_Alex_Jumping_08.mp3" id="15_a672j"]
+[ext_resource type="AudioStream" uid="uid://cwwxnopol22io" path="res://assets/sounds/player/jump/alex/Hero_Alex_Jumping_09.mp3" id="16_q3foy"]
+[ext_resource type="AudioStream" uid="uid://crxg1i7cnw6ev" path="res://assets/sounds/player/jump/alex/Hero_Alex_Jumping_10.mp3" id="17_nkak4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_la4yh"]
 atlas = ExtResource("1_fu0lj")
@@ -342,7 +351,7 @@ collision_layer = 2
 input_pickable = true
 script = ExtResource("1_0cted")
 sounds_you_died = Array[AudioStreamMP3]([ExtResource("2_6konh"), ExtResource("3_fifyx"), ExtResource("4_fgn6w"), ExtResource("5_4kdqm"), ExtResource("6_ouaan"), ExtResource("7_xrgaw")])
-sounds_jump = Array[AudioStreamMP3]([ExtResource("8_12clv")])
+sounds_jump = Array[AudioStreamMP3]([ExtResource("8_rfgmp"), ExtResource("9_w57ei"), ExtResource("10_qi2n7"), ExtResource("11_gmdbo"), ExtResource("12_varmb"), ExtResource("13_xb5kx"), ExtResource("14_ofglu"), ExtResource("15_a672j"), ExtResource("16_q3foy"), ExtResource("17_nkak4")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
