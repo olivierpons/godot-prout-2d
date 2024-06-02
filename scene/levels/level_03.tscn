@@ -346,7 +346,6 @@ position = Vector2(-56, -195)
 [node name="exit_door" parent="." instance=ExtResource("13_cti2h")]
 z_index = -1
 position = Vector2(-568, -184)
-next_level = 2
 
 [node name="Monsters" type="Node" parent="."]
 
