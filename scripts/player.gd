@@ -11,7 +11,7 @@ extends CharacterBody2D
 @export var max_jump_force: float = 300.0  # Maximale jump force
 @export var gravity:float = 980.0
 
-@export_group("Sfx")
+@export_group("Sounds: jump and die")
 @export var sounds_you_died: Array[AudioStreamMP3]
 @export var sounds_jump: Array[AudioStreamMP3]
 
@@ -122,5 +122,5 @@ func die():
 	collision_shape_2d.queue_free()
 	global.play_rand_sound(audio_stream_sfx, sounds_you_died)
 	global.fade_all()
-	global.fade_in_out_anim_player.play("normal_to_black")
+	global.fade_anim_player.play("normal_to_black")
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bpvnekktpbi2g"]
 
-[ext_resource type="Texture2D" uid="uid://ckihugp708dwr" path="res://assets/sprites/monsters/pig.png" id="1_bexst"]
+[ext_resource type="Texture2D" uid="uid://bfwgtjpoq23el" path="res://assets/sprites/monsters/pig.png" id="1_bexst"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="2_l0oac"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3p37x"]

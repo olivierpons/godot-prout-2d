@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/exit_door.gd" id="1_ebc77"]
 [ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="1_jh7ym"]
-[ext_resource type="AudioStream" uid="uid://uxgjri0sfghn" path="res://assets/sounds/door-open - comfused.mp3" id="3_58h38"]
+[ext_resource type="AudioStream" uid="uid://n3w37ptutwdy" path="res://assets/sounds/door-open - comfused.mp3" id="3_jteto"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v7b3h"]
 particle_flag_disable_z = true
@@ -49,7 +49,7 @@ animations = [{
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/path = NodePath("AudioStreamOpenDoor:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -65,7 +65,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/path = NodePath("AudioStreamOpenDoor:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -115,8 +115,11 @@ sprite_frames = SubResource("SpriteFrames_5jxmq")
 animation = &"locked"
 offset = Vector2(0, -16)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_58h38")
+[node name="AudioStreamOpenDoor" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jteto")
+
+[node name="AudioStreamPlayerExit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jteto")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

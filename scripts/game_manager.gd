@@ -32,7 +32,7 @@ func _ready():
 		global.crossfade_to(audio_stream)
 	# (!) initialize global fade_in_out_node each time the player spawns:
 	var player: Node = get_tree().root.find_child("Player", true, false)
-	global.fade_in_out_anim_player = (
+	global.fade_anim_player = (
 		player
 			.find_child("FadeInOut", true, false)
 			.find_child("AnimationPlayer", true, false)

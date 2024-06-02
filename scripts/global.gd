@@ -1,7 +1,7 @@
 extends Node
 
 # (!) When new level, new player, and the player initializes this:
-var fade_in_out_anim_player: Node
+var fade_anim_player: Node
 
 @export var scenes: Array[PackedScene] = []
 @onready var _anim_player := $AnimationPlayer
@@ -27,15 +27,15 @@ func go_to_level(
 		player.is_waiting_end_level = true
 		player.velocity = Vector2(0, 0)
 	if door:
-		door.audio_stream_player_2d.play()
-	fade_in_out_anim_player.animation_finished.connect(
+		door.audio_stream_player_exit.play()
+	fade_anim_player.animation_finished.connect(
 		_on_animation_finished
 	)
-	fade_in_out_anim_player.play("normal_to_black")
+	fade_anim_player.play("normal_to_black")
 
 func _on_animation_finished(anim_name):
 	if anim_name == "normal_to_black":
-		fade_in_out_anim_player.animation_finished.disconnect(
+		fade_anim_player.animation_finished.disconnect(
 			_on_animation_finished
 		)
 		Engine.time_scale = 1.0

@@ -195,4 +195,4 @@ côté du paneau !"
 [node name="exit_door" parent="." instance=ExtResource("12_ekbo0")]
 z_index = -1
 position = Vector2(1302, 80)
-next_level = 3
+next_level = 2

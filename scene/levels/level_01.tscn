@@ -1,8 +1,8 @@
 [gd_scene load_steps=20 format=3 uid="uid://rs1emuruss23"]
 
 [ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="1_ma6tc"]
+[ext_resource type="AudioStream" uid="uid://c1llxfu4rk7ti" path="res://assets/music/Fluttering_Breeze_Full_Track_with_Guitar_1min_20.mp3" id="2_6d8fh"]
 [ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="2_g0rbp"]
-[ext_resource type="AudioStream" uid="uid://bmuyjqbt12dqs" path="res://assets/music/The Wild West - Loop 1 - 2min 19s_1.mp3" id="2_i6487"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="3_qir7c"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="4_4rjus"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="5_mnasp"]
@@ -244,7 +244,7 @@ size = Vector2(29.5, 150)
 metadata/_edit_vertical_guides_ = [-146.0]
 
 [node name="GameManager" parent="." instance=ExtResource("1_ma6tc")]
-audio_stream = ExtResource("2_i6487")
+audio_stream = ExtResource("2_6d8fh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
