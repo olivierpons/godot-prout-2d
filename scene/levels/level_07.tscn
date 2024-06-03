@@ -116,42 +116,42 @@ shape = SubResource("WorldBoundaryShape2D_ph35v")
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-302, -223)
+position = Vector2(-252, -239)
 delay_before_falling = 0.01
 falling_speed_gravity = 196
 
 [node name="Coin2" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-213, -222)
+position = Vector2(-244, -192)
 delay_before_falling = 0.01
 falling_speed_gravity = 196
 
 [node name="Coin4" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-172, -323)
+position = Vector2(-172, -290)
 delay_before_falling = 0.01
 falling_speed_gravity = 196
 
 [node name="Coin5" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-216, -324)
+position = Vector2(-216, -291)
 delay_before_falling = 0.01
 falling_speed_gravity = 196
 
 [node name="Coin6" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-197, -337)
+position = Vector2(-197, -304)
 delay_before_falling = 0.01
 falling_speed_gravity = 196
 
 [node name="Coin7" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-226, -397)
+position = Vector2(-226, -364)
 delay_before_falling = 0.01
 falling_speed_gravity = 196
 
 [node name="Coin8" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-191, -430)
+position = Vector2(-191, -397)
 delay_before_falling = 0.01
 falling_speed_gravity = 196
 
 [node name="Coin3" parent="Coins" instance=ExtResource("10_mgh35")]
-position = Vector2(-223, -207)
+position = Vector2(-254, -177)
 delay_before_falling = 0.01
 falling_speed_gravity = 196
 
@@ -173,3 +173,4 @@ position = Vector2(-139, -87)
 [node name="exit_door" parent="." instance=ExtResource("16_qsdgc")]
 z_index = -1
 position = Vector2(-140, -29)
+next_level = 7

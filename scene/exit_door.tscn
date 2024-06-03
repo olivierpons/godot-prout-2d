@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/exit_door.gd" id="1_ebc77"]
 [ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="1_jh7ym"]
-[ext_resource type="AudioStream" uid="uid://n3w37ptutwdy" path="res://assets/sounds/door-open - comfused.mp3" id="3_jteto"]
+[ext_resource type="AudioStream" uid="uid://uxgjri0sfghn" path="res://assets/sounds/door-open - comfused.mp3" id="3_jteto"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v7b3h"]
 particle_flag_disable_z = true

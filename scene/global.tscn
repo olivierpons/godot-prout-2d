@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://kwenmeocnk1u"]
+[gd_scene load_steps=18 format=3 uid="uid://kwenmeocnk1u"]
 
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_w45ma"]
 [ext_resource type="PackedScene" uid="uid://rs1emuruss23" path="res://scene/levels/level_01.tscn" id="2_500ww"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bpmtayehk5j2h" path="res://scene/levels/level_05.tscn" id="5_yua60"]
 [ext_resource type="PackedScene" uid="uid://d2tlu4kl4mufv" path="res://scene/levels/level_06.tscn" id="6_s6ra2"]
 [ext_resource type="PackedScene" uid="uid://buy8x3y4cvoqt" path="res://scene/levels/level_07.tscn" id="8_lbnpb"]
+[ext_resource type="PackedScene" uid="uid://bxadesrapaiqd" path="res://scene/levels/level_08.tscn" id="9_dxl3i"]
 
 [sub_resource type="Animation" id="Animation_v1rce"]
 length = 0.001
@@ -180,7 +181,7 @@ _data = {
 
 [node name="global" type="Node"]
 script = ExtResource("1_w45ma")
-scenes = Array[PackedScene]([ExtResource("2_500ww"), ExtResource("4_xcn82"), ExtResource("3_5rkdc"), ExtResource("4_bagpr"), ExtResource("5_yua60"), ExtResource("6_s6ra2"), ExtResource("8_lbnpb")])
+scenes = Array[PackedScene]([ExtResource("2_500ww"), ExtResource("4_xcn82"), ExtResource("3_5rkdc"), ExtResource("4_bagpr"), ExtResource("5_yua60"), ExtResource("6_s6ra2"), ExtResource("8_lbnpb"), ExtResource("9_dxl3i")])
 
 [node name="Track1" type="AudioStreamPlayer" parent="."]
 
