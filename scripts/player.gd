@@ -24,6 +24,10 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var collision_shape_2d = $CollisionShape2D
 
+# For Debug:
+@onready var touch_h = $TouchH
+@onready var touch_v = $TouchV
+
 
 var jump_time: float = 0.0
 var is_jumping: bool = false
@@ -42,6 +46,7 @@ func _input(_event):
 func _physics_process(delta):
 	 	# Add the gravity.
 	if not is_on_floor():
+		touch_v.visible = true
 		velocity.y += gravity * delta
 
 	if is_dying or is_waiting_end_level:
@@ -89,6 +94,9 @@ func _physics_process(delta):
 		if velocity.x != 0:
 			velocity.x = move_toward(velocity.x, 0, deceleration * delta)
 
+	# For debug:
+	# touch_v.visible = is_on_wall()
+	# touch_h.visible = is_on_floor()
 	# Check for horizontal collisions and reset speed if colliding
 	if is_on_wall():
 		velocity.x = 0

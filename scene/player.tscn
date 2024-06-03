@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cspicwn3k6q4e"]
+[gd_scene load_steps=55 format=3 uid="uid://cspicwn3k6q4e"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0cted"]
 [ext_resource type="Texture2D" uid="uid://cbyff7pbwxcmo" path="res://assets/sprites/knight.png" id="1_fu0lj"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://dt1wlhawpjmuc" path="res://assets/sounds/player/jump/alex/Hero_Alex_Jumping_08.mp3" id="15_a672j"]
 [ext_resource type="AudioStream" uid="uid://cwwxnopol22io" path="res://assets/sounds/player/jump/alex/Hero_Alex_Jumping_09.mp3" id="16_q3foy"]
 [ext_resource type="AudioStream" uid="uid://crxg1i7cnw6ev" path="res://assets/sounds/player/jump/alex/Hero_Alex_Jumping_10.mp3" id="17_nkak4"]
+[ext_resource type="Texture2D" uid="uid://ceimseawi8b07" path="res://assets/sprites/joystick_mobile/knob.png" id="19_767dv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_la4yh"]
 atlas = ExtResource("1_fu0lj")
@@ -368,5 +369,23 @@ one_way_collision_margin = 0.0
 libraries = {
 "": SubResource("AnimationLibrary_h2oo6")
 }
+
+[node name="TouchH" type="TextureRect" parent="."]
+visible = false
+offset_left = -5.0
+offset_top = -8.0
+offset_right = 6.0
+offset_bottom = -6.0
+texture = ExtResource("19_767dv")
+expand_mode = 1
+
+[node name="TouchV" type="TextureRect" parent="."]
+visible = false
+offset_left = -1.0
+offset_top = -13.0
+offset_right = 1.0
+offset_bottom = -1.0
+texture = ExtResource("19_767dv")
+expand_mode = 1
 
 [node name="AudioStreamPlayer2DSfx" type="AudioStreamPlayer2D" parent="."]
