@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://b0q8hcs8i3air"]
 
-[ext_resource type="Texture2D" uid="uid://co5fvleos4nhe" path="res://assets/sprites/world_dungeon.png" id="1_6w2mx"]
+[ext_resource type="Texture2D" uid="uid://dc5ydf2qmbku0" path="res://assets/sprites/world_dungeon.png" id="1_6w2mx"]
 [ext_resource type="Script" path="res://scripts/clock.gd" id="1_ihnfu"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="2_n8ruq"]
 

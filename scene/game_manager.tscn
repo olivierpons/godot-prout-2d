@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dbqa0fqutqm5"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_itrav"]
-[ext_resource type="AudioStream" uid="uid://ci0dj6pkje5kj" path="res://assets/music/Calm_Collection_V1_3min_4s_Loop.mp3" id="2_sr58t"]
+[ext_resource type="AudioStream" uid="uid://cownqn6o42oyv" path="res://assets/music/Calm_Collection_V1_3min_4s_Loop.mp3" id="2_sr58t"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_itrav")
