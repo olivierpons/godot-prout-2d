@@ -46,7 +46,6 @@ func _input(_event):
 func _physics_process(delta):
 	 	# Add the gravity.
 	if not is_on_floor():
-		touch_v.visible = true
 		velocity.y += gravity * delta
 
 	if is_dying or is_waiting_end_level:
