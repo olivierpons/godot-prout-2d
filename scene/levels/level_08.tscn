@@ -123,7 +123,7 @@ shape = SubResource("WorldBoundaryShape2D_emjku")
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("10_metx6")]
-position = Vector2(-1066, -375)
+position = Vector2(-1321, -327)
 delay_before_falling = 1.0
 falling_speed_gravity = 196
 
@@ -135,4 +135,4 @@ falling_speed_gravity = 196
 
 [node name="exit_door" parent="." instance=ExtResource("13_t34ql")]
 z_index = -1
-position = Vector2(-536, 128)
+position = Vector2(-1366, -319)

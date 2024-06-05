@@ -6,6 +6,7 @@ extends TileMap
 @onready var tileset = preload("res://scene/tileset_game.tres")
 
 func _ready():
+	return 
 	randomize()
 	print("Checking tiles in the TileMap...")
 
@@ -42,13 +43,22 @@ func _ready():
 func get_random_tile_id() -> int:
 	var tile_ids = []
 	var source_count = tileset.get_source_count()
+	print("source_count=", source_count)
 	for source_id in range(source_count):
 		var source = tileset.get_source(source_id)
 		if source is TileSetAtlasSource:
-			for tile_id in source.get_tile_ids():
-				tile_ids.append(tile_id)
-	if tile_ids.size() > 0:
-		return tile_ids[randi() % tile_ids.size()]
+			for x in range(10):
+				for y in range(10):
+					var tile = source.get_tile_at_coords(Vector2i(x, y))
+					if tile:
+						print(
+							"source_id: ", source_id,
+							", size=", source.get_atlas_grid_size(), 
+							", (x:", x, "/y:", y, "): tile=", tile)
+					else:
+						print(
+							"source_id: ", source_id,
+							", none at: (x:", x, "/y:", y, ")")
 	return -1
 
 
