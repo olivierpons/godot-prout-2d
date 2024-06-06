@@ -22,7 +22,6 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 
 @onready var body_collision = $BodyCollision
-@onready var ground_collision = $GroundCollision
 
 # For Debug:
 @onready var touch_h = $TouchH
