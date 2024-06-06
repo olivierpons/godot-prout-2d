@@ -39,16 +39,12 @@ func _ready():
 		p_door += Vector2i(0, 24)
 		exit_door.global_position = p_door
 
+	var _total_coins: int = 0
 	for y in range(mz_height):
 		for x in range(mz_width):
 			var cell: Cell = mz.c(x, y)
 			var x_b: int = x*4 + x_s
 			var y_b: int = y*4 + y_s
-			var glob_p: Vector2i = to_global(map_to_local(Vector2i(x_b, y_b)))
-			var _coin: Area2D = coin.instantiate()
-			_coin.delay_before_falling = -1.0
-			add_child(_coin)
-			_coin.global_position = glob_p
 
 			# 0, Vector2i(2, 1))
 			set_cell(1, Vector2i(x_b - 2, y_b - 2), 0, Vector2i(2, 1))
@@ -60,6 +56,17 @@ func _ready():
 				set_cell(1, Vector2i(x_b - 1, y_b + 2), 0, Vector2i(12, 0))
 				set_cell(1, Vector2i(x_b    , y_b + 2), 0, Vector2i(13, 0))
 				set_cell(1, Vector2i(x_b + 1, y_b + 2), 0, Vector2i(15, 0))
+				if (_total_coins == 0) or ((randi() % 10) == 0):
+					var glob_p: Vector2i = Vector2i(x_b, y_b)
+					# Make REAL pixel coords with global coords:
+					glob_p = to_global(map_to_local(glob_p))
+					glob_p += Vector2i(0, 18)
+					var _coin: Area2D = coin.instantiate()
+					_coin.delay_before_falling = -1.0
+					add_child(_coin)
+					_coin.global_position = glob_p
+					_total_coins += 1
+
 			# Never try Cell.Dir.N, because Cell.Dir.S do the job:
 			# if cell.has_wall(Cell.Dir.N, mz_width, mz_height):
 			if y == 0:
@@ -69,11 +76,11 @@ func _ready():
 			if cell.has_wall(Cell.Dir.E, mz_width, mz_height):
 				set_cell(1, Vector2i(x_b + 2, y_b - 1), 1, Vector2i(9, 0))
 				set_cell(1, Vector2i(x_b + 2, y_b    ), 1, Vector2i(9, 0))
-				# set_cell(1, Vector2i(x_b + 2, y_b + 1), 1, Vector2i(9, 0))
+				set_cell(1, Vector2i(x_b + 2, y_b + 1), 1, Vector2i(9, 0))
 			if cell.has_wall(Cell.Dir.W, mz_width, mz_height):
 				set_cell(1, Vector2i(x_b - 2, y_b - 1), 1, Vector2i(9, 0))
 				set_cell(1, Vector2i(x_b - 2, y_b    ), 1, Vector2i(9, 0))
-				#set_cell(1, Vector2i(x_b - 2, y_b + 1), 1, Vector2i(9, 0))
+				set_cell(1, Vector2i(x_b - 2, y_b + 1), 1, Vector2i(9, 0))
 			
 
 	#for y in range(y_s, y_e):
