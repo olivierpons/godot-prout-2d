@@ -16,7 +16,10 @@ func dump():
 		s = str(y).lpad(4) + ": "
 		for x in range(_width):
 			var cell: Cell = c(x, y)
-			s += "(" + cell.str_links_open() + "|" + cell.str_links_wall() + ")"
+			s += (
+				"(" + cell.str_links_open(_width, _height) + "|" + 
+				cell.str_links_wall(_width, _height) + ")"
+			)
 		print(s)
 
 func generate(width: int, height: int) -> void:

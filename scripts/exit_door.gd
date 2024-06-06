@@ -8,8 +8,9 @@ extends Node2D
 @onready var audio_stream_player_exit = $AudioStreamPlayerExit
 
 func open_door():
-	gpu_particles_2d.emitting = true
-	animation_player.play("open_door")
+	if not gpu_particles_2d.emitting:
+		gpu_particles_2d.emitting = true
+		animation_player.play("open_door")
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):

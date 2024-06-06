@@ -37,14 +37,18 @@ func has_link(links:Array[Cell], v_to_find: Vector2i) -> bool:
 			return true
 	return false
 
-func has_open(d: Dir) -> bool:
+func has_open(d: Dir, max_width: int, max_height: int) -> bool:
 	if d == Dir.N:
 		if pos.y == 0:
 			return false
 		return has_link(links_open, Vector2i(0, 1))
 	elif d == Dir.E:
+		if pos.x >= (max_width - 1):
+			return false
 		return has_link(links_open, Vector2i(-1, 0))
 	elif d == Dir.S:
+		if pos.y >= (max_height - 1):
+			return false
 		return has_link(links_open, Vector2i(0, -1))
 	elif d == Dir.W:
 		if pos.x == 0:
@@ -52,14 +56,18 @@ func has_open(d: Dir) -> bool:
 		return has_link(links_open, Vector2i(1, 0))
 	return false
 
-func has_wall(d: Dir) -> bool:
+func has_wall(d: Dir, max_width: int, max_height: int) -> bool:
 	if d == Dir.N:
 		if pos.y == 0:
 			return true
 		return has_link(links_wall, Vector2i(0, 1))
 	elif d == Dir.E:
+		if pos.x >= (max_width - 1):
+			return true
 		return has_link(links_wall, Vector2i(-1, 0))
 	elif d == Dir.S:
+		if pos.y >= (max_height - 1):
+			return true
 		return has_link(links_wall, Vector2i(0, -1))
 	elif d == Dir.W:
 		if pos.x == 0:
@@ -67,27 +75,27 @@ func has_wall(d: Dir) -> bool:
 		return has_link(links_wall, Vector2i(1, 0))
 	return false
 	
-func str_links_open() -> String:
+func str_links_open(width: int, height: int) -> String:
 	var result: String = ""
-	if has_open(Cell.Dir.N):
+	if has_open(Cell.Dir.N, width, height):
 		result += "N"
-	if has_open(Cell.Dir.E):
+	if has_open(Cell.Dir.E, width, height):
 		result += "E"
-	if has_open(Cell.Dir.S):
+	if has_open(Cell.Dir.S, width, height):
 		result += "S"
-	if has_open(Cell.Dir.W):
+	if has_open(Cell.Dir.W, width, height):
 		result += "W"
 	return result.lpad(4)
 
-func str_links_wall() -> String:
+func str_links_wall(width: int, height: int) -> String:
 	var result: String = ""
-	if has_wall(Cell.Dir.N):
+	if has_wall(Cell.Dir.N, width, height):
 		result += "N"
-	if has_wall(Cell.Dir.E):
+	if has_wall(Cell.Dir.E, width, height):
 		result += "E"
-	if has_wall(Cell.Dir.S):
+	if has_wall(Cell.Dir.S, width, height):
 		result += "S"
-	if has_wall(Cell.Dir.W):
+	if has_wall(Cell.Dir.W, width, height):
 		result += "W"
 	return result.lpad(4)
 

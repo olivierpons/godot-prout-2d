@@ -1,17 +1,15 @@
 extends CharacterBody2D
 
-@export_group("Horizontal")
+@export_group("Speed")
 @export var max_horizontal_speed = 200.0  # Max X speed
 @export var max_horizontal_acceleration_time:float = 3.0  # Time to reach max speed
 @export var deceleration: float = 1000.0 # Deceleration when speed changes
-
-@export_group("Vertical")
 @export var max_jump_time = 0.1 # Maximum time for full jump
 @export var min_jump_force: float = 80.0  # Minimal jump force
 @export var max_jump_force: float = 300.0  # Maximale jump force
 @export var gravity:float = 980.0
 
-@export_group("Sounds: jump and die")
+@export_group("Sounds")
 @export var sounds_you_died: Array[AudioStreamMP3]
 @export var sounds_jump: Array[AudioStreamMP3]
 
@@ -22,7 +20,9 @@ extends CharacterBody2D
 
 @onready var audio_stream_sfx = $AudioStreamPlayer2DSfx
 @onready var animation_player = $AnimationPlayer
-@onready var collision_shape_2d = $CollisionShape2D
+
+@onready var body_collision = $BodyCollision
+@onready var ground_collision = $GroundCollision
 
 # For Debug:
 @onready var touch_h = $TouchH
@@ -31,10 +31,15 @@ extends CharacterBody2D
 
 var jump_time: float = 0.0
 var is_jumping: bool = false
-
 var horizontal_acceleration_time: float = 0.0
 var is_accelerating: bool = false
 var direction: int = 0
+var fall_time: float = 0.0
+var can_jump: bool = false
+
+var is_descending: bool = false
+var descending_timer: float = 0.0
+var descending_delay: float = 0.1
 
 func _ready():
 	add_to_group("player")
@@ -45,17 +50,37 @@ func _input(_event):
 
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
+	if is_descending or not is_on_floor():
 		velocity.y += gravity * delta
-	#if Input.is_action_just_pressed("move_down"):
-	#	position.y += 1000 * delta
+		fall_time += delta
+	else:
+		fall_time = 0.0
+		can_jump = true
+		if descending_timer <= 0.0:
+			is_descending = false
 
 	if is_dying or is_waiting_end_level:
 		move_and_slide()
 		return
 
+	# Handle downward movement through the floor
+	if Input.is_action_just_pressed("move_down") and is_on_floor():
+		is_descending = true
+		descending_timer = descending_delay
+		body_collision.disabled = true
+
+	if is_descending:
+		body_collision.disabled = true
+		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
+		descending_timer -= delta
+		if descending_timer <= 0.0 and not is_on_floor():
+			is_descending = false
+			body_collision.disabled = false
+
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (
+		is_on_floor() or (fall_time < 0.1 and can_jump)
+	):
 		global.play_rand_sound(audio_stream_sfx, sounds_jump)
 		is_jumping = true
 		jump_time = 0
@@ -74,7 +99,7 @@ func _physics_process(delta):
 
 	# Handle horizontal movement.
 	direction = round(Input.get_axis("move_left", "move_right"))
-	if direction != 0:
+	if direction != 0 and not is_descending:
 		if not is_accelerating:
 			is_accelerating = true
 			horizontal_acceleration_time = 0
@@ -127,7 +152,7 @@ func _physics_process(delta):
 func die():
 	is_dying = true
 	animation_player.play("die")
-	collision_shape_2d.queue_free()
+	body_collision.queue_free()
 	global.play_rand_sound(audio_stream_sfx, sounds_you_died)
 	global.fade_all()
 	global.fade_anim_player.play("normal_to_black")

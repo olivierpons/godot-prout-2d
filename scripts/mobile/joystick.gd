@@ -1,10 +1,10 @@
 extends Node2D
 
-func _ready():
-	if OS.has_feature("mobile") or OS.has_feature("web"):
-		visible = true
-	else:
-		queue_free()
+#func _ready():
+#	if OS.has_feature("mobile") or OS.has_feature("web"):
+#		visible = true
+#	else:
+#		queue_free()
 
 func _on_right_pressed():
 	Input.action_press("move_right")

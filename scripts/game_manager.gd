@@ -38,6 +38,9 @@ func _ready():
 			.find_child("AnimationPlayer", true, false)
 	)
 	_label_score = player.find_child("LabelScore", true, false)
+	call_deferred("_count_coins")
+
+func _count_coins():
 	to_collect = 0
 	for coin in get_tree().get_nodes_in_group("coin"):
 		if not coin.is_queued_for_deletion():
@@ -45,6 +48,9 @@ func _ready():
 	exit_door = get_tree().get_nodes_in_group("exit")[0]
 	refresh_collected()
 
+func _process(_delta):
+	if Input.is_action_just_pressed("restart_level"):
+		get_tree().reload_current_scene()
 
 func _on_timer_open_door_timeout():
 	exit_door.open_door()
