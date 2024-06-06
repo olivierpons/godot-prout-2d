@@ -44,9 +44,11 @@ func _input(_event):
 		get_tree().quit()
 
 func _physics_process(delta):
-	 	# Add the gravity.
+	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	#if Input.is_action_just_pressed("move_down"):
+	#	position.y += 1000 * delta
 
 	if is_dying or is_waiting_end_level:
 		move_and_slide()
@@ -72,7 +74,6 @@ func _physics_process(delta):
 
 	# Handle horizontal movement.
 	direction = round(Input.get_axis("move_left", "move_right"))
-	
 	if direction != 0:
 		if not is_accelerating:
 			is_accelerating = true
