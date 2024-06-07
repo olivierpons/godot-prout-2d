@@ -17,7 +17,7 @@ size = Vector2(150, 150)
 
 [node name="mobile-joystick" type="Node2D"]
 script = ExtResource("1_jlxgm")
-circle_size = 70.0
+circle_size = 80.0
 
 [node name="right" type="TouchScreenButton" parent="."]
 visible = false

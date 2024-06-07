@@ -5,6 +5,7 @@ extends Node2D
 @export var return_duration: float =  0.5
 @export var circle_size: float = 100  # Ajustez cette valeur selon vos besoins
 var current_direction: Vector2 = Vector2.ZERO
+var is_dragging = false
 
 var knob_original_position: Vector2
 
@@ -12,11 +13,20 @@ func _ready():
 	knob_original_position = knob.position
 
 func _input(event):
-	if event is InputEventScreenDrag:
+	if event is InputEventScreenDrag and is_dragging:
 		update_knob_position(get_global_mouse_position())
+	elif event is InputEventScreenTouch and event.pressed:
+		if is_inside_circle(event.position):
+			is_dragging = true
+			update_knob_position(event.position)
+	elif event is InputEventScreenTouch and not event.pressed:
+		is_dragging = false
+		_on_joystick_released()
 
 func _on_joystick_pressed():
-	update_knob_position(get_global_mouse_position())
+	if is_inside_circle(get_global_mouse_position()):
+		is_dragging = true
+		update_knob_position(get_global_mouse_position())
 
 func _on_joystick_released():
 	var tween = create_tween()
@@ -74,3 +84,6 @@ func reset_input_actions():
 	Input.action_release("move_right")
 	Input.action_release("move_up")
 	Input.action_release("move_down")
+
+func is_inside_circle(position: Vector2) -> bool:
+	return (to_local(position) - knob_original_position).length() <= circle_size

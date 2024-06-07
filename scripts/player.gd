@@ -63,7 +63,9 @@ func _physics_process(delta):
 		return
 
 	# Handle downward movement through the floor
-	if Input.is_action_just_pressed("move_down") and is_on_floor():
+	#if Input.is_action_pressed("move_down") and Input.is_action_pressed("jump"):
+	if Input.is_action_pressed("move_down") and Input.is_action_pressed("jump") and is_on_floor():
+		print("OK")
 		is_descending = true
 		descending_timer = descending_delay
 		body_collision.disabled = true
@@ -77,7 +79,7 @@ func _physics_process(delta):
 			body_collision.disabled = false
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and (
+	if Input.is_action_just_pressed("jump") and not is_descending and (
 		is_on_floor() or (fall_time < 0.1 and can_jump)
 	):
 		global.play_rand_sound(audio_stream_sfx, sounds_jump)
