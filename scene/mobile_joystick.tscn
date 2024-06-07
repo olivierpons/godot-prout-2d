@@ -1,31 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dj1pcbx3uhi5j"]
+[gd_scene load_steps=4 format=3 uid="uid://dj1pcbx3uhi5j"]
 
 [ext_resource type="Script" path="res://scripts/mobile/joystick.gd" id="1_jlxgm"]
-[ext_resource type="Texture2D" uid="uid://u3tghlvejiml" path="res://assets/sprites/joystick_mobile/arrow-right.png" id="2_k2yxb"]
-[ext_resource type="Texture2D" uid="uid://0npvtve54pmh" path="res://assets/sprites/joystick_mobile/arrow-left.png" id="3_18aie"]
 [ext_resource type="Texture2D" uid="uid://ceimseawi8b07" path="res://assets/sprites/joystick_mobile/knob.png" id="4_lsjmd"]
 [ext_resource type="Texture2D" uid="uid://b004f151aiugy" path="res://assets/sprites/joystick_mobile/circle.png" id="4_mjudl"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_agd85"]
-radius = 65.05
-
 [node name="mobile-joystick" type="Node2D"]
 script = ExtResource("1_jlxgm")
-
-[node name="right" type="TouchScreenButton" parent="."]
-visible = false
-self_modulate = Color(1, 1, 1, 0.27451)
-position = Vector2(13, -48)
-texture_normal = ExtResource("2_k2yxb")
-passby_press = true
-
-[node name="left" type="TouchScreenButton" parent="."]
-visible = false
-self_modulate = Color(1, 1, 1, 0.27451)
-position = Vector2(-158, -48)
-scale = Vector2(1.107, 1)
-texture_normal = ExtResource("3_18aie")
-passby_press = true
+circle_size = 80.0
 
 [node name="joystick circle" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.145098)
@@ -36,11 +17,6 @@ texture = ExtResource("4_mjudl")
 self_modulate = Color(1, 1, 1, 0.439216)
 scale = Vector2(0.49, 0.49)
 texture = ExtResource("4_lsjmd")
-
-[node name="joystick" type="TouchScreenButton" parent="."]
-scale = Vector2(1.2, 1.2)
-shape = SubResource("CircleShape2D_agd85")
-passby_press = true
 
 [node name="Label" type="Label" parent="."]
 offset_left = -116.0
@@ -53,10 +29,3 @@ theme_override_font_sizes/font_size = 27
 text = "sdfqsdfqsd"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[connection signal="pressed" from="right" to="." method="_on_right_pressed"]
-[connection signal="released" from="right" to="." method="_on_right_released"]
-[connection signal="pressed" from="left" to="." method="_on_left_pressed"]
-[connection signal="released" from="left" to="." method="_on_left_released"]
-[connection signal="pressed" from="joystick" to="." method="_on_joystick_pressed"]
-[connection signal="released" from="joystick" to="." method="_on_joystick_released"]
