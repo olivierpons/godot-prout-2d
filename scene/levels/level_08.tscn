@@ -77,7 +77,7 @@ position = Vector2(144, 49)
 scale = Vector2(0.17, 0.17)
 
 [node name="mobile-joystick" parent="Player/Camera2D" instance=ExtResource("6_wcp6a")]
-position = Vector2(-121, 68)
+position = Vector2(-134, 40)
 scale = Vector2(0.4, 0.4)
 
 [node name="LabelLevel" type="Label" parent="Player/Camera2D"]
@@ -91,7 +91,7 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_constants/shadow_outline_size = 4
 theme_override_fonts/font = ExtResource("7_efxrt")
 theme_override_font_sizes/font_size = 8
-text = "Level 08"
+text = "Level 08 a"
 
 [node name="LabelDesc" type="Label" parent="Player/Camera2D"]
 offset_left = -175.0
@@ -104,7 +104,7 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_constants/shadow_outline_size = 4
 theme_override_fonts/font = ExtResource("7_efxrt")
 theme_override_font_sizes/font_size = 8
-text = "Oliver's maze!"
+text = "Maze maze!"
 
 [node name="FadeInOut" parent="Player" instance=ExtResource("8_s5f6x")]
 visible = false
