@@ -46,9 +46,8 @@ func _ready():
 			# From doc, set all to -1 to erase the cell:
 			set_cell(1, Vector2i(x, y),  -1, Vector2i(-1, -1), -1)
 	var mz: Maze = Maze.new()
-	mz_width = int(int(r.size[0]) / 4)
-	mz_height = int(int(r.size[1]) / 4)
-	
+	var mz_width: int = int(r.size[0] / 4.0)
+	var mz_height: int = int(r.size[1] / 4.0)
 	# mz_width = 60
 	# mz_height = 40
 	mz.generate(mz_width, mz_height)
