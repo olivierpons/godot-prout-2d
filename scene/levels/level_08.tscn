@@ -49,62 +49,16 @@ layer_2/tile_data = PackedInt32Array()
 script = ExtResource("4_g0faw")
 exit_door = NodePath("../exit_door")
 
-[node name="Player" parent="." instance=ExtResource("3_l6i2a")]
+[node name="Player" parent="." node_paths=PackedStringArray("label_last_modified") instance=ExtResource("3_l6i2a")]
 position = Vector2(-1168, -210)
+label_last_modified = NodePath("../CanvasLayer2/LabelLevel")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -11)
+position = Vector2(0, -12)
 zoom = Vector2(4, 4)
 process_callback = 0
 limit_bottom = 280
-
-[node name="LabelScore" type="Label" parent="Player/Camera2D"]
-unique_name_in_owner = true
-offset_left = 68.0
-offset_top = -81.0
-offset_right = 174.0
-offset_bottom = -61.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_k2vn0")
-theme_override_font_sizes/font_size = 8
-text = "Grab XXX coins."
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="mobile_actions" parent="Player/Camera2D" instance=ExtResource("5_5tg0y")]
-position = Vector2(144, 49)
-scale = Vector2(0.17, 0.17)
-
-[node name="mobile-joystick" parent="Player/Camera2D" instance=ExtResource("6_wcp6a")]
-position = Vector2(-134, 40)
-scale = Vector2(0.4, 0.4)
-
-[node name="LabelLevel" type="Label" parent="Player/Camera2D"]
-offset_left = -176.0
-offset_top = -80.0
-offset_right = -24.0
-offset_bottom = -70.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/shadow_outline_size = 4
-theme_override_fonts/font = ExtResource("7_efxrt")
-theme_override_font_sizes/font_size = 8
-text = "Level 08 g"
-
-[node name="LabelDesc" type="Label" parent="Player/Camera2D"]
-offset_left = -175.0
-offset_top = -68.0
-offset_right = -23.0
-offset_bottom = -58.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/shadow_outline_size = 4
-theme_override_fonts/font = ExtResource("7_efxrt")
-theme_override_font_sizes/font_size = 8
-text = "Maze maze!"
+position_smoothing_enabled = true
 
 [node name="FadeInOut" parent="Player" instance=ExtResource("8_s5f6x")]
 visible = false
@@ -128,3 +82,47 @@ shape = SubResource("WorldBoundaryShape2D_emjku")
 [node name="Labels" type="Node" parent="."]
 
 [node name="Monsters" type="Node" parent="."]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="LabelScore" type="Label" parent="CanvasLayer2"]
+unique_name_in_owner = true
+offset_left = 1005.0
+offset_top = 15.0
+offset_right = 1385.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_k2vn0")
+theme_override_font_sizes/font_size = 32
+text = "Grab XXX coins."
+vertical_alignment = 1
+
+[node name="LabelLevel" type="Label" parent="CanvasLayer2"]
+offset_left = 31.0
+offset_top = 8.0
+offset_right = 431.0
+offset_bottom = 40.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.384314)
+theme_override_constants/shadow_outline_size = 16
+theme_override_fonts/font = ExtResource("7_efxrt")
+theme_override_font_sizes/font_size = 32
+text = "Level 08 (23:56)"
+
+[node name="LabelDesc" type="Label" parent="CanvasLayer2"]
+offset_left = 32.0
+offset_top = 44.0
+offset_right = 336.0
+offset_bottom = 76.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.384314)
+theme_override_constants/shadow_outline_size = 16
+theme_override_fonts/font = ExtResource("7_efxrt")
+theme_override_font_sizes/font_size = 32
+text = "Maze maze!"
+
+[node name="mobile-joystick" parent="CanvasLayer2" instance=ExtResource("6_wcp6a")]
+position = Vector2(216, 432)
+scale = Vector2(0.3, 0.3)
+
+[node name="mobile_actions" parent="CanvasLayer2" instance=ExtResource("5_5tg0y")]
+position = Vector2(1220, 472)

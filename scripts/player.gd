@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var label_last_modified: Label = null
+
 @export_group("Speed")
 @export var max_horizontal_speed = 200.0  # Max X speed
 @export var max_horizontal_acceleration_time:float = 3.0  # Time to reach max speed
@@ -42,6 +44,8 @@ var descending_delay: float = 0.1
 
 func _ready():
 	add_to_group("player")
+	#if label_last_modified:
+	#	global.set_text_to_last_modified(label_last_modified)
 
 func _input(_event):
 	if Input.is_action_pressed("quit"):

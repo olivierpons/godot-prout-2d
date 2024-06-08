@@ -16,5 +16,17 @@ script = ExtResource("1_3uca5")
 self_modulate = Color(1, 1, 1, 0.388235)
 texture = ExtResource("1_4e3wx")
 
+[node name="Label" type="Label" parent="."]
+offset_left = -67.0
+offset_top = 47.0
+offset_right = 67.0
+offset_bottom = 70.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 20
+text = "abc"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="released" from="." to="." method="_on_released"]

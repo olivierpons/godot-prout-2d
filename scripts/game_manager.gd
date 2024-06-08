@@ -3,6 +3,7 @@ extends Node
 @export var debug: bool = false
 @export var audio_stream: AudioStream = null
 @onready var timer_open_door = $TimerOpenDoor
+@onready var game = $".."
 
 var _label_score: Label = null
 var to_collect = 0
@@ -37,7 +38,7 @@ func _ready():
 			.find_child("FadeInOut", true, false)
 			.find_child("AnimationPlayer", true, false)
 	)
-	_label_score = player.find_child("LabelScore", true, false)
+	_label_score = game.find_child("LabelScore", true, false)
 	call_deferred("_count_coins")
 
 func _count_coins():
@@ -48,8 +49,8 @@ func _count_coins():
 	exit_door = get_tree().get_nodes_in_group("exit")[0]
 	refresh_collected()
 
-func _process(_delta):
-	if Input.is_action_just_pressed("restart_level"):
+func _input(event):
+	if event.is_action_pressed("restart_level"):
 		get_tree().reload_current_scene()
 
 func _on_timer_open_door_timeout():
