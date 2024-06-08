@@ -91,7 +91,7 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_constants/shadow_outline_size = 4
 theme_override_fonts/font = ExtResource("7_efxrt")
 theme_override_font_sizes/font_size = 8
-text = "Level 08 a"
+text = "Level 08 g"
 
 [node name="LabelDesc" type="Label" parent="Player/Camera2D"]
 offset_left = -175.0

@@ -16,14 +16,19 @@ func _input(event):
 	if event is InputEventScreenDrag and index_dragging >= 0:
 		var local_mouse_pos: Vector2 = to_local(get_global_mouse_position())
 		if event.get_index() == index_dragging:
+			label.text += "." + str(index_dragging)
 			update_knob_position(local_mouse_pos)
+		else:
+			label.text += "?" + str(index_dragging)
 	elif event is InputEventScreenTouch:
 		var local_mouse_pos: Vector2 = to_local(get_global_mouse_position())
-		if event.pressed:
+		if event.pressed and index_dragging < 0:
 			if (local_mouse_pos - knob.position).length() <= circle_size:
 				index_dragging = event.get_index()
+				label.text = "new: " + str(index_dragging)
 				update_knob_position(local_mouse_pos)
-		else:
+		elif not event.pressed and index_dragging >= 0:
+			label.text += "-" + str(index_dragging)
 			index_dragging = -1
 			var tween = create_tween()
 			tween.tween_property(
@@ -41,48 +46,48 @@ func update_knob_position(new_position: Vector2):
 		offset = offset.normalized() * circle_size
 	knob.position = knob_local_position + offset
 	var joypad_value = offset / circle_size
-	label.text = "Joypad Value: " + str(joypad_value)
 
 	var new_direction = Vector2.ZERO
-	if joypad_value.x < -0.1:
+	if joypad_value.x < -0.01:
 		new_direction.x = -1
-	elif joypad_value.x > 0.1:
+	elif joypad_value.x > 0.01:
 		new_direction.x = 1
-	if joypad_value.y < -0.1:
+	if joypad_value.y < -0.01:
 		new_direction.y = -1
-	elif joypad_value.y > 0.1:
+	elif joypad_value.y > 0.01:
 		new_direction.y = 1
 	
 	if new_direction != current_direction:
-		label.text = str(new_direction)
 		update_input_actions(new_direction)
 		current_direction = new_direction
 
 func update_input_actions(direction: Vector2):
-	label.text = ""
 	if direction.x == -1:
-		label.text += "<"
 		Input.action_press("move_left")
 		Input.action_release("move_right")
 	elif direction.x == 1:
-		label.text += ">"
 		Input.action_press("move_right")
 		Input.action_release("move_left")
 	else:
-		label.text += "-"
 		Input.action_release("move_left")
 		Input.action_release("move_right")
-	
 	if direction.y == -1:
-		label.text += "n"
 		Input.action_press("move_up")
 		Input.action_release("move_down")
 	elif direction.y == 1:
-		label.text += "v"
 		Input.action_press("move_down")
 		Input.action_release("move_up")
 	else:
-		label.text += "-"
 		Input.action_release("move_up")
 		Input.action_release("move_down")
 
+
+
+func _on_pressed():
+	print("_on_pressed")
+	index_dragging = 0
+
+
+func _on_released():
+	print("_on_pressed")
+	index_dragging = -1

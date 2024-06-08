@@ -1,17 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpjysr1oeb3yc"]
+[gd_scene load_steps=4 format=3 uid="uid://cpjysr1oeb3yc"]
 
 [ext_resource type="Script" path="res://scripts/mobile_actions.gd" id="1_3uca5"]
 [ext_resource type="Texture2D" uid="uid://ceimseawi8b07" path="res://assets/sprites/joystick_mobile/knob.png" id="1_4e3wx"]
 
-[node name="mobile_actions" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_esm53"]
+radius = 100.0
+
+[node name="mobile_actions" type="TouchScreenButton"]
+shape = SubResource("CircleShape2D_esm53")
+passby_press = true
+visibility_mode = 1
 script = ExtResource("1_3uca5")
 
 [node name="Knob" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.388235)
 texture = ExtResource("1_4e3wx")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-position = Vector2(-100, -100)
-texture_normal = ExtResource("1_4e3wx")
-action = "jump"
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="released" from="." to="." method="_on_released"]

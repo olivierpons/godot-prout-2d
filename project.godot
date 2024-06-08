@@ -22,6 +22,7 @@ global="*res://scene/global.tscn"
 [display]
 
 window/size/viewport_width=1400
+window/size/initial_position_type=3
 window/stretch/mode="canvas_items"
 
 [file_customization]
@@ -93,5 +94,6 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true

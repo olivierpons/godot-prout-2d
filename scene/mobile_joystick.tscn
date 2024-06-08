@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dj1pcbx3uhi5j"]
+[gd_scene load_steps=5 format=3 uid="uid://dj1pcbx3uhi5j"]
 
 [ext_resource type="Script" path="res://scripts/mobile/joystick.gd" id="1_jlxgm"]
 [ext_resource type="Texture2D" uid="uid://ceimseawi8b07" path="res://assets/sprites/joystick_mobile/knob.png" id="4_lsjmd"]
 [ext_resource type="Texture2D" uid="uid://b004f151aiugy" path="res://assets/sprites/joystick_mobile/circle.png" id="4_mjudl"]
 
-[node name="mobile-joystick" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6yucc"]
+radius = 80.0
+
+[node name="mobile-joystick" type="TouchScreenButton"]
+self_modulate = Color(1, 1, 1, 0.4)
+shape = SubResource("CircleShape2D_6yucc")
+passby_press = true
+visibility_mode = 1
 script = ExtResource("1_jlxgm")
 circle_size = 80.0
 
@@ -19,13 +26,12 @@ scale = Vector2(0.49, 0.49)
 texture = ExtResource("4_lsjmd")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -116.0
-offset_top = -48.0
-offset_right = 114.0
-offset_bottom = -11.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 27
-text = "sdfqsdfqsd"
+offset_left = -67.0
+offset_top = 47.0
+offset_right = 67.0
+offset_bottom = 70.0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="released" from="." to="." method="_on_released"]
