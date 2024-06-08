@@ -107,7 +107,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.384314)
 theme_override_constants/shadow_outline_size = 16
 theme_override_fonts/font = ExtResource("7_efxrt")
 theme_override_font_sizes/font_size = 32
-text = "Level 08 (23:56)"
+text = "Level 08 (01:27)"
 
 [node name="LabelDesc" type="Label" parent="CanvasLayer2"]
 offset_left = 32.0
@@ -121,8 +121,7 @@ theme_override_font_sizes/font_size = 32
 text = "Maze maze!"
 
 [node name="mobile-joystick" parent="CanvasLayer2" instance=ExtResource("6_wcp6a")]
-position = Vector2(216, 432)
-scale = Vector2(0.3, 0.3)
+position = Vector2(212, 439)
 
 [node name="mobile_actions" parent="CanvasLayer2" instance=ExtResource("5_5tg0y")]
 position = Vector2(1220, 472)

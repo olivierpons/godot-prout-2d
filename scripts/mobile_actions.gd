@@ -1,4 +1,4 @@
-extends Node2D
+extends TouchScreenButton
 
 @export var circle_size: float = 100
 

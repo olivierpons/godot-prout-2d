@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="8_kh3fe"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="9_p3ovr"]
 [ext_resource type="PackedScene" uid="uid://dac5wao2fkvh6" path="res://scene/coin.tscn" id="10_mgh35"]
+[ext_resource type="PackedScene" uid="uid://b147c0usww2oe" path="res://scene/worm.tscn" id="12_r34m5"]
 [ext_resource type="PackedScene" uid="uid://bxyas17k6e5wo" path="res://scene/platform.tscn" id="12_sd4q3"]
-[ext_resource type="PackedScene" uid="uid://b147c0usww2oe" path="res://scene/monsters/worm.tscn" id="13_hpnmh"]
 [ext_resource type="PackedScene" uid="uid://3t6eurk5jo4d" path="res://scene/monsters/skeletton.tscn" id="13_vsc5f"]
 [ext_resource type="PackedScene" uid="uid://bpvnekktpbi2g" path="res://scene/monsters/pig.tscn" id="14_abtjb"]
 [ext_resource type="PackedScene" uid="uid://u7iwxa41ssg4" path="res://scene/monsters/slime.tscn" id="16_30xet"]
@@ -258,7 +258,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Monsters" type="Node" parent="."]
 
-[node name="Worm" parent="Monsters" instance=ExtResource("13_hpnmh")]
+[node name="Worm" parent="Monsters" instance=ExtResource("12_r34m5")]
 position = Vector2(-245, -112)
 
 [node name="Pig" parent="Monsters" instance=ExtResource("14_abtjb")]

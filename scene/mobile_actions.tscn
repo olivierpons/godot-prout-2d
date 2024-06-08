@@ -8,7 +8,6 @@ radius = 100.0
 
 [node name="mobile_actions" type="TouchScreenButton"]
 shape = SubResource("CircleShape2D_esm53")
-passby_press = true
 visibility_mode = 1
 script = ExtResource("1_3uca5")
 
