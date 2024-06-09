@@ -4,8 +4,10 @@ extends TouchScreenButton
 @onready var label = $"Label"
 @export var return_duration: float =  0.5
 @export var circle_size: float = 100
+@export var dead_zone: float = 30.0
+
 var current_direction: Vector2 = Vector2.ZERO
-var index_dragging: int = -1
+var is_dragging: bool = false
 
 var knob_local_position: Vector2
 
@@ -17,43 +19,24 @@ func is_point_in_circle(point: Vector2) -> bool:
 	return distance <= circle_size
 
 func _input(event):
-	if event is InputEventScreenDrag and index_dragging >= 0 and is_point_in_circle(to_local(event.position)):
+	if event is InputEventScreenDrag and is_dragging and is_point_in_circle(to_local(event.position)):
 		update_knob_position(to_local(event.position))
-	#elif event is InputEventScreenTouch:
-	#	if event.pressed and index_dragging < 0:
-	#		if is_point_in_circle(to_local(event.position)):
-	#			index_dragging = event.get_index()
-	#			update_knob_position(to_local(event.position))
-				# label.text = "ok" + str(to_local(event.position))
-		#elif not event.pressed and index_dragging >= 0:
-		#	label.text += "-" + str(index_dragging)
-		#	index_dragging = -1
-		#	var tween = create_tween()
-		#	tween.tween_property(
-		#		knob, "position", knob_local_position, return_duration
-		#	).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-		#	# reset_input_actions:
-		#	Input.action_release("move_left")
-		#	Input.action_release("move_right")
-		#	Input.action_release("move_up")
-		#	Input.action_release("move_down")
 
 func update_knob_position(new_position: Vector2):
 	new_position.limit_length(circle_size)
 	knob.position = new_position.limit_length(circle_size)
 	var joypad_value = knob.position
 	var new_direction = Vector2.ZERO
-	if joypad_value.x < -50.0:
+	if joypad_value.x < -dead_zone:
 		new_direction.x = -1
-	elif joypad_value.x > 50.0:
+	elif joypad_value.x > dead_zone:
 		new_direction.x = 1
-	if joypad_value.y < -50.0:
+	if joypad_value.y < -dead_zone:
 		new_direction.y = -1
-	elif joypad_value.y > 50.0:
+	elif joypad_value.y > dead_zone:
 		new_direction.y = 1
 	
 	if new_direction != current_direction:
-		# label.text = str(new_direction)
 		update_input_actions(new_direction)
 		current_direction = new_direction
 
@@ -78,29 +61,11 @@ func update_input_actions(direction: Vector2):
 		Input.action_release("move_down")
 
 func _on_pressed():
-	# print("_on_pressed")
-	#label.text = "+"
-	#index_dragging = 0
-	#pass
-	index_dragging = 0
-	#update_knob_position(to_local(event.position))
+	is_dragging = true
 
 func _on_released():
-	# print("_on_released")
-	pass
-	#label.text += "-"
-	#index_dragging = -1
-	#var tween = create_tween()
-	#tween.tween_property(
-	#	knob, "position", knob_local_position, return_duration
-	#).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	# reset_input_actions:
-	#Input.action_release("move_left")
-	#Input.action_release("move_right")
-	#Input.action_release("move_up")
-	#Input.action_release("move_down")
-	label.text += "-" + str(index_dragging)
-	index_dragging = -1
+	label.text += "-" + str(is_dragging)
+	is_dragging = false
 	var tween = create_tween()
 	tween.tween_property(
 		knob, "position", knob_local_position, return_duration
