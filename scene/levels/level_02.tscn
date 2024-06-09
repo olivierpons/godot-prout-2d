@@ -1,15 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://be4bsvsdngcrg"]
+[gd_scene load_steps=12 format=3 uid="uid://be4bsvsdngcrg"]
 
 [ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="1_y57b0"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_3xocm"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_oe2p5"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="4_kg50v"]
-[ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="5_6x2q5"]
-[ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="6_osa01"]
-[ext_resource type="FontFile" uid="uid://bs6mhkgo5fbma" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_anomp"]
 [ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="8_gr4cb"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="9_vbytk"]
 [ext_resource type="PackedScene" uid="uid://dac5wao2fkvh6" path="res://scene/coin.tscn" id="10_th7tw"]
+[ext_resource type="PackedScene" uid="uid://0gqlmk7mp3ms" path="res://scene/canvas_layer_for_all.tscn" id="10_uaan6"]
 [ext_resource type="PackedScene" uid="uid://u7iwxa41ssg4" path="res://scene/monsters/slime.tscn" id="12_byy18"]
 [ext_resource type="PackedScene" uid="uid://dbwulrbhchhqc" path="res://scene/exit_door.tscn" id="12_ekbo0"]
 
@@ -50,53 +48,6 @@ position = Vector2(0, -11)
 zoom = Vector2(4, 4)
 process_callback = 0
 limit_bottom = 160
-
-[node name="LabelScore" type="Label" parent="Player/Camera2D"]
-unique_name_in_owner = true
-offset_left = 68.0
-offset_top = -81.0
-offset_right = 174.0
-offset_bottom = -61.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_kg50v")
-theme_override_font_sizes/font_size = 8
-text = "Grab XXX coins."
-vertical_alignment = 1
-
-[node name="mobile_actions" parent="Player/Camera2D" instance=ExtResource("5_6x2q5")]
-position = Vector2(144, 49)
-scale = Vector2(0.17, 0.17)
-
-[node name="mobile-joystick" parent="Player/Camera2D" instance=ExtResource("6_osa01")]
-position = Vector2(-104, 40)
-scale = Vector2(0.4, 0.4)
-
-[node name="LabelLevel" type="Label" parent="Player/Camera2D"]
-offset_left = -176.0
-offset_top = -80.0
-offset_right = -24.0
-offset_bottom = -70.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/shadow_outline_size = 4
-theme_override_fonts/font = ExtResource("7_anomp")
-theme_override_font_sizes/font_size = 8
-text = "Level 02"
-
-[node name="LabelDesc" type="Label" parent="Player/Camera2D"]
-offset_left = -175.0
-offset_top = -68.0
-offset_right = -23.0
-offset_bottom = -58.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/shadow_outline_size = 4
-theme_override_fonts/font = ExtResource("7_anomp")
-theme_override_font_sizes/font_size = 8
-text = "Thibault's level 01"
 
 [node name="FadeInOut" parent="Player" instance=ExtResource("8_gr4cb")]
 visible = false
@@ -196,3 +147,7 @@ côté du paneau !"
 z_index = -1
 position = Vector2(1302, 80)
 next_level = 2
+
+[node name="canvas_layer_for_all" parent="." instance=ExtResource("10_uaan6")]
+label_for_level = "Level 02"
+label_description_level = "Thibault's level 01"

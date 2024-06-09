@@ -10,6 +10,7 @@ radius = 200.0
 [node name="mobile-joystick" type="TouchScreenButton"]
 self_modulate = Color(1, 1, 1, 0.4)
 shape = SubResource("CircleShape2D_6yucc")
+visibility_mode = 1
 script = ExtResource("1_jlxgm")
 circle_size = 200.0
 

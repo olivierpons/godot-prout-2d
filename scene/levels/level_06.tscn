@@ -1,19 +1,17 @@
-[gd_scene load_steps=24 format=3 uid="uid://d2tlu4kl4mufv"]
+[gd_scene load_steps=22 format=3 uid="uid://d2tlu4kl4mufv"]
 
 [ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="1_bsyfr"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_dd46c"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_ulsyu"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="4_ort3o"]
-[ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="5_jhylo"]
-[ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="6_xrl14"]
-[ext_resource type="FontFile" uid="uid://bs6mhkgo5fbma" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_g3oij"]
 [ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="8_kh3fe"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="9_p3ovr"]
 [ext_resource type="PackedScene" uid="uid://dac5wao2fkvh6" path="res://scene/coin.tscn" id="10_mgh35"]
-[ext_resource type="PackedScene" uid="uid://b147c0usww2oe" path="res://scene/worm.tscn" id="12_r34m5"]
+[ext_resource type="PackedScene" uid="uid://dxbf3w2ixabcw" path="res://scene/monsters/worm.tscn" id="12_r34m5"]
 [ext_resource type="PackedScene" uid="uid://bxyas17k6e5wo" path="res://scene/platform.tscn" id="12_sd4q3"]
 [ext_resource type="PackedScene" uid="uid://3t6eurk5jo4d" path="res://scene/monsters/skeletton.tscn" id="13_vsc5f"]
 [ext_resource type="PackedScene" uid="uid://bpvnekktpbi2g" path="res://scene/monsters/pig.tscn" id="14_abtjb"]
+[ext_resource type="PackedScene" uid="uid://0gqlmk7mp3ms" path="res://scene/canvas_layer_for_all.tscn" id="14_uyl1q"]
 [ext_resource type="PackedScene" uid="uid://u7iwxa41ssg4" path="res://scene/monsters/slime.tscn" id="16_30xet"]
 [ext_resource type="PackedScene" uid="uid://dbwulrbhchhqc" path="res://scene/exit_door.tscn" id="16_qsdgc"]
 
@@ -130,54 +128,6 @@ zoom = Vector2(4, 4)
 process_callback = 0
 limit_bottom = 160
 
-[node name="LabelScore" type="Label" parent="Player/Camera2D"]
-unique_name_in_owner = true
-offset_left = 68.0
-offset_top = -81.0
-offset_right = 174.0
-offset_bottom = -61.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ort3o")
-theme_override_font_sizes/font_size = 8
-text = "Grab XXX coins."
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="mobile_actions" parent="Player/Camera2D" instance=ExtResource("5_jhylo")]
-position = Vector2(144, 49)
-scale = Vector2(0.17, 0.17)
-
-[node name="mobile-joystick" parent="Player/Camera2D" instance=ExtResource("6_xrl14")]
-position = Vector2(-104, 40)
-scale = Vector2(0.4, 0.4)
-
-[node name="LabelLevel" type="Label" parent="Player/Camera2D"]
-offset_left = -176.0
-offset_top = -80.0
-offset_right = -24.0
-offset_bottom = -70.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/shadow_outline_size = 4
-theme_override_fonts/font = ExtResource("7_g3oij")
-theme_override_font_sizes/font_size = 8
-text = "Level 06"
-
-[node name="LabelDesc" type="Label" parent="Player/Camera2D"]
-offset_left = -175.0
-offset_top = -68.0
-offset_right = -23.0
-offset_bottom = -58.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/shadow_outline_size = 4
-theme_override_fonts/font = ExtResource("7_g3oij")
-theme_override_font_sizes/font_size = 8
-text = "Oliver's level 04"
-
 [node name="FadeInOut" parent="Player" instance=ExtResource("8_kh3fe")]
 visible = false
 z_index = 4096
@@ -278,3 +228,7 @@ position = Vector2(59, -124)
 z_index = -1
 position = Vector2(-344, -93)
 next_level = 6
+
+[node name="canvas_layer_for_all" parent="." instance=ExtResource("14_uyl1q")]
+label_for_level = "Level 06"
+label_description_level = "Jungle... v3"

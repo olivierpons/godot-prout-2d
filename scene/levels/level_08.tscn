@@ -1,14 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxadesrapaiqd"]
+[gd_scene load_steps=10 format=3 uid="uid://bxadesrapaiqd"]
 
 [ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="1_ad0l4"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_jq5em"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_l6i2a"]
 [ext_resource type="Script" path="res://scripts/tilemap_maze.gd" id="4_g0faw"]
-[ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="4_k2vn0"]
-[ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="5_5tg0y"]
-[ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="6_wcp6a"]
-[ext_resource type="FontFile" uid="uid://bs6mhkgo5fbma" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_efxrt"]
 [ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="8_s5f6x"]
+[ext_resource type="PackedScene" uid="uid://0gqlmk7mp3ms" path="res://scene/canvas_layer_for_all.tscn" id="8_ti0e3"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="9_iyga2"]
 [ext_resource type="PackedScene" uid="uid://dbwulrbhchhqc" path="res://scene/exit_door.tscn" id="13_t34ql"]
 
@@ -49,9 +46,8 @@ layer_2/tile_data = PackedInt32Array()
 script = ExtResource("4_g0faw")
 exit_door = NodePath("../exit_door")
 
-[node name="Player" parent="." node_paths=PackedStringArray("label_last_modified") instance=ExtResource("3_l6i2a")]
+[node name="Player" parent="." instance=ExtResource("3_l6i2a")]
 position = Vector2(-1168, -210)
-label_last_modified = NodePath("../CanvasLayer2/LabelLevel")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -12)
@@ -83,45 +79,6 @@ shape = SubResource("WorldBoundaryShape2D_emjku")
 
 [node name="Monsters" type="Node" parent="."]
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="LabelScore" type="Label" parent="CanvasLayer2"]
-unique_name_in_owner = true
-offset_left = 1005.0
-offset_top = 15.0
-offset_right = 1385.0
-offset_bottom = 47.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_k2vn0")
-theme_override_font_sizes/font_size = 32
-text = "Grab XXX coins."
-vertical_alignment = 1
-
-[node name="LabelLevel" type="Label" parent="CanvasLayer2"]
-offset_left = 31.0
-offset_top = 8.0
-offset_right = 431.0
-offset_bottom = 40.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.384314)
-theme_override_constants/shadow_outline_size = 16
-theme_override_fonts/font = ExtResource("7_efxrt")
-theme_override_font_sizes/font_size = 32
-text = "Level 08 (01:27)"
-
-[node name="LabelDesc" type="Label" parent="CanvasLayer2"]
-offset_left = 32.0
-offset_top = 44.0
-offset_right = 336.0
-offset_bottom = 76.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.384314)
-theme_override_constants/shadow_outline_size = 16
-theme_override_fonts/font = ExtResource("7_efxrt")
-theme_override_font_sizes/font_size = 32
-text = "Maze maze!"
-
-[node name="mobile-joystick" parent="CanvasLayer2" instance=ExtResource("6_wcp6a")]
-position = Vector2(212, 439)
-
-[node name="mobile_actions" parent="CanvasLayer2" instance=ExtResource("5_5tg0y")]
-position = Vector2(1220, 472)
+[node name="canvas_layer_for_all" parent="." instance=ExtResource("8_ti0e3")]
+label_for_level = "Level 08 (14:31)"
+label_description_level = "Maze maze!"

@@ -2,6 +2,7 @@ extends Node
 
 # (!) When new level, new player, and the player initializes this:
 var fade_anim_player: Node
+var mobile_visible: bool = true
 
 @export var scenes: Array[PackedScene] = []
 @onready var _anim_player := $AnimationPlayer
