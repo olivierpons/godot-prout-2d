@@ -19,11 +19,11 @@ func is_point_in_circle(point: Vector2) -> bool:
 func _input(event):
 	if event is InputEventScreenDrag and index_dragging >= 0 and is_point_in_circle(to_local(event.position)):
 		update_knob_position(to_local(event.position))
-	elif event is InputEventScreenTouch:
-		if event.pressed and index_dragging < 0:
-			if is_point_in_circle(to_local(event.position)):
-				index_dragging = event.get_index()
-				update_knob_position(to_local(event.position))
+	#elif event is InputEventScreenTouch:
+	#	if event.pressed and index_dragging < 0:
+	#		if is_point_in_circle(to_local(event.position)):
+	#			index_dragging = event.get_index()
+	#			update_knob_position(to_local(event.position))
 				# label.text = "ok" + str(to_local(event.position))
 		#elif not event.pressed and index_dragging >= 0:
 		#	label.text += "-" + str(index_dragging)
@@ -81,7 +81,9 @@ func _on_pressed():
 	# print("_on_pressed")
 	#label.text = "+"
 	#index_dragging = 0
-	pass
+	#pass
+	index_dragging = 0
+	#update_knob_position(to_local(event.position))
 
 func _on_released():
 	# print("_on_released")
