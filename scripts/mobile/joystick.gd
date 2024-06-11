@@ -31,10 +31,10 @@ func update_knob_position(new_position: Vector2):
 		new_direction.x = -1
 	elif joypad_value.x > dead_zone:
 		new_direction.x = 1
-	if joypad_value.y < -dead_zone:
-		new_direction.y = -1
-	elif joypad_value.y > dead_zone:
-		new_direction.y = 1
+	#if joypad_value.y < -dead_zone:
+	#	new_direction.y = -1
+	#elif joypad_value.y > dead_zone:
+	#	new_direction.y = 1
 	
 	if new_direction != current_direction:
 		update_input_actions(new_direction)
@@ -73,5 +73,5 @@ func _on_released():
 	# reset_input_actions:
 	Input.action_release("move_left")
 	Input.action_release("move_right")
-	Input.action_release("move_up")
-	Input.action_release("move_down")
+	# Input.action_release("move_up")
+	# Input.action_release("move_down")

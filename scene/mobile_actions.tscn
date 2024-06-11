@@ -1,25 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpjysr1oeb3yc"]
+[gd_scene load_steps=5 format=3 uid="uid://cpjysr1oeb3yc"]
 
 [ext_resource type="Script" path="res://scripts/mobile_actions.gd" id="1_3uca5"]
-[ext_resource type="Texture2D" uid="uid://ceimseawi8b07" path="res://assets/sprites/joystick_mobile/knob.png" id="1_4e3wx"]
+[ext_resource type="Texture2D" uid="uid://clkclrksy31we" path="res://assets/sprites/joystick_mobile/arrow-down.png" id="2_uht4w"]
+[ext_resource type="Texture2D" uid="uid://ly8kerr48xbl" path="res://assets/sprites/joystick_mobile/arrow-up.png" id="3_nnh5h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_esm53"]
 radius = 100.0
 
-[node name="mobile_actions" type="TouchScreenButton"]
-shape = SubResource("CircleShape2D_esm53")
-visibility_mode = 1
+[node name="mobile_actions" type="Node2D"]
 script = ExtResource("1_3uca5")
 
-[node name="Knob" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.388235)
-texture = ExtResource("1_4e3wx")
-
 [node name="Label" type="Label" parent="."]
-offset_left = -67.0
-offset_top = 47.0
-offset_right = 67.0
-offset_bottom = 70.0
+offset_left = -176.0
+offset_top = 71.0
+offset_right = 175.0
+offset_bottom = 99.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 20
@@ -27,5 +22,23 @@ text = "abc"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="." to="." method="_on_pressed"]
-[connection signal="released" from="." to="." method="_on_released"]
+[node name="btn_down" type="TouchScreenButton" parent="."]
+position = Vector2(-100, 1)
+shape = SubResource("CircleShape2D_esm53")
+visibility_mode = 1
+
+[node name="arrow_down" type="Sprite2D" parent="btn_down"]
+self_modulate = Color(1, 1, 1, 0.388235)
+texture = ExtResource("2_uht4w")
+
+[node name="btn_up" type="TouchScreenButton" parent="."]
+position = Vector2(100, 1)
+shape = SubResource("CircleShape2D_esm53")
+visibility_mode = 1
+
+[node name="arrow_up" type="Sprite2D" parent="btn_up"]
+self_modulate = Color(1, 1, 1, 0.388235)
+texture = ExtResource("3_nnh5h")
+
+[connection signal="pressed" from="btn_up" to="." method="_on_btn_up_pressed"]
+[connection signal="released" from="btn_up" to="." method="_on_btn_up_released"]
