@@ -8,7 +8,7 @@
 size = Vector2(230, 600)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_087fh"]
-size = Vector2(230, 600)
+size = Vector2(600, 600)
 
 [node name="btns_left_right" type="Node2D"]
 script = ExtResource("1_jlxgm")
@@ -22,20 +22,20 @@ visibility_mode = 1
 
 [node name="arrow_left" type="Sprite2D" parent="btn_left"]
 self_modulate = Color(1, 1, 1, 0.439216)
-position = Vector2(0, 183.4)
+position = Vector2(0, 180)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_0lnql")
 
 [node name="btn_right" type="TouchScreenButton" parent="."]
 self_modulate = Color(1, 1, 1, 0.4)
-position = Vector2(120, -70)
+position = Vector2(305, -70)
 shape = SubResource("RectangleShape2D_087fh")
 passby_press = true
 visibility_mode = 1
 
 [node name="arrow_right" type="Sprite2D" parent="btn_right"]
 self_modulate = Color(1, 1, 1, 0.439216)
-position = Vector2(0, 183.4)
+position = Vector2(-210, 180)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_6glv6")
 
