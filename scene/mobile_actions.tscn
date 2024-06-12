@@ -40,5 +40,7 @@ visibility_mode = 1
 self_modulate = Color(1, 1, 1, 0.388235)
 texture = ExtResource("3_nnh5h")
 
+[connection signal="pressed" from="btn_down" to="." method="_on_btn_down_pressed"]
+[connection signal="released" from="btn_down" to="." method="_on_btn_down_released"]
 [connection signal="pressed" from="btn_up" to="." method="_on_btn_up_pressed"]
 [connection signal="released" from="btn_up" to="." method="_on_btn_up_released"]

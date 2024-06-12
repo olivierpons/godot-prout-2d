@@ -389,3 +389,8 @@ texture = ExtResource("19_767dv")
 expand_mode = 1
 
 [node name="AudioStreamPlayer2DSfx" type="AudioStreamPlayer2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 9)
+target_position = Vector2(0, 2)
+hit_from_inside = true

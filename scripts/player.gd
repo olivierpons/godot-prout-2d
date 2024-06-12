@@ -10,6 +10,8 @@ extends CharacterBody2D
 @export var min_jump_force: float = 80.0  # Minimal jump force
 @export var max_jump_force: float = 300.0  # Maximale jump force
 @export var gravity:float = 980.0
+@onready var ray_cast_2d = $RayCast2D
+
 
 @export_group("Sounds")
 @export var sounds_you_died: Array[AudioStreamMP3]
@@ -68,8 +70,11 @@ func _physics_process(delta):
 
 	# Handle downward movement through the floor
 	#if Input.is_action_pressed("move_down") and Input.is_action_pressed("jump"):
-	if Input.is_action_pressed("move_down") and Input.is_action_pressed("jump") and is_on_floor():
-		print("OK")
+	if (
+		Input.is_action_pressed("move_down")
+		and is_on_floor() 
+		and not ray_cast_2d.is_colliding()
+	):
 		is_descending = true
 		descending_timer = descending_delay
 		body_collision.disabled = true
@@ -84,7 +89,7 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and not is_descending and (
-		is_on_floor() or (fall_time < 0.1 and can_jump)
+		is_on_floor() or (fall_time < 0.15 and can_jump)
 	):
 		global.play_rand_sound(audio_stream_sfx, sounds_jump)
 		is_jumping = true
