@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyajrbivyt230"]
+
+[ext_resource type="Texture2D" uid="uid://cq7tg53jo8nmv" path="res://assets/sprites/nine-patch-dialog.png" id="1_o0ut8"]
+
+[node name="DialogBubble" type="Node2D"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_right = 185.0
+offset_bottom = 102.0
+texture = ExtResource("1_o0ut8")
+region_rect = Rect2(0, 0, 251, 132)
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "je suis le texte
+qui pue la meeeeeeeeerde!"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
