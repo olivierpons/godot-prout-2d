@@ -80,8 +80,8 @@ func set_text_to_last_modified(label: Label):
 		)
 		var time_zone_dict: Dictionary = Time.get_time_zone_from_system()
 		var minutes_bias: int = time_zone_dict["bias"]
-		date_time_dict["hour"] += minutes_bias / 60
-		date_time_dict["minute"] += minutes_bias % 60
+		date_time_dict["hour"] += float(minutes_bias) / 60
+		date_time_dict["minute"] += int(minutes_bias) % 60
 		var formatted_date: String = "%02d-%02d-%04d %02d:%02d:%02d" % [
 			date_time_dict["day"],
 			date_time_dict["month"],
