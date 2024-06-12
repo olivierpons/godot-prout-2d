@@ -41,3 +41,6 @@ func _on_touch_screen_button_released():
 	global.mobile_visible = not global.mobile_visible
 	mobile_joystick.visible = global.mobile_visible
 	mobile_up_down.visible = global.mobile_visible
+
+func _on_btn_next_level_released():
+	Input.action_press("next_level")

@@ -146,7 +146,6 @@ côté du paneau !"
 [node name="exit_door" parent="." instance=ExtResource("9_ulsiw")]
 z_index = -1
 position = Vector2(1302, 80)
-next_level = 2
 
 [node name="canvas_layer_for_all" parent="." instance=ExtResource("10_d32ie")]
 label_for_level = "Level 02"

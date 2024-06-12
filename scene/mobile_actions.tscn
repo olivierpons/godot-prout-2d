@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpjysr1oeb3yc"]
+[gd_scene load_steps=6 format=3 uid="uid://cpjysr1oeb3yc"]
 
 [ext_resource type="Script" path="res://scripts/mobile_actions.gd" id="1_3uca5"]
-[ext_resource type="Texture2D" uid="uid://clkclrksy31we" path="res://assets/sprites/joystick_mobile/arrow-down.png" id="2_uht4w"]
-[ext_resource type="Texture2D" uid="uid://ly8kerr48xbl" path="res://assets/sprites/joystick_mobile/arrow-up.png" id="3_nnh5h"]
+[ext_resource type="Texture2D" uid="uid://cawmmi8ffms4g" path="res://assets/sprites/joystick_mobile/arrow-down.png" id="2_ov8pm"]
+[ext_resource type="Texture2D" uid="uid://bmmuvja40nxp4" path="res://assets/sprites/joystick_mobile/arrow-up.png" id="3_nw60i"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_esm53"]
-radius = 100.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa8on"]
+size = Vector2(250, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pa5y"]
+size = Vector2(250, 130)
 
 [node name="mobile_actions" type="Node2D"]
 script = ExtResource("1_3uca5")
@@ -23,22 +26,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="btn_down" type="TouchScreenButton" parent="."]
-position = Vector2(-100, 1)
-shape = SubResource("CircleShape2D_esm53")
+shape = SubResource("RectangleShape2D_pa8on")
+passby_press = true
 visibility_mode = 1
 
 [node name="arrow_down" type="Sprite2D" parent="btn_down"]
 self_modulate = Color(1, 1, 1, 0.388235)
-texture = ExtResource("2_uht4w")
+texture = ExtResource("2_ov8pm")
 
 [node name="btn_up" type="TouchScreenButton" parent="."]
-position = Vector2(100, 1)
-shape = SubResource("CircleShape2D_esm53")
+position = Vector2(0, -134)
+shape = SubResource("RectangleShape2D_3pa5y")
+passby_press = true
 visibility_mode = 1
 
 [node name="arrow_up" type="Sprite2D" parent="btn_up"]
 self_modulate = Color(1, 1, 1, 0.388235)
-texture = ExtResource("3_nnh5h")
+texture = ExtResource("3_nw60i")
 
 [connection signal="pressed" from="btn_down" to="." method="_on_btn_down_pressed"]
 [connection signal="released" from="btn_down" to="." method="_on_btn_down_released"]
