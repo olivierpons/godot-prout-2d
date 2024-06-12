@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://0gqlmk7mp3ms"]
+
+[ext_resource type="FontFile" uid="uid://bs6mhkgo5fbma" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_c8b0w"]
+[ext_resource type="Script" path="res://scripts/canvas_layer_for_all.gd" id="1_u3hlp"]
+[ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="2_niwnj"]
+[ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="3_8yda8"]
+[ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="4_sslw1"]
+[ext_resource type="Texture2D" uid="uid://bqrfghqw4pne4" path="res://assets/sprites/joystick_mobile/joypad.png" id="6_0sl6o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbqib"]
+size = Vector2(450, 220)
+
+[node name="canvas_layer_for_all" type="CanvasLayer"]
+script = ExtResource("1_u3hlp")
+
+[node name="LabelLevel" type="Label" parent="."]
+offset_left = 31.0
+offset_top = 8.0
+offset_right = 495.0
+offset_bottom = 40.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.384314)
+theme_override_constants/shadow_outline_size = 16
+theme_override_fonts/font = ExtResource("1_c8b0w")
+theme_override_font_sizes/font_size = 32
+text = "Level (to be filled)"
+
+[node name="LabelDesc" type="Label" parent="."]
+offset_left = 32.0
+offset_top = 44.0
+offset_right = 336.0
+offset_bottom = 76.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.384314)
+theme_override_constants/shadow_outline_size = 16
+theme_override_fonts/font = ExtResource("1_c8b0w")
+theme_override_font_sizes/font_size = 32
+text = "Description (to be filled)"
+
+[node name="LabelScore" type="Label" parent="."]
+offset_left = 1005.0
+offset_top = 15.0
+offset_right = 1385.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_niwnj")
+theme_override_font_sizes/font_size = 32
+text = "Grab XXX coins."
+vertical_alignment = 1
+
+[node name="mobile-joystick" parent="." instance=ExtResource("3_8yda8")]
+position = Vector2(267, 514)
+
+[node name="mobile_up_down" parent="." instance=ExtResource("4_sslw1")]
+position = Vector2(1187, 525)
+
+[node name="btn_show_hide_mobile" type="TouchScreenButton" parent="."]
+self_modulate = Color(1, 1, 1, 0.305882)
+position = Vector2(1257, 58)
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("6_0sl6o")
+shape = SubResource("RectangleShape2D_wbqib")
+
+[connection signal="released" from="btn_show_hide_mobile" to="." method="_on_touch_screen_button_released"]
