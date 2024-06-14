@@ -1,13 +1,19 @@
+@tool
 extends Node
+
+signal coin_collected()
+
+@export var main_exit_door: Node
 
 @export var debug: bool = false
 @export var audio_stream: AudioStream = null
+
 @onready var timer_open_door = $TimerOpenDoor
 @onready var game = $".."
+@onready var canvas_layer_for_all = $"../canvas_layer_for_all"
 
 var _label_score: Label = null
 var to_collect = 0
-var exit_door: Node
 
 func refresh_collected(collected: int=0) -> int:
 	to_collect -= collected
@@ -22,6 +28,10 @@ func refresh_collected(collected: int=0) -> int:
 	return to_collect 
 
 func _ready():
+	canvas_layer_for_all.signal_btn_next_level.connect(
+		_on_btn_next_level_released
+	)
+	
 	if debug:
 		var one_coin_left = false
 		for coin in get_tree().get_nodes_in_group("coin"):
@@ -46,7 +56,6 @@ func _count_coins():
 	for coin in get_tree().get_nodes_in_group("coin"):
 		if not coin.is_queued_for_deletion():
 			to_collect += 1
-	exit_door = get_tree().get_nodes_in_group("exit")[0]
 	refresh_collected()
 
 func _input(event):
@@ -54,4 +63,10 @@ func _input(event):
 		get_tree().reload_current_scene()
 
 func _on_timer_open_door_timeout():
-	exit_door.open_door()
+	if main_exit_door:
+		main_exit_door.open_door()
+
+func _on_btn_next_level_released():
+	global.next_level.emit(
+		main_exit_door.next_level, null, main_exit_door
+	)

@@ -203,7 +203,8 @@ distance = -85.0
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" parent="." instance=ExtResource("1_y57b0")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("main_exit_door") instance=ExtResource("1_y57b0")]
+main_exit_door = NodePath("../exit_door")
 
 [node name="CanvasLayer 0_5" type="CanvasLayer" parent="."]
 layer = -1

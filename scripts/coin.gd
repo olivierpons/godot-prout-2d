@@ -1,5 +1,7 @@
 extends Area2D
 
+signal coin_collected()
+
 @onready var game_manager = $"../../GameManager"
 @onready var animation_player = $AnimationPlayer
 @export var delay_before_falling: float = 0.1

@@ -93,7 +93,8 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" parent="." instance=ExtResource("1_vvm0j")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("main_exit_door") instance=ExtResource("1_vvm0j")]
+main_exit_door = NodePath("../exit_door")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1

@@ -1,5 +1,7 @@
 extends Node
 
+signal next_level(next_level: int, player: Node, door: Node)
+
 # (!) When new level, new player, and the player initializes this:
 var fade_anim_player: Node
 var mobile_visible: bool = true
@@ -18,11 +20,11 @@ func out(msg: String) -> void:
 
 var _next_level: int = -1
 func go_to_level(
-	next_level: int, player: Node=null, door: Node=null
+	p_next_level: int, player: Node=null, door: Node=null
 ):
-	if (next_level < 0) or (next_level >= scenes.size()):
+	if (p_next_level < 0) or (p_next_level >= scenes.size()):
 		return
-	_next_level = next_level
+	_next_level = p_next_level
 	Engine.time_scale = 0.4
 	if player:
 		player.is_waiting_end_level = true
@@ -33,6 +35,11 @@ func go_to_level(
 		_on_animation_finished
 	)
 	fade_anim_player.play("normal_to_black")
+
+func _on_next_level(
+	p_next_level: int, player: Node=null, door: Node=null
+):
+	go_to_level(p_next_level, player, door)
 
 func _on_animation_finished(anim_name):
 	if anim_name == "normal_to_black":

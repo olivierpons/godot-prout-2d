@@ -241,7 +241,8 @@ size = Vector2(29.5, 150)
 [node name="Game" type="Node2D"]
 metadata/_edit_vertical_guides_ = [-146.0]
 
-[node name="GameManager" parent="." instance=ExtResource("1_ma6tc")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("main_exit_door") instance=ExtResource("1_ma6tc")]
+main_exit_door = NodePath("../exit_door")
 audio_stream = ExtResource("2_6d8fh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -343,8 +344,8 @@ falling_speed_gravity = 392
 
 [node name="Label" type="Label" parent="Labels"]
 anchors_preset = -1
-anchor_left = -0.0478572
-anchor_right = -0.0478572
+anchor_left = -0.0478571
+anchor_right = -0.0885714
 offset_left = -279.0
 offset_top = -216.0
 offset_right = -95.0

@@ -1,6 +1,8 @@
 @tool
 extends CanvasLayer
 
+signal signal_btn_next_level()
+
 @export var label_for_level: String = "Level (to be filled)" : \
 	set = _set_label_for_level, get = _get_label_for_level
 
@@ -43,4 +45,4 @@ func _on_touch_screen_button_released():
 	mobile_up_down.visible = global.mobile_visible
 
 func _on_btn_next_level_released():
-	Input.action_press("next_level")
+	emit_signal("signal_btn_next_level")

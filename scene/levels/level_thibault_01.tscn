@@ -16,7 +16,8 @@ distance = -85.0
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" parent="." instance=ExtResource("1_ib4rg")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("main_exit_door") instance=ExtResource("1_ib4rg")]
+main_exit_door = NodePath("../exit_door")
 debug = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -68,42 +69,6 @@ shape = SubResource("WorldBoundaryShape2D_nbnoc")
 
 [node name="Coin" parent="Coins" instance=ExtResource("6_udr47")]
 position = Vector2(-41, -120)
-
-[node name="Coin4" parent="Coins" instance=ExtResource("6_udr47")]
-position = Vector2(169, -246)
-
-[node name="Coin5" parent="Coins" instance=ExtResource("6_udr47")]
-position = Vector2(-112, -88)
-
-[node name="Coin6" parent="Coins" instance=ExtResource("6_udr47")]
-position = Vector2(170, -181)
-
-[node name="Coin7" parent="Coins" instance=ExtResource("6_udr47")]
-position = Vector2(170, -308)
-
-[node name="Coin8" parent="Coins" instance=ExtResource("6_udr47")]
-position = Vector2(1289, -215)
-
-[node name="Coin9" parent="Coins" instance=ExtResource("6_udr47")]
-position = Vector2(633, -278)
-
-[node name="Coin10" parent="Coins" instance=ExtResource("6_udr47")]
-position = Vector2(824, -169)
-
-[node name="Coin11" parent="Coins" instance=ExtResource("6_udr47")]
-position = Vector2(985, -198)
-
-[node name="Coin12" parent="Coins" instance=ExtResource("6_udr47")]
-position = Vector2(889, -185)
-
-[node name="Coin13" parent="Coins" instance=ExtResource("6_udr47")]
-position = Vector2(-224, -89)
-
-[node name="Coin14" parent="Coins" instance=ExtResource("6_udr47")]
-position = Vector2(1192, 59)
-
-[node name="Coin15" parent="Coins" instance=ExtResource("6_udr47")]
-position = Vector2(1463, -86)
 
 [node name="Platforms" type="Node" parent="."]
 

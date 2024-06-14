@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cpjysr1oeb3yc"]
 
 [ext_resource type="Script" path="res://scripts/mobile_actions.gd" id="1_3uca5"]
-[ext_resource type="Texture2D" uid="uid://clkclrksy31we" path="res://assets/sprites/joystick_mobile/arrow-down.png" id="2_ov8pm"]
-[ext_resource type="Texture2D" uid="uid://ly8kerr48xbl" path="res://assets/sprites/joystick_mobile/arrow-up.png" id="3_nw60i"]
+[ext_resource type="Texture2D" uid="uid://cawmmi8ffms4g" path="res://assets/sprites/joystick_mobile/arrow-down.png" id="2_ov8pm"]
+[ext_resource type="Texture2D" uid="uid://bmmuvja40nxp4" path="res://assets/sprites/joystick_mobile/arrow-up.png" id="3_nw60i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pa8on"]
 size = Vector2(250, 130)

@@ -17,6 +17,6 @@ func _on_body_entered(body):
 		if animated_sprite_2d.animation == "open":
 			global.go_to_level(next_level, body, self)
 
-func _physics_process(_delta):
+func _input(_event):
 	if Input.is_action_just_pressed("next_level"):
-		global.go_to_level(next_level, null, self)
+		global.next_level.emit(next_level, null, self)

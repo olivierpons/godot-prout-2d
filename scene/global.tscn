@@ -191,3 +191,5 @@ scenes = Array[PackedScene]([ExtResource("2_500ww"), ExtResource("3_5rkdc"), Ext
 libraries = {
 "": SubResource("AnimationLibrary_2uiv7")
 }
+
+[connection signal="next_level" from="." to="." method="_on_next_level"]
