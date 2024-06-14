@@ -28,10 +28,10 @@ func refresh_collected(collected: int=0) -> int:
 	return to_collect 
 
 func _ready():
-	canvas_layer_for_all.signal_btn_next_level.connect(
-		_on_btn_next_level_released
-	)
-	
+	if canvas_layer_for_all:
+		canvas_layer_for_all.signal_btn_next_level.connect(
+			_on_btn_next_level_released
+		)
 	if debug:
 		var one_coin_left = false
 		for coin in get_tree().get_nodes_in_group("coin"):

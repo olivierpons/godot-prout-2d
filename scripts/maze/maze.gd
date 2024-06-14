@@ -37,13 +37,13 @@ func generate(width: int, height: int) -> void:
 		for x in range(_width):
 			var cell: Cell = c(x, y)
 			if x > 0:
-				cell.add_links_to_do(c(x - 1, y))
+				cell.add_links_to_do(c(x - 1, y), 40)
 			if x < (width - 1):
-				cell.add_links_to_do(c(x + 1, y))
+				cell.add_links_to_do(c(x + 1, y), 40)
 			if y > 0:
-				cell.add_links_to_do(c(x, y - 1))
+				cell.add_links_to_do(c(x, y - 1), 1)
 			if y < (height - 1):
-				cell.add_links_to_do(c(x, y + 1))
+				cell.add_links_to_do(c(x, y + 1), 1)
 
 	var groups: Array[Array] = []
 	var stack: Array[Cell] = []

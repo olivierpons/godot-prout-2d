@@ -344,7 +344,7 @@ falling_speed_gravity = 392
 
 [node name="Label" type="Label" parent="Labels"]
 anchors_preset = -1
-anchor_left = -0.0478571
+anchor_left = -0.0885714
 anchor_right = -0.0885714
 offset_left = -279.0
 offset_top = -216.0

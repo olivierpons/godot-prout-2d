@@ -1,5 +1,6 @@
 extends TileMap
 
+@export var game_manager: Node = null
 @export var width: int = 5
 @export var height: int = 4
 @export var exit_door: Node2D = null
@@ -46,10 +47,11 @@ func _ready():
 			# From doc, set all to -1 to erase the cell:
 			set_cell(1, Vector2i(x, y),  -1, Vector2i(-1, -1), -1)
 	var mz: Maze = Maze.new()
-	mz_width = int(r.size[0] / 8.0)
-	mz_height = int(r.size[1] / 8.0)
-	# mz_width = 60
-	# mz_height = 40
+	# If I want to calculate based on TileMap size:
+	# mz_width = int(r.size[0] / 4.0)
+	# mz_height = int(r.size[1] / 2.0)
+	mz_width = width
+	mz_height = height
 	mz.generate(mz_width, mz_height)
 	# mz.dump()
 	if exit_door:
@@ -70,16 +72,20 @@ func _ready():
 			var x_b: int = x*4 + x_s
 			var y_b: int = y*4 + y_s
 
-			# 0, Vector2i(2, 1))
 			set_cell(1, Vector2i(x_b - 2, y_b - 2), 0, Vector2i(2, 1))
 			set_cell(1, Vector2i(x_b + 2, y_b - 2), 0, Vector2i(2, 1))
 			set_cell(1, Vector2i(x_b - 2, y_b + 2), 0, Vector2i(2, 1))
 			set_cell(1, Vector2i(x_b + 2, y_b + 2), 0, Vector2i(2, 1))
 
 			if config(cell, "", "S"):
-				set_cell(1, Vector2i(x_b - 1, y_b + 2), 1, Vector2i(11, 0))
-				set_cell(1, Vector2i(x_b    , y_b + 2), 1, Vector2i(13, 0))
-				set_cell(1, Vector2i(x_b + 1, y_b + 2), 1, Vector2i(14, 0))
+				if y == (mz_height-1):
+					set_cell(1, Vector2i(x_b - 1, y_b + 2), 1, Vector2i(11, 0))
+					set_cell(1, Vector2i(x_b    , y_b + 2), 1, Vector2i(13, 0))
+					set_cell(1, Vector2i(x_b + 1, y_b + 2), 1, Vector2i(14, 0))
+				else:
+					set_cell(1, Vector2i(x_b - 1, y_b + 2), 1, Vector2i(6, 2))
+					set_cell(1, Vector2i(x_b    , y_b + 2), 1, Vector2i(7, 2))
+					set_cell(1, Vector2i(x_b + 1, y_b + 2), 1, Vector2i(19, 2))
 				if (_total_coins == 0) or ((randi() % 10) == 0):
 					var glob_p: Vector2i = Vector2i(x_b, y_b)
 					# Make REAL pixel coords with global coords:
@@ -109,6 +115,7 @@ func _ready():
 	# Now making it more beautiful (comment this to see original):
 	for y in range(mz_height):
 		for x in range(mz_width):
+			continue
 			var cell: Cell = mz.c(x, y)
 			var x_b: int = x*4 + x_s
 			var y_b: int = y*4 + y_s

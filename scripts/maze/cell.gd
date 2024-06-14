@@ -5,6 +5,7 @@ enum Dir { N, E, S, W, }
 var pos: Vector2i = Vector2i(-1, -1)
 var group: Array[Cell]
 var links_to_do: Array[Cell]
+var links_to_do_weights: Array[int]
 var links_open: Array[Cell]
 var links_wall: Array[Cell]
 
@@ -13,8 +14,9 @@ func _init():
 	links_open = []
 	links_wall = []
 
-func add_links_to_do(cell: Cell):
+func add_links_to_do(cell: Cell, weight: int):
 	links_to_do.append(cell)
+	links_to_do_weights.append(weight)
 
 func move_link_to_do_as_wall(cell: Cell):
 	links_to_do.erase(cell)
@@ -103,6 +105,10 @@ func set_to_group(_group: Array[Cell]) -> void:
 	group = _group
 
 func get_rand_cell_to_do_index() -> int:
-	if links_to_do.size() > 0:
-		return randi() % links_to_do.size()
+	var tmp: Array[int] = []
+	for i in range(links_to_do.size()):
+		for j in range(links_to_do_weights[i]):
+			tmp.append(i)
+	if tmp.size() > 0:
+		return tmp[randi() % tmp.size()]
 	return -1
