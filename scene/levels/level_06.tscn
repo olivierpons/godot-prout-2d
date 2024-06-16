@@ -123,7 +123,7 @@ position = Vector2(-139, -87)
 [node name="exit_door" parent="." instance=ExtResource("16_qsdgc")]
 z_index = -1
 position = Vector2(-140, -29)
-next_level = 6
+next_level = 7
 
 [node name="canvas_layer_for_all" parent="." instance=ExtResource("14_uyl1q")]
 label_for_level = "Level 07"

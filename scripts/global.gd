@@ -57,7 +57,7 @@ func play_rand_sound(audio_stream_player:AudioStreamPlayer2D, tab:Array) -> void
 # from https://www.gdquest.com/tutorial/godot/audio/background-music-transition/
 # properly adapted!
 func crossfade_to(audio_stream: AudioStream) -> void:
-	return
+	# return
 	if audio_current == null:  # First time here:
 		_track_2.stream = audio_stream
 		_anim_player.play("fade_in_only_track_2")

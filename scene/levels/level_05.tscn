@@ -228,7 +228,7 @@ position = Vector2(59, -124)
 [node name="exit_door" parent="." instance=ExtResource("13_g07mb")]
 z_index = -1
 position = Vector2(-344, -93)
-next_level = 5
+next_level = 6
 
 [node name="canvas_layer_for_all" parent="." instance=ExtResource("14_68jnv")]
 label_for_level = "Level 06"

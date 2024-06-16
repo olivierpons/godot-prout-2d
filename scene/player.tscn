@@ -356,6 +356,7 @@ sounds_you_died = Array[AudioStreamMP3]([ExtResource("2_6konh"), ExtResource("3_
 sounds_jump = Array[AudioStreamMP3]([ExtResource("8_rfgmp"), ExtResource("9_w57ei"), ExtResource("10_qi2n7"), ExtResource("11_gmdbo"), ExtResource("12_varmb"), ExtResource("13_xb5kx"), ExtResource("14_ofglu"), ExtResource("15_a672j"), ExtResource("16_q3foy"), ExtResource("17_nkak4")])
 
 [node name="Bubble" parent="." instance=ExtResource("18_2g5sp")]
+z_index = 4096
 position = Vector2(0, -20)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

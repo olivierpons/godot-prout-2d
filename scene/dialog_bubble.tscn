@@ -14,9 +14,8 @@ outline_color = Color(0.552941, 0, 0, 0)
 shadow_size = 0
 shadow_color = Color(0.376471, 0.376471, 0.376471, 0.341176)
 
-[sub_resource type="Animation" id="Animation_6m3ai"]
-resource_name = "show"
-length = 0.3
+[sub_resource type="Animation" id="Animation_6do1u"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -24,10 +23,10 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.01, 0.01), Vector2(1, 1)]
+"values": [Vector2(1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -70,8 +69,9 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_6do1u"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_6m3ai"]
+resource_name = "show"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -79,10 +79,10 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0.01, 0.01), Vector2(1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false

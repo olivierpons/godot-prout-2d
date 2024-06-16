@@ -1,4 +1,3 @@
-@tool
 extends Node
 
 signal all_coins_collected()
@@ -41,11 +40,14 @@ func _ready():
 				one_coin_left = true
 				continue
 			coin.queue_free()
-	if audio_stream:
-		if global:
-			global.crossfade_to(audio_stream)
-		else:
-			push_warning("No global!")
+	if not audio_stream:
+		return
+	if not global:
+		return
+	if not global.has_method("crossfade_to"):
+		return
+
+	global.crossfade_to(audio_stream)
 	# (!) initialize global fade_in_out_node each time the player spawns:
 	var player: Node = get_tree().root.find_child("Player", true, false)
 	global.fade_anim_player = (
