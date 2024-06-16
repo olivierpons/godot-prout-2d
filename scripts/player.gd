@@ -3,8 +3,8 @@ extends CharacterBody2D
 @export var label_last_modified: Label = null
 
 @export_group("Speed")
-@export var max_horizontal_speed = 200.0  # Max X speed
-@export var max_horizontal_acceleration_time:float = 3.0  # Time to reach max speed
+@export var max_horizontal_speed = 250.0  # Max X speed
+@export var max_horizontal_acceleration_time:float = 5.0  # Time to reach max speed
 @export var deceleration: float = 1000.0 # Deceleration when speed changes
 @export var max_jump_time = 0.1 # Maximum time for full jump
 @export var min_jump_force: float = 80.0  # Minimal jump force
@@ -26,6 +26,7 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 
 @onready var body_collision = $BodyCollision
+@onready var bubble = $Bubble
 
 # For Debug:
 @onready var touch_h = $TouchH
@@ -69,7 +70,7 @@ func _physics_process(delta):
 		return
 
 	# Handle downward movement through the floor
-	#if Input.is_action_pressed("move_down") and Input.is_action_pressed("jump"):
+	# touch_h.visible = ray_cast_2d.is_colliding()
 	if (
 		Input.is_action_pressed("move_down")
 		and is_on_floor() 
@@ -122,7 +123,15 @@ func _physics_process(delta):
 			horizontal_acceleration_time / max_horizontal_acceleration_time
 		)
 		var target_speed: float = max_horizontal_speed * direction
-		velocity.x = lerp(velocity.x, target_speed, acceleration_factor)
+		# Check if the direction has changed
+		if sign(velocity.x) != direction:
+			# Apply deceleration if changing direction
+			velocity.x = move_toward(velocity.x, 0, deceleration * delta)
+			if abs(velocity.x) < 10.0:  # A threshold to switch to acceleration
+				velocity.x = target_speed * delta
+		else:
+			# Accelerate towards the target speed
+			velocity.x = lerp(velocity.x, target_speed, acceleration_factor)
 	else:
 		is_accelerating = false
 		horizontal_acceleration_time = 0
@@ -167,3 +176,6 @@ func die():
 	global.fade_all()
 	global.fade_anim_player.play("normal_to_black")
 
+func bubble_talk(text: String) -> void:
+	# This will call the setter and display the text
+	bubble.text_to_display = text

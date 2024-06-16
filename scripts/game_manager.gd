@@ -1,7 +1,7 @@
 @tool
 extends Node
 
-signal coin_collected()
+signal all_coins_collected()
 
 @export var main_exit_door: Node
 
@@ -25,6 +25,8 @@ func refresh_collected(collected: int=0) -> int:
 	else:
 		_label_score.text = "Find exit now!"
 		timer_open_door.start()
+		# Whoever wants to react to this signal:
+		emit_signal("all_coins_collected")
 	return to_collect 
 
 func _ready():
@@ -40,7 +42,10 @@ func _ready():
 				continue
 			coin.queue_free()
 	if audio_stream:
-		global.crossfade_to(audio_stream)
+		if global:
+			global.crossfade_to(audio_stream)
+		else:
+			push_warning("No global!")
 	# (!) initialize global fade_in_out_node each time the player spawns:
 	var player: Node = get_tree().root.find_child("Player", true, false)
 	global.fade_anim_player = (

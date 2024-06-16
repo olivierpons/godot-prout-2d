@@ -1,41 +1,181 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyajrbivyt230"]
+[gd_scene load_steps=10 format=3 uid="uid://cyajrbivyt230"]
 
-[ext_resource type="Texture2D" uid="uid://cs218ijma0afj" path="res://assets/sprites/nine-patch-dialog.png" id="1_o0ut8"]
+[ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="1_kjaf7"]
+[ext_resource type="Texture2D" uid="uid://cq7tg53jo8nmv" path="res://assets/sprites/nine-patch-dialog.png" id="1_o0ut8"]
+[ext_resource type="Texture2D" uid="uid://jelas8its858" path="res://assets/sprites/dialogs.png" id="1_w0v1v"]
+[ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="2_wx3co"]
 
-[node name="HBoxContainer" type="HBoxContainer"]
-offset_top = 4.0
-offset_right = 40.0
-offset_bottom = 4.0
+[sub_resource type="LabelSettings" id="LabelSettings_32s68"]
+line_spacing = 1.0
+font = ExtResource("2_wx3co")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0.552941, 0, 0, 0)
+shadow_size = 0
+shadow_color = Color(0.376471, 0.376471, 0.376471, 0.341176)
 
-[node name="DialogBubble" type="NinePatchRect" parent="."]
-layout_mode = 2
-texture = ExtResource("1_o0ut8")
-region_rect = Rect2(0, 0, 251, 132)
+[sub_resource type="Animation" id="Animation_6m3ai"]
+resource_name = "show"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
-[node name="MarginContainer" type="MarginContainer" parent="DialogBubble"]
-layout_mode = 1
-anchors_preset = 15
+[sub_resource type="Animation" id="Animation_e1xge"]
+resource_name = "hide"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.01, 0.01)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6do1u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qnnu2"]
+_data = {
+"RESET": SubResource("Animation_6do1u"),
+"hide": SubResource("Animation_e1xge"),
+"show": SubResource("Animation_6m3ai")
+}
+
+[node name="Bubble" type="Node2D"]
+script = ExtResource("1_kjaf7")
+text_to_display = "Coucou !"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -29.0
+offset_top = -52.0
+offset_right = 58.0
+offset_bottom = 5.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 25
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 10
+theme_override_constants/separation = -1
+alignment = 1
 
-[node name="Label" type="Label" parent="DialogBubble/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DialogBubble" type="NinePatchRect" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 13
+size_flags_vertical = 13
+texture = ExtResource("1_w0v1v")
+region_rect = Rect2(64, 0, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainerLabel" type="MarginContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 13
+size_flags_vertical = 13
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/MarginContainerLabel"]
+custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "je suis le texte
-et pas bon!
-3 lignes"
+text = "text"
+label_settings = SubResource("LabelSettings_32s68")
 horizontal_alignment = 1
 vertical_alignment = 1
-text_overrun_behavior = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4, 0)
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Control"]
+position = Vector2(5, 8)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_o0ut8")
 region_enabled = true
 region_rect = Rect2(56, 102, 22, 31)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qnnu2")
+}
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

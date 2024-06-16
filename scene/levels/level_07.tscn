@@ -82,6 +82,7 @@ shape = SubResource("WorldBoundaryShape2D_emjku")
 [node name="exit_door" parent="." instance=ExtResource("16_qsdgc")]
 z_index = -1
 position = Vector2(-952, 235)
+next_level = 7
 
 [node name="canvas_layer_for_all" parent="." instance=ExtResource("10_di51u")]
 label_for_level = "Level 08 (14:31)"

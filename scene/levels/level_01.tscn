@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://rs1emuruss23"]
+[gd_scene load_steps=19 format=3 uid="uid://rs1emuruss23"]
 
+[ext_resource type="Script" path="res://scripts/level_01.gd" id="1_6hcav"]
 [ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="1_ma6tc"]
 [ext_resource type="AudioStream" uid="uid://ni5rts3mvvvl" path="res://assets/music/Fluttering_Breeze_Full_Track_with_Guitar_1min_20.mp3" id="2_6d8fh"]
 [ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="2_g0rbp"]
@@ -239,6 +240,7 @@ distance = -85.0
 size = Vector2(29.5, 150)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_6hcav")
 metadata/_edit_vertical_guides_ = [-146.0]
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("main_exit_door") instance=ExtResource("1_ma6tc")]
