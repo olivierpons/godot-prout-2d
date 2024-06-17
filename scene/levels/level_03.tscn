@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://0gqlmk7mp3ms" path="res://scene/canvas_layer_for_all.tscn" id="11_piaww"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gy6v4"]
-distance = -85.0
+distance = -100.0
 
 [sub_resource type="Animation" id="Animation_hiq8p"]
 length = 0.001
@@ -136,7 +136,7 @@ offset_bottom = 556.0
 scale = Vector2(0.25, 0.25)
 
 [node name="Killzone" parent="." instance=ExtResource("5_lsutm")]
-position = Vector2(175, -27)
+position = Vector2(175, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_gy6v4")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://cyajrbivyt230"]
 
 [ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="1_kjaf7"]
-[ext_resource type="Texture2D" uid="uid://cq7tg53jo8nmv" path="res://assets/sprites/nine-patch-dialog.png" id="1_o0ut8"]
-[ext_resource type="Texture2D" uid="uid://jelas8its858" path="res://assets/sprites/dialogs.png" id="1_w0v1v"]
+[ext_resource type="Texture2D" uid="uid://cs218ijma0afj" path="res://assets/sprites/nine-patch-dialog.png" id="1_o0ut8"]
+[ext_resource type="Texture2D" uid="uid://cybrceow57v2a" path="res://assets/sprites/dialogs.png" id="2_fj5c1"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="2_wx3co"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_32s68"]
@@ -135,7 +135,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 13
 size_flags_vertical = 13
-texture = ExtResource("1_w0v1v")
+texture = ExtResource("2_fj5c1")
 region_rect = Rect2(64, 0, 48, 48)
 patch_margin_left = 16
 patch_margin_top = 16
