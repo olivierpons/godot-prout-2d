@@ -10,7 +10,8 @@ extends CharacterBody2D
 @export var min_jump_force: float = 80.0  # Minimal jump force
 @export var max_jump_force: float = 300.0  # Maximale jump force
 @export var gravity:float = 980.0
-@onready var ray_cast_2d = $RayCast2D
+@onready var ray_cast_1 = $RayCast_1
+@onready var ray_cast_2 = $RayCast_2
 
 
 @export_group("Sounds")
@@ -74,7 +75,7 @@ func _physics_process(delta):
 	if (
 		Input.is_action_pressed("move_down")
 		and is_on_floor() 
-		and not ray_cast_2d.is_colliding()
+		and not (ray_cast_1.is_colliding() or ray_cast_2.is_colliding())
 	):
 		is_descending = true
 		descending_timer = descending_delay

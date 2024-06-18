@@ -277,7 +277,8 @@ position = Vector2(0, -11)
 zoom = Vector2(4, 4)
 process_callback = 0
 limit_bottom = 160
-position_smoothing_speed = 10.0
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
 
 [node name="FadeInOut" parent="Player" instance=ExtResource("9_4sgkj")]
 visible = false

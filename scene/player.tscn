@@ -395,7 +395,12 @@ expand_mode = 1
 
 [node name="AudioStreamPlayer2DSfx" type="AudioStreamPlayer2D" parent="."]
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, 10)
+[node name="RayCast_1" type="RayCast2D" parent="."]
+position = Vector2(-2, 10)
+target_position = Vector2(0, 2)
+hit_from_inside = true
+
+[node name="RayCast_2" type="RayCast2D" parent="."]
+position = Vector2(2, 10)
 target_position = Vector2(0, 2)
 hit_from_inside = true

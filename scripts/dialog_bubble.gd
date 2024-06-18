@@ -27,7 +27,7 @@ func _on_timer_timeout():
 		label.text += char
 		if char == "\n":
 			play_rand_sound(sounds_return)
-			timer.wait_time = 1.25
+			timer.wait_time = 1.05
 		else:
 			play_rand_sound(sounds_click)
 			timer.wait_time = 0.05
