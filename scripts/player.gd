@@ -43,7 +43,7 @@ var can_jump: bool = false
 
 var is_descending: bool = false
 var descending_timer: float = 0.0
-var descending_delay: float = 0.1
+var descending_delay: float = 0.2
 
 func _ready():
 	add_to_group("player")

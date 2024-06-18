@@ -107,5 +107,3 @@ libraries = {
 "": SubResource("AnimationLibrary_hc6gm")
 }
 autoplay = "black_to_normal"
-
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
