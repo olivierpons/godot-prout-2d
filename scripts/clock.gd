@@ -8,11 +8,11 @@ var _player_node: Node
 func _ready():
 	if not player:  # never call _process() again:
 		set_physics_process(false)
-	
-func _process(delta):
 	_player_node = get_node(player)
 	if not _player_node:  # never call _process() again:
 		set_physics_process(false)
+	
+func _process(delta):
 	var player_position = _player_node.global_position
 	player_position.y -= 12
 	var direction = player_position - global_position

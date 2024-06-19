@@ -23,11 +23,11 @@ func _set_text_to_display(new_text: String) -> void:
 
 func _on_timer_timeout():
 	if label.text != text_to_display:
-		var char: String = text_to_display.substr(label.text.length(), 1)
-		label.text += char
-		if char == "\n":
+		var ch: String = text_to_display.substr(label.text.length(), 1)
+		label.text += ch
+		if ch == "\n":
 			play_rand_sound(sounds_return)
-			timer.wait_time = 1.05
+			timer.wait_time = .8
 		else:
 			play_rand_sound(sounds_click)
 			timer.wait_time = 0.05

@@ -1,10 +1,17 @@
 extends CharacterBody2D
 
+signal change_max_horizontal_speed(new_value: float)
+signal change_max_horizontal_acceleration_time(new_value: float)
+signal change_deceleration(new_value: float)
+signal change_max_jump_time(new_value: float)
+signal change_min_jump_force(new_value: float)
+signal change_max_jump_force(new_value: float)
+
 @export var label_last_modified: Label = null
 
 @export_group("Speed")
 @export var max_horizontal_speed = 250.0  # Max X speed
-@export var max_horizontal_acceleration_time:float = 5.0  # Time to reach max speed
+@export var max_horizontal_acceleration_time:float = 3.0  # Time to reach max speed
 @export var deceleration: float = 1000.0 # Deceleration when speed changes
 @export var max_jump_time = 0.1 # Maximum time for full jump
 @export var min_jump_force: float = 80.0  # Minimal jump force
@@ -180,3 +187,27 @@ func die():
 func bubble_talk(text: String) -> void:
 	# This will call the setter and display the text
 	bubble.text_to_display = text
+
+func _on_change_max_horizontal_speed(new_value: float):
+	print("_on_change_max_horizontal_speed")
+	max_horizontal_speed = new_value
+
+func _on_change_max_horizontal_acceleration_time(new_value: float):
+	print("_on_change_max_horizontal_acceleration_time")
+	max_horizontal_acceleration_time = new_value
+
+func _on_change_deceleration(new_value: float):
+	print("_on_change_deceleration")
+	deceleration = new_value
+
+func _on_change_max_jump_time(new_value: float):
+	print("_on_change_max_jump_time")
+	max_jump_time = new_value
+
+func _on_change_min_jump_force(new_value: float):
+	print("_on_change_min_jump_force")
+	min_jump_force = new_value
+
+func _on_change_max_jump_force(new_value: float):
+	print("_on_change_max_jump_force")
+	max_jump_force = new_value

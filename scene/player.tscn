@@ -404,3 +404,10 @@ hit_from_inside = true
 position = Vector2(2, 10)
 target_position = Vector2(0, 2)
 hit_from_inside = true
+
+[connection signal="change_deceleration" from="." to="." method="_on_change_deceleration"]
+[connection signal="change_max_horizontal_acceleration_time" from="." to="." method="_on_change_max_horizontal_acceleration_time"]
+[connection signal="change_max_horizontal_speed" from="." to="." method="_on_change_max_horizontal_speed"]
+[connection signal="change_max_jump_force" from="." to="." method="_on_change_max_jump_force"]
+[connection signal="change_max_jump_time" from="." to="." method="_on_change_max_jump_time"]
+[connection signal="change_min_jump_force" from="." to="." method="_on_change_min_jump_force"]

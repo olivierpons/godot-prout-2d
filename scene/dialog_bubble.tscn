@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://cyajrbivyt230"]
 
 [ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="1_kjaf7"]
-[ext_resource type="AudioStream" uid="uid://g278ydujevgq" path="res://assets/sounds/bubble/Foley_Object_TypeWriter_Key_Mono_01.mp3" id="2_3el5l"]
-[ext_resource type="Texture2D" uid="uid://cybrceow57v2a" path="res://assets/sprites/dialogs.png" id="2_fj5c1"]
+[ext_resource type="AudioStream" uid="uid://eh5wcj65yogy" path="res://assets/sounds/bubble/Foley_Object_TypeWriter_Key_Mono_01.mp3" id="2_3el5l"]
+[ext_resource type="Texture2D" uid="uid://jelas8its858" path="res://assets/sprites/dialogs.png" id="2_fj5c1"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="2_wx3co"]
-[ext_resource type="AudioStream" uid="uid://clj7mytp2ye18" path="res://assets/sounds/bubble/Foley_Object_TypeWriter_Key_Mono_02.mp3" id="3_ivau3"]
-[ext_resource type="AudioStream" uid="uid://w8y5ctbd0luy" path="res://assets/sounds/bubble/Foley_Object_TypeWriter_Return_Mono.mp3" id="4_nw6al"]
+[ext_resource type="AudioStream" uid="uid://mbatppiiedms" path="res://assets/sounds/bubble/Foley_Object_TypeWriter_Key_Mono_02.mp3" id="3_ivau3"]
+[ext_resource type="AudioStream" uid="uid://c8uw8xi521krd" path="res://assets/sounds/bubble/Foley_Object_TypeWriter_Return_Mono.mp3" id="4_nw6al"]
 [ext_resource type="Texture2D" uid="uid://co5fvleos4nhe" path="res://assets/sprites/world_dungeon.png" id="7_eaxtf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_32s68"]
