@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://bmsj7mns6nurd"]
+[gd_scene load_steps=20 format=3 uid="uid://bmsj7mns6nurd"]
 
 [ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="1_3em8i"]
+[ext_resource type="Script" path="res://scripts/level_03_tutorial.gd" id="1_e03i5"]
 [ext_resource type="AudioStream" uid="uid://ni5rts3mvvvl" path="res://assets/music/Fluttering_Breeze_Full_Track_with_Guitar_1min_20.mp3" id="2_h35rs"]
 [ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="3_4hrf0"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="4_pr1yl"]
@@ -240,8 +241,10 @@ distance = -85.0
 size = Vector2(29.5, 150)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_e03i5")
 
-[node name="GameManager" parent="." instance=ExtResource("1_3em8i")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("main_exit_door") instance=ExtResource("1_3em8i")]
+main_exit_door = NodePath("../exit_door")
 audio_stream = ExtResource("2_h35rs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -259,33 +262,25 @@ layer_0/tile_data = PackedInt32Array(-262170, 0, 15, -196634, 0, 15, -131098, 0,
 [node name="Label" type="Label" parent="Labels"]
 texture_filter = 1
 offset_left = -390.0
-offset_top = -196.0
+offset_top = -278.0
 offset_right = -152.0
-offset_bottom = -188.0
+offset_bottom = -270.0
 scale = Vector2(1.24676, 1.21628)
 theme_override_fonts/font = ExtResource("4_pr1yl")
 theme_override_font_sizes/font_size = 8
 text = "Get this potion to see what it does ! =>"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label3" type="Label" parent="Labels"]
-offset_left = 69.0
-offset_top = -237.0
-offset_right = 330.0
-offset_bottom = -196.0
+[node name="Label2" type="Label" parent="Labels"]
+texture_filter = 1
+offset_left = -391.0
+offset_top = -197.0
+offset_right = -153.0
+offset_bottom = -189.0
 scale = Vector2(1.24676, 1.21628)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 0
 theme_override_fonts/font = ExtResource("4_pr1yl")
 theme_override_font_sizes/font_size = 8
-text = "Collect all coins,
-and the door
-will open!
-<=-      -=>"
-vertical_alignment = 1
+text = "You liked it don't ya?"
 metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -293,18 +288,17 @@ position = Vector2(-24, 24)
 tile_set = ExtResource("5_wxfkg")
 format = 2
 layer_0/name = "Background"
-layer_0/tile_data = PackedInt32Array(-786469, 0, 18, -786468, 65536, 16, -786467, 131072, 16, -786466, 65536, 16, -786465, 131072, 16, -786464, 65536, 16, -786463, 131072, 16, -786462, 65536, 16, -786461, 131072, 16, -786460, 65536, 16, -786459, 131072, 16, -786458, 65536, 16, -786457, 131072, 16, -786456, 65536, 16, -786455, 65536, 16, -852005, 0, 17, -917541, 0, 17, -983077, 0, 17, -1048613, 0, 17, -1114149, 0, 17, -1179685, 0, 17, -1245221, 0, 17, -1310757, 0, 17, -1376293, 0, 17, -1441829, 0, 17, -1507365, 0, 17, -1572901, 0, 17, -786454, 131072, 16, -786453, 65536, 16, -786452, 131072, 16, -786451, 65536, 16, -786450, 131072, 16, -786449, 65536, 16, -786448, 131072, 16, -786447, 65536, 16, -786446, 131072, 16, -786445, 65536, 16, -786444, 131072, 16, -786443, 65536, 16, -786442, 131072, 16, -786441, 65536, 16, -786440, 131072, 16, -786439, 65536, 16, -786438, 131072, 16, -786437, 65536, 16, -786436, 131072, 16, -786435, 65536, 16, -786434, 131072, 16, -786433, 65536, 16, -851968, 131072, 16, -851967, 65536, 16, -851966, 131072, 16, -851965, 65536, 16, -851964, 131072, 16, -851963, 65536, 16, -851962, 131072, 16, -851961, 65536, 16, -851960, 131072, 16, -851959, 65536, 16, -851958, 131072, 16, -851957, 65536, 16, -851956, 131072, 16, -851955, 65536, 16, -851954, 65536, 16, -851953, 131072, 16, -851952, 65536, 16, -851951, 131072, 16, -851950, 65536, 16, -851949, 131072, 16, -851948, 65536, 16, -851947, 131072, 16, -851946, 65536, 16, -851945, 131072, 16, -851944, 65536, 16, -851943, 131072, 16, -851942, 65536, 16, -851941, 131072, 16, -851940, 65536, 16, -851939, 131072, 16, -851938, 65536, 16, -851937, 131072, 16, -851936, 65536, 16, -851935, 131072, 16, -851934, 65536, 16, -851933, 131072, 16, -851932, 65536, 16, -851931, 131072, 16, -851930, 65536, 16, -851929, 131072, 16, -851928, 65536, 16, -851927, 131072, 16, -851926, 65536, 16, -851925, 131072, 16, -851924, 65536, 16, -851923, 131072, 16, -851922, 196608, 16)
 layer_1/name = "Mid"
-layer_1/tile_data = PackedInt32Array(-917457, 65536, 1, -982993, 65536, 0, -1048529, 65536, 1, -1441745, 65536, 1, -1376209, 65536, 0, -1310673, 65536, 1, -1245137, 65536, 0, -1179601, 65536, 1, -1114065, 65536, 0)
+layer_1/tile_data = PackedInt32Array(-917457, 196608, 17, -982993, 196608, 17, -1048529, 196608, 17, -1441745, 196608, 17, -1376209, 196608, 17, -1310673, 196608, 17, -1245137, 196608, 17, -1179601, 196608, 17, -1114065, 196608, 17, -1769517, 0, 17, -1703981, 0, 17, -1638445, 0, 17, -1572909, 0, 17, -1507373, 0, 17, -1441837, 0, 17, -1376301, 0, 17, -1310765, 0, 17, -1245229, 0, 17, -1179693, 0, 17, -1114157, 0, 18, -1048621, 0, 17, -983085, 0, 17, -786476, 0, 16, -1114156, 0, 16, -786477, 0, 18, -917549, 0, 17, -852013, 0, 17, -786475, 65536, 18, -786474, 131072, 18, -786473, 65536, 18, -786472, 131072, 18, -786471, 65536, 18, -786470, 131072, 18, -786469, 65536, 18, -786468, 131072, 18, -786467, 65536, 18, -786466, 131072, 18, -786465, 65536, 18, -786464, 131072, 18, -786463, 65536, 18, -786462, 131072, 18, -786461, 65536, 18, -786460, 131072, 18, -786459, 65536, 18, -786458, 131072, 18, -786457, 65536, 18, -786456, 131072, 18, -786455, 65536, 18, -786454, 131072, 18, -786453, 65536, 18, -786452, 131072, 18, -786451, 65536, 18, -786450, 131072, 18, -786449, 65536, 18, -786448, 131072, 18, -786447, 65536, 18, -786446, 131072, 18, -786445, 65536, 18, -786444, 131072, 18, -786443, 65536, 18, -786442, 131072, 18, -786441, 65536, 18, -786440, 131072, 18, -786439, 65536, 18, -786438, 131072, 18, -786437, 65536, 18, -786436, 131072, 18, -786435, 65536, 18, -786434, 131072, 18, -786433, 65536, 18, -851968, 131072, 18, -851967, 65536, 18, -851966, 131072, 18, -851965, 65536, 18, -851964, 131072, 18, -851963, 65536, 18, -851962, 131072, 18, -851961, 65536, 18, -851960, 131072, 18, -851959, 65536, 18, -851958, 131072, 18, -851957, 65536, 18, -851956, 131072, 18, -851955, 65536, 18, -851954, 131072, 18, -851953, 65536, 18, -851952, 131072, 18, -851951, 65536, 18, -851950, 131072, 18, -851949, 65536, 18, -851948, 131072, 18, -851947, 65536, 18, -851946, 131072, 18, -851945, 65536, 18, -851944, 131072, 18, -851943, 65536, 18, -851942, 131072, 18, -851941, 65536, 18, -851940, 131072, 18, -851939, 65536, 18, -851938, 131072, 18, -851937, 65536, 18, -851936, 131072, 18, -851935, 65536, 18, -851934, 131072, 18, -851933, 65536, 18, -851932, 131072, 18, -851931, 65536, 18, -851930, 131072, 18, -851929, 65536, 18, -851928, 131072, 18, -851927, 65536, 18, -851926, 131072, 18, -851925, 65536, 18, -851924, 131072, 18, -851923, 65536, 18, -851922, 131072, 18, -851921, 196608, 18, -1638353, 196608, 17, -1572817, 196608, 17, -1507281, 196608, 17, -1114154, 131072, 18, -1114155, 65536, 18, -1114153, 65536, 18, -1114152, 131072, 18, -1114151, 65536, 18, -1114150, 131072, 18, -1114149, 65536, 18, -1114148, 131072, 18, -1114147, 65536, 18, -1114146, 131072, 18, -1114145, 65536, 18, -1114144, 131072, 18, -1114143, 65536, 18, -1114142, 131072, 18, -1114141, 65536, 18, -1114140, 131072, 18, -1114139, 65536, 18, -1114138, 131072, 18, -1114137, 65536, 18, -1114136, 131072, 18, -1114135, 65536, 18, -1114134, 131072, 18, -1114133, 65536, 18, -1114132, 131072, 18, -1114131, 65536, 18, -1114130, 131072, 18, -1114129, 65536, 18, -1114128, 131072, 18, -1114127, 65536, 18, -1114126, 131072, 18, -1114125, 65536, 18, -1114124, 131072, 18, -1114123, 65536, 18, -1114122, 131072, 18, -1114121, 65536, 18, -1114120, 131072, 18, -1114119, 65536, 18, -1114118, 131072, 18, -1114117, 65536, 18, -1114116, 131072, 18, -1114115, 65536, 18, -1114114, 131072, 18, -1114113, 65536, 18, -1179648, 131072, 18, -1179647, 65536, 18, -1179646, 131072, 18, -1179645, 65536, 18, -1179644, 131072, 18, -1179643, 65536, 18, -1179642, 131072, 18, -1179641, 65536, 18, -1179640, 131072, 18, -1179639, 65536, 18, -1179638, 131072, 18, -1179637, 65536, 18, -1179636, 131072, 18, -1179635, 65536, 18, -1179634, 131072, 18, -1179633, 65536, 18, -1179632, 131072, 18, -1179631, 65536, 18, -1179630, 131072, 18, -1179629, 65536, 18, -1179628, 131072, 18, -1179627, 65536, 18, -1179626, 131072, 18, -1179625, 65536, 18, -1179624, 131072, 18, -1179623, 65536, 18, -1179622, 131072, 18, -1179621, 65536, 18, -1179620, 131072, 18, -1179619, 65536, 18, -1179618, 131072, 18, -1179617, 65536, 18, -1179616, 131072, 18, -1179615, 65536, 18, -1179614, 131072, 18, -1179613, 65536, 18, -1179612, 131072, 18, -1179611, 196608, 16, -1179610, 589824, 1, -1179609, 655360, 1, -1179608, 720896, 1, -1179607, 589824, 1, -1179606, 655360, 1, -1179605, 720896, 1, -1179604, 589824, 1, -1179603, 655360, 1, -1179602, 720896, 1, -1114075, 327680, 18, -1048590, 327680, 18, -1048617, 327680, 18, -1114092, 327680, 18, -917546, 65536, 0, -852010, 65536, 1, -983082, 65536, 0, -917516, 65536, 0, -851980, 65536, 1, -1048591, 65536, 0, -983055, 65536, 1, -917528, 65536, 0, -851992, 65536, 1, -917519, 65536, 1, -983052, 65536, 1, -983064, 65536, 1)
 layer_2/name = "Foreground"
 layer_2/z_index = 10
 layer_2/tile_data = PackedInt32Array()
 
 [node name="Bottle" parent="." instance=ExtResource("6_ehpso")]
-position = Vector2(-83, -190)
+position = Vector2(-52, -272)
 
 [node name="Player" parent="." instance=ExtResource("6_rq4eh")]
-position = Vector2(-539, -247)
+position = Vector2(-539, -340)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -11)
@@ -332,47 +326,12 @@ shape = SubResource("WorldBoundaryShape2D_bj46j")
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("9_2ihhc")]
-position = Vector2(-314, -346)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
-
-[node name="Coin2" parent="Coins" instance=ExtResource("9_2ihhc")]
-position = Vector2(-287, -358)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
-
-[node name="Coin3" parent="Coins" instance=ExtResource("9_2ihhc")]
-position = Vector2(-269, -392)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
-
-[node name="Coin4" parent="Coins" instance=ExtResource("9_2ihhc")]
-position = Vector2(-237, -422)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
-
-[node name="Coin5" parent="Coins" instance=ExtResource("9_2ihhc")]
-position = Vector2(-214, -452)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
-
-[node name="Coin6" parent="Coins" instance=ExtResource("9_2ihhc")]
-position = Vector2(-179, -481)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
-
-[node name="Coin7" parent="Coins" instance=ExtResource("9_2ihhc")]
-position = Vector2(165, -192)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
-
-[node name="Coin8" parent="Coins" instance=ExtResource("9_2ihhc")]
-position = Vector2(-156, -505)
+position = Vector2(512, -273)
 delay_before_falling = 5000.0
 falling_speed_gravity = 392
 
 [node name="Coin9" parent="Coins" instance=ExtResource("9_2ihhc")]
-position = Vector2(-124, -545)
+position = Vector2(694, -272)
 delay_before_falling = 5000.0
 falling_speed_gravity = 392
 
@@ -388,8 +347,8 @@ shape = SubResource("RectangleShape2D_fpl82")
 
 [node name="exit_door" parent="." instance=ExtResource("11_osg7v")]
 z_index = -1
-position = Vector2(47, -184)
-next_level = 1
+position = Vector2(-716, -184)
+next_level = 3
 
 [node name="canvas_layer_for_all" parent="." instance=ExtResource("12_4cff3")]
 label_for_level = "Tutorial"

@@ -6,6 +6,7 @@ signal change_deceleration(new_value: float)
 signal change_max_jump_time(new_value: float)
 signal change_min_jump_force(new_value: float)
 signal change_max_jump_force(new_value: float)
+signal speak(what: String)
 
 @export var label_last_modified: Label = null
 
@@ -189,25 +190,22 @@ func bubble_talk(text: String) -> void:
 	bubble.text_to_display = text
 
 func _on_change_max_horizontal_speed(new_value: float):
-	print("_on_change_max_horizontal_speed")
 	max_horizontal_speed = new_value
 
 func _on_change_max_horizontal_acceleration_time(new_value: float):
-	print("_on_change_max_horizontal_acceleration_time")
 	max_horizontal_acceleration_time = new_value
 
 func _on_change_deceleration(new_value: float):
-	print("_on_change_deceleration")
 	deceleration = new_value
 
 func _on_change_max_jump_time(new_value: float):
-	print("_on_change_max_jump_time")
 	max_jump_time = new_value
 
 func _on_change_min_jump_force(new_value: float):
-	print("_on_change_min_jump_force")
 	min_jump_force = new_value
 
 func _on_change_max_jump_force(new_value: float):
-	print("_on_change_max_jump_force")
 	max_jump_force = new_value
+
+func _on_speak(what: String):
+	bubble_talk(what)

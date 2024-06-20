@@ -411,3 +411,4 @@ hit_from_inside = true
 [connection signal="change_max_jump_force" from="." to="." method="_on_change_max_jump_force"]
 [connection signal="change_max_jump_time" from="." to="." method="_on_change_max_jump_time"]
 [connection signal="change_min_jump_force" from="." to="." method="_on_change_min_jump_force"]
+[connection signal="speak" from="." to="." method="_on_speak"]

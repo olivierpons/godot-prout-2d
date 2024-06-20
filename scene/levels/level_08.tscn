@@ -216,7 +216,7 @@ metadata/_edit_use_anchors_ = true
 [node name="exit_door" parent="." instance=ExtResource("7_lwgxi")]
 z_index = -1
 position = Vector2(-344, -93)
-next_level = 9
+next_level = 10
 
 [node name="canvas_layer_for_all" parent="." instance=ExtResource("8_phl4k")]
 label_for_level = "Level 08"
