@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://0gqlmk7mp3ms"]
+[gd_scene load_steps=8 format=3 uid="uid://0gqlmk7mp3ms"]
 
-[ext_resource type="FontFile" uid="uid://bs6mhkgo5fbma" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_c8b0w"]
 [ext_resource type="Script" path="res://scripts/canvas_layer_for_all.gd" id="1_u3hlp"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="2_niwnj"]
 [ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="3_8yda8"]
@@ -13,6 +12,8 @@ size = Vector2(450, 220)
 
 [node name="canvas_layer_for_all" type="CanvasLayer"]
 script = ExtResource("1_u3hlp")
+mobile_left_right_positions = Array[Vector2]([Vector2(234, 412), Vector2(1159, 412)])
+mobile_up_down_positions = Array[Vector2]([Vector2(1292, 540), Vector2(123, 540)])
 
 [node name="LabelLevel" type="Label" parent="."]
 offset_left = 31.0
@@ -22,7 +23,7 @@ offset_bottom = 40.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
-theme_override_fonts/font = ExtResource("1_c8b0w")
+theme_override_fonts/font = ExtResource("2_niwnj")
 theme_override_font_sizes/font_size = 32
 text = "Level (to be filled)"
 
@@ -34,7 +35,7 @@ offset_bottom = 76.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
-theme_override_fonts/font = ExtResource("1_c8b0w")
+theme_override_fonts/font = ExtResource("2_niwnj")
 theme_override_font_sizes/font_size = 32
 text = "Description (to be filled)"
 
@@ -50,11 +51,11 @@ theme_override_font_sizes/font_size = 32
 text = "Grab XXX coins."
 vertical_alignment = 1
 
-[node name="mobile-joystick" parent="." instance=ExtResource("3_8yda8")]
+[node name="mobile_left_right" parent="." instance=ExtResource("3_8yda8")]
 position = Vector2(234, 412)
 
 [node name="mobile_up_down" parent="." instance=ExtResource("4_sslw1")]
-position = Vector2(1292, 541)
+position = Vector2(1292, 540)
 
 [node name="btn_show_hide_mobile" type="TouchScreenButton" parent="."]
 self_modulate = Color(1, 1, 1, 0.305882)
