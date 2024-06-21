@@ -49,11 +49,11 @@ func _ready():
 
 	global.crossfade_to(audio_stream)
 	# (!) initialize global fade_in_out_node each time the player spawns:
-	var player: Node = get_tree().root.find_child("Player", true, false)
 	global.fade_anim_player = (
-		player
-			.find_child("FadeInOut", true, false)
-			.find_child("AnimationPlayer", true, false)
+		get_tree().root
+			.find_child("canvas_layer_for_all", true, false)
+			.get_fade_in_out()
+			.get_animation_player()
 	)
 	_label_score = game.find_child("LabelScore", true, false)
 	call_deferred("_count_coins")

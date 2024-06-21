@@ -271,7 +271,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_23g5j"]
-radius = 4.0
+radius = 5.0
 height = 12.0
 
 [sub_resource type="Animation" id="Animation_qcjr8"]
@@ -411,4 +411,5 @@ hit_from_inside = true
 [connection signal="change_max_jump_force" from="." to="." method="_on_change_max_jump_force"]
 [connection signal="change_max_jump_time" from="." to="." method="_on_change_max_jump_time"]
 [connection signal="change_min_jump_force" from="." to="." method="_on_change_min_jump_force"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="speak" from="." to="." method="_on_speak"]

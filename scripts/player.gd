@@ -209,3 +209,7 @@ func _on_change_max_jump_force(new_value: float):
 
 func _on_speak(what: String):
 	bubble_talk(what)
+
+
+func _on_input_event(viewport, event, shape_idx):
+	print(viewport, event, shape_idx)

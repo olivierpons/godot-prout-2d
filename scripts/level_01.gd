@@ -10,7 +10,7 @@ func _ready():
 	)
 	var timer := Timer.new()
 	add_child(timer)
-	timer.wait_time = 1.0
+	timer.wait_time = .40
 	timer.one_shot = true
 	timer.connect("timeout", _on_timer_timeout)
 	timer.start()

@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxadesrapaiqd"]
+[gd_scene load_steps=9 format=3 uid="uid://bxadesrapaiqd"]
 
 [ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="1_ncffl"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_dd46c"]
 [ext_resource type="Script" path="res://scripts/tilemap_maze.gd" id="3_lisns"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_ulsyu"]
-[ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="8_kh3fe"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="9_p3ovr"]
 [ext_resource type="PackedScene" uid="uid://0gqlmk7mp3ms" path="res://scene/canvas_layer_for_all.tscn" id="10_di51u"]
 [ext_resource type="PackedScene" uid="uid://dbwulrbhchhqc" path="res://scene/exit_door.tscn" id="16_qsdgc"]
@@ -55,15 +54,6 @@ zoom = Vector2(4, 4)
 process_callback = 0
 limit_bottom = 880
 position_smoothing_enabled = true
-
-[node name="FadeInOut" parent="Player" instance=ExtResource("8_kh3fe")]
-visible = false
-z_index = 4096
-offset_left = -175.0
-offset_top = -92.0
-offset_right = 1225.0
-offset_bottom = 556.0
-scale = Vector2(0.25, 0.25)
 
 [node name="Killzone" parent="." instance=ExtResource("9_p3ovr")]
 position = Vector2(-976, 155)

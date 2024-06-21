@@ -1,9 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://ciyudla2h5qup"]
+[gd_scene load_steps=18 format=3 uid="uid://ciyudla2h5qup"]
 
 [ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="1_oa87a"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_ljj2y"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="4_v3eb3"]
-[ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="5_d3org"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="6_j1all"]
 [ext_resource type="PackedScene" uid="uid://dac5wao2fkvh6" path="res://scene/coin.tscn" id="6_r0uer"]
 [ext_resource type="PackedScene" uid="uid://bxyas17k6e5wo" path="res://scene/platform.tscn" id="7_ic0sa"]
@@ -124,15 +123,6 @@ position = Vector2(0, -11)
 zoom = Vector2(4, 4)
 process_callback = 0
 limit_bottom = 160
-
-[node name="FadeInOut" parent="Player" instance=ExtResource("5_d3org")]
-visible = false
-z_index = 4096
-offset_left = -175.0
-offset_top = -92.0
-offset_right = 1225.0
-offset_bottom = 556.0
-scale = Vector2(0.25, 0.25)
 
 [node name="Killzone" parent="." instance=ExtResource("6_j1all")]
 position = Vector2(175, -27)

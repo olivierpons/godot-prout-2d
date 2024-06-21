@@ -18,28 +18,32 @@ func out(msg: String) -> void:
 		msg_previous = msg
 		print(msg)
 
+func find_next_level(level_name: String) -> PackedScene:
+	for scene in scenes:
+		if scene.resource_path.find(level_name) != -1:
+			return scene
+	return null
+
 var _next_level: int = -1
 func go_to_level(
-	p_next_level: int, player: Node=null, door: Node=null
+	next_level: PackedScene, player: Node=null, door: Node=null
 ):
-	if (p_next_level < 0) or (p_next_level >= scenes.size()):
-		return
-	_next_level = p_next_level
-	Engine.time_scale = 0.4
-	if player:
-		player.is_waiting_end_level = true
-		player.velocity = Vector2(0, 0)
-	if door:
-		door.audio_stream_player_exit.play()
-	fade_anim_player.animation_finished.connect(
-		_on_animation_finished
-	)
-	fade_anim_player.play("normal_to_black")
-
-func _on_next_level(
-	p_next_level: int, player: Node=null, door: Node=null
-):
-	go_to_level(p_next_level, player, door)
+	var level_name: String = next_level.resource_path
+	_next_level = 0
+	for scene in scenes:
+		if scene.resource_path.find(level_name) != -1:
+			Engine.time_scale = 0.4
+			if player:
+				player.is_waiting_end_level = true
+				player.velocity = Vector2(0, 0)
+			if door:
+				door.audio_stream_player_exit.play()
+			fade_anim_player.animation_finished.connect(
+				_on_animation_finished
+			)
+			fade_anim_player.play("normal_to_black")
+		_next_level += 1
+	_next_level = -1
 
 func _on_animation_finished(anim_name):
 	if anim_name == "normal_to_black":

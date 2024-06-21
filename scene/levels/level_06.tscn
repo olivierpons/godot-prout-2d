@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://buy8x3y4cvoqt"]
+[gd_scene load_steps=11 format=3 uid="uid://buy8x3y4cvoqt"]
 
 [ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="1_bsyfr"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_dd46c"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_ulsyu"]
 [ext_resource type="PackedScene" uid="uid://b4pjie74sibrc" path="res://scene/monsters/mushroom.tscn" id="7_rv0ma"]
-[ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="8_kh3fe"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="9_p3ovr"]
 [ext_resource type="PackedScene" uid="uid://dac5wao2fkvh6" path="res://scene/coin.tscn" id="10_mgh35"]
 [ext_resource type="PackedScene" uid="uid://3t6eurk5jo4d" path="res://scene/monsters/skeletton.tscn" id="13_vsc5f"]
@@ -47,15 +46,6 @@ position = Vector2(0, -11)
 zoom = Vector2(4, 4)
 process_callback = 0
 limit_bottom = 160
-
-[node name="FadeInOut" parent="Player" instance=ExtResource("8_kh3fe")]
-visible = false
-z_index = 4096
-offset_left = -175.0
-offset_top = -92.0
-offset_right = 1225.0
-offset_bottom = 556.0
-scale = Vector2(0.25, 0.25)
 
 [node name="Killzone" parent="." instance=ExtResource("9_p3ovr")]
 position = Vector2(176, 15)

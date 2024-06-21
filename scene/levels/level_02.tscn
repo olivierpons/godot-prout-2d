@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cwsdymarimgk4"]
+[gd_scene load_steps=15 format=3 uid="uid://cwsdymarimgk4"]
 
 [ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="1_y57b0"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_3xocm"]
 [ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="2_eajxx"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_oe2p5"]
-[ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="8_gr4cb"]
 [ext_resource type="FontFile" uid="uid://bs6mhkgo5fbma" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="8_l713k"]
 [ext_resource type="PackedScene" uid="uid://b0q8hcs8i3air" path="res://scene/monsters/clock.tscn" id="9_oymob"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="9_vbytk"]
@@ -259,15 +258,6 @@ zoom = Vector2(4, 4)
 process_callback = 0
 limit_bottom = 160
 
-[node name="FadeInOut" parent="Player" instance=ExtResource("8_gr4cb")]
-visible = false
-z_index = 4096
-offset_left = -175.0
-offset_top = -92.0
-offset_right = 1225.0
-offset_bottom = 556.0
-scale = Vector2(0.25, 0.25)
-
 [node name="CanvasLayer 1_2" type="CanvasLayer" parent="."]
 layer = -1
 follow_viewport_enabled = true
@@ -352,7 +342,6 @@ rotation_speed = 5.0
 [node name="exit_door" parent="." instance=ExtResource("12_ekbo0")]
 z_index = -1
 position = Vector2(-539, -184)
-next_level = 4
 
 [node name="canvas_layer_for_all" parent="." instance=ExtResource("10_uaan6")]
 label_for_level = "Parallax scrolling!"

@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbwulrbhchhqc"]
+[gd_scene load_steps=13 format=3 uid="uid://dbwulrbhchhqc"]
 
 [ext_resource type="Script" path="res://scripts/exit_door.gd" id="1_ebc77"]
 [ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="1_jh7ym"]
-[ext_resource type="AudioStream" uid="uid://uxgjri0sfghn" path="res://assets/sounds/door-open - comfused.mp3" id="3_jteto"]
+[ext_resource type="AudioStream" uid="uid://duqovqg88ntnd" path="res://assets/sounds/SFX_Positive.mp3" id="3_b8q2f"]
+[ext_resource type="AudioStream" uid="uid://dmy11nmdwfhe2" path="res://assets/sounds/SFX_Victory_Sound.mp3" id="4_3sbwi"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v7b3h"]
 particle_flag_disable_z = true
@@ -116,10 +117,10 @@ animation = &"locked"
 offset = Vector2(0, -16)
 
 [node name="AudioStreamOpenDoor" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_jteto")
+stream = ExtResource("3_b8q2f")
 
 [node name="AudioStreamPlayerExit" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_jteto")
+stream = ExtResource("4_3sbwi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

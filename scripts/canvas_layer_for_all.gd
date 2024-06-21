@@ -18,6 +18,9 @@ signal signal_btn_next_level()
 @onready var mobile_left_right: Node2D = $mobile_left_right
 @onready var mobile_up_down: Node2D = $mobile_up_down
 
+func get_fade_in_out() -> Node2D:
+	return find_child("fade_in_out", true, false)
+	
 func switch_mobile_controls():
 	mobile_left_right.position = mobile_left_right_positions[1]
 	mobile_left_right.switch_press_zones()
@@ -29,7 +32,8 @@ func _ready():
 	if not Engine.is_editor_hint():
 		mobile_left_right.visible = global.mobile_visible
 		mobile_up_down.visible = global.mobile_visible
-		switch_mobile_controls()
+		# Test: it's working:
+		# switch_mobile_controls()
 
 func _get_label_for_level() -> String:
 	return label_for_level

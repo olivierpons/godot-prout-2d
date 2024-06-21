@@ -18,7 +18,7 @@ func _set_text_to_display(new_text: String) -> void:
 	text_to_display = new_text
 	label.text = ""
 	animation_player.play("show")
-	await animation_player.animation_finished
+	timer.wait_time = 0.01
 	timer.start()
 
 func _on_timer_timeout():
@@ -27,17 +27,16 @@ func _on_timer_timeout():
 		label.text += ch
 		if ch == "\n":
 			play_rand_sound(sounds_return)
-			timer.wait_time = .8
+			timer.wait_time = .7
 		else:
 			play_rand_sound(sounds_click)
-			timer.wait_time = 0.05
+			timer.wait_time = 0.06
 		timer.start()
-	elif timer.wait_time == 1.0:
+	elif timer.wait_time == 1.00:
 		timer.stop()
 		animation_player.play("hide")
-		await animation_player.animation_finished
 	else:
-		timer.wait_time = 1.0
+		timer.wait_time = 1.00
 		timer.start()
 
 func play_rand_sound(sounds: Array[AudioStreamMP3]):
