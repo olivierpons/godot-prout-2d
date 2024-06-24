@@ -1,0 +1,292 @@
+[gd_scene load_steps=13 format=3 uid="uid://d030ujaei1x65"]
+
+[ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="2_dsu5g"]
+[ext_resource type="AudioStream" uid="uid://ni5rts3mvvvl" path="res://assets/music/Fluttering_Breeze_Full_Track_with_Guitar_1min_20.mp3" id="3_5l117"]
+[ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="4_h1h6g"]
+[ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="6_mgghn"]
+[ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="7_yy85d"]
+[ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="8_xcv8o"]
+[ext_resource type="PackedScene" uid="uid://dbwulrbhchhqc" path="res://scene/exit_door.tscn" id="11_qi2co"]
+[ext_resource type="PackedScene" uid="uid://0gqlmk7mp3ms" path="res://scene/canvas_layer_for_all.tscn" id="12_e824k"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_58qa4"]
+tile_data = PackedInt32Array(0, 0, 9, 65536, 0, 9, 131072, 0, 9, 196608, 0, 9, 262144, 0, 9, 327680, 0, 9, 393216, 0, 9, 458752, 0, 9, 524288, 0, 9, 589824, 0, 10, 655360, 0, 11, 720896, 0, 11, 786432, 0, 11, 851968, 0, 11, 917504, 0, 11, 983040, 0, 11, 1048576, 0, 11, 1114112, 0, 12, 1179648, 0, 13, 1245184, 0, 13, 1310720, 0, 13, 1376256, 0, 13, 1441792, 0, 13, 1507328, 0, 13, 1572864, 0, 13, 1638400, 0, 14, 1703936, 0, 15, 1769472, 0, 15, 1835008, 0, 15, 1900544, 0, 15, 1966080, 0, 15, 2031616, 0, 15, 2097152, 0, 15, 2162688, 0, 15, 2228224, 0, 15)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g1fw3"]
+texture = ExtResource("4_h1h6g")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+15:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+3:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+6:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+8:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+0:17/0 = 0
+7:17/0 = 0
+0:18/0 = 0
+1:18/0 = 0
+2:18/0 = 0
+3:18/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mxrqo"]
+sources/0 = SubResource("TileSetAtlasSource_g1fw3")
+pattern_0 = SubResource("TileMapPattern_58qa4")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e1f2y"]
+distance = -85.0
+
+[node name="Game" type="Node2D"]
+metadata/_edit_vertical_guides_ = [-146.0]
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("main_exit_door") instance=ExtResource("2_dsu5g")]
+main_exit_door = NodePath("../exit_door")
+audio_stream = ExtResource("3_5l117")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="TileMap" type="TileMap" parent="CanvasLayer"]
+tile_set = SubResource("TileSet_mxrqo")
+format = 2
+layer_0/tile_data = PackedInt32Array(-2293831, 0, 9, -2228295, 0, 9, -2162759, 0, 9, -2097223, 0, 9, -2031687, 0, 9, -1966151, 0, 9, -1900615, 0, 9, -1835079, 0, 9, -1769543, 0, 9, -1704007, 0, 9, -1638471, 0, 10, -1572935, 0, 11, -1507399, 0, 11, -1441863, 0, 11, -1376327, 0, 11, -1310791, 0, 11, -1245255, 0, 11, -1179719, 0, 11, -1114183, 0, 11, -1048647, 0, 11, -983111, 0, 12, -917575, 0, 13, -852039, 0, 13, -786503, 0, 13, -720967, 0, 13, -655431, 0, 13, -589895, 0, 13, -524359, 0, 14, -458823, 0, 15, -393287, 0, 15, -327751, 0, 15, -262215, 0, 15, -196679, 0, 15, -131143, 0, 15, -65607, 0, 15, -71, 0, 15, 65465, 0, 15, 131001, 0, 15, 196537, 0, 15, 262073, 0, 15, 327609, 0, 15, -2359217, 0, 9, -2293681, 0, 9, -2228145, 0, 9, -2162609, 0, 9, -2097073, 0, 9, -2031537, 0, 9, -1966001, 0, 9, -1900465, 0, 9, -1834929, 0, 9, -1769393, 0, 9, -1703857, 0, 10, -1638321, 0, 11, -1572785, 0, 11, -1507249, 0, 11, -1441713, 0, 11, -1376177, 0, 11, -1310641, 0, 11, -1245105, 0, 11, -1179569, 0, 11, -1114033, 0, 11, -1048497, 0, 12, -982961, 0, 13, -917425, 0, 13, -851889, 0, 13, -786353, 0, 13, -720817, 0, 13, -655281, 0, 13, -589745, 0, 14, -458673, 0, 15, -393137, 0, 15, -327601, 0, 15, -262065, 0, 15, -196529, 0, 15, -130993, 0, 15, -65457, 0, 15, 79, 0, 15, 65615, 0, 15, 131151, 0, 15, 196687, 0, 15, 262223, 0, 15, -524209, 0, 15)
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-24, 24)
+tile_set = ExtResource("6_mgghn")
+format = 2
+layer_0/name = "Background"
+layer_1/name = "Mid"
+layer_1/tile_data = PackedInt32Array(-786463, 65536, 18, -786462, 131072, 18, -786465, 65536, 18, -786464, 131072, 18, -786466, 0, 18, -786461, 196608, 18, -851997, 196608, 17, -917533, 196608, 17, -983069, 196608, 17, -1048605, 196608, 17, -1114141, 196608, 17, -1179677, 196608, 17, -1245213, 196608, 17, -852002, 0, 17, -917538, 0, 17, -983074, 0, 17, -1048610, 0, 17, -1114146, 0, 17, -1179682, 0, 17, -1245218, 0, 17)
+layer_2/name = "Foreground"
+layer_2/z_index = 10
+layer_2/tile_data = PackedInt32Array()
+
+[node name="Player" parent="." instance=ExtResource("7_yy85d")]
+position = Vector2(-539, -247)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -11)
+zoom = Vector2(4, 4)
+process_callback = 0
+limit_bottom = 160
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="Killzone" parent="." instance=ExtResource("8_xcv8o")]
+position = Vector2(176, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_e1f2y")
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="Monsters" type="Node" parent="."]
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="exit_door" parent="." instance=ExtResource("11_qi2co")]
+z_index = -1
+position = Vector2(-501, -184)
+
+[node name="canvas_layer_for_all" parent="." instance=ExtResource("12_e824k")]
+label_for_level = "Tutorial"
+label_description_level = ""

@@ -15,10 +15,10 @@ func _ready():
 	timer.connect("timeout", _on_timer_timeout)
 	timer.start()
 
-func _on_all_coins_collected():
-	player.bubble_talk("Now,\nI should\ngo to the\nexit door!")
-
 func _on_timer_timeout() -> void:
 	player.bubble_talk(
-		"Sometimes,\nI can go down!\n...\nWhen the floor is thin!"
+		"Sometimes, I can go down!\n...When the floor is thin!"
 	)
+
+func _on_all_coins_collected():
+	player.bubble_talk("Now, I should go\nto the exit door!")

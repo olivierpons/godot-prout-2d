@@ -4,9 +4,9 @@
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="2_niwnj"]
 [ext_resource type="PackedScene" uid="uid://dj1pcbx3uhi5j" path="res://scene/mobile_joystick.tscn" id="3_8yda8"]
 [ext_resource type="PackedScene" uid="uid://cpjysr1oeb3yc" path="res://scene/mobile_actions.tscn" id="4_sslw1"]
-[ext_resource type="Texture2D" uid="uid://bqrfghqw4pne4" path="res://assets/sprites/joystick_mobile/joypad.png" id="6_l5lpf"]
+[ext_resource type="Texture2D" uid="uid://decjww6mvh1fu" path="res://assets/sprites/joystick_mobile/joypad.png" id="6_l5lpf"]
 [ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="7_551ug"]
-[ext_resource type="Texture2D" uid="uid://dm8e6elyubhky" path="res://assets/sprites/double-arrow.png" id="7_krs64"]
+[ext_resource type="Texture2D" uid="uid://lqey81cxwfc0" path="res://assets/sprites/double-arrow.png" id="7_krs64"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbqib"]
 size = Vector2(450, 220)

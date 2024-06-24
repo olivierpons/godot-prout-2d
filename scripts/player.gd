@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name PlayerController
+
 signal change_max_horizontal_speed(new_value: float)
 signal change_max_horizontal_acceleration_time(new_value: float)
 signal change_deceleration(new_value: float)

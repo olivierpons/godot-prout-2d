@@ -16,7 +16,7 @@ func _ready():
 	timer.start()
 
 func _on_all_coins_collected():
-	player.bubble_talk("Now,\nI should\ngo to the\nexit door!")
+	player.bubble_talk("Now, I should\ngo to the exit door!")
 
 func _on_timer_timeout() -> void:
 	player.bubble_talk("Let's search\nthe gold I deserve!")
