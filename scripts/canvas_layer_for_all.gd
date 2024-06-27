@@ -17,6 +17,7 @@ signal signal_btn_next_level()
 @onready var label_desc = $LabelDesc
 @onready var mobile_left_right: Node2D = $mobile_left_right
 @onready var mobile_up_down: Node2D = $mobile_up_down
+@onready var options = $options
 
 func get_fade_in_out() -> Node2D:
 	return find_child("fade_in_out", true, false)
@@ -51,12 +52,13 @@ func _set_label_description_level(new_value: String) -> void:
 	if label_desc:
 		label_desc.text = new_value
 
-func _on_touch_screen_button_released():
+func _on_btn_next_level_pressed():
+	emit_signal("signal_btn_next_level")
+
+func _on_btn_options_pressed():
+	#global.mobile_visible = not global.mobile_visible
+	#mobile_left_right.visible = global.mobile_visible
+	#mobile_up_down.visible = global.mobile_visible
 	if Engine.is_editor_hint():  # in editor = do nothing:
 		return
-	global.mobile_visible = not global.mobile_visible
-	mobile_left_right.visible = global.mobile_visible
-	mobile_up_down.visible = global.mobile_visible
-
-func _on_btn_next_level_released():
-	emit_signal("signal_btn_next_level")
+	options.visible = true

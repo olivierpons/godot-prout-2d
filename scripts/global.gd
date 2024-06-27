@@ -84,9 +84,12 @@ func go_to_next_level(player: Node=null, door: Node=null):
 		player.velocity = Vector2(0, 0)
 	if door:
 		door.audio_stream_player_exit.play()
-	fade_anim_player.animation_finished.connect(
+	if not fade_anim_player.animation_finished.is_connected(
 		_on_animation_finished
-	)
+	):
+		fade_anim_player.animation_finished.connect(
+			_on_animation_finished
+		)
 	fade_anim_player.play("normal_to_black")
 
 
@@ -126,26 +129,3 @@ func crossfade_to(audio_stream: AudioStream) -> void:
 func fade_all() -> void:
 	_anim_player.play("fade_all")
 
-func set_text_to_last_modified(label: Label):
-	var scene_path = get_tree().current_scene.scene_file_path
-	var modification_time = FileAccess.get_modified_time(scene_path)
-	if modification_time != 0:
-		# Convertissez le timestamp Unix en date et heure lisible
-		var date_time_dict: Dictionary = Time.get_datetime_dict_from_unix_time(
-			modification_time
-		)
-		var time_zone_dict: Dictionary = Time.get_time_zone_from_system()
-		var minutes_bias: int = time_zone_dict["bias"]
-		date_time_dict["hour"] += float(minutes_bias) / 60
-		date_time_dict["minute"] += int(minutes_bias) % 60
-		var formatted_date: String = "%02d-%02d-%04d %02d:%02d:%02d" % [
-			date_time_dict["day"],
-			date_time_dict["month"],
-			date_time_dict["year"],
-			date_time_dict["hour"],
-			date_time_dict["minute"],
-			date_time_dict["second"]
-		]
-		label.text = formatted_date
-	else:
-		label.text = "Impossible de récupérer les informations de modification."

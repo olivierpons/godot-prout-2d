@@ -33,6 +33,8 @@ func _ready():
 		canvas_layer_for_all.signal_btn_next_level.connect(
 			_on_btn_next_level_released
 		)
+	else:
+		push_error("WTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
 	if debug:
 		var one_coin_left = false
 		for coin in get_tree().get_nodes_in_group("coin"):
@@ -74,6 +76,4 @@ func _on_timer_open_door_timeout():
 		main_exit_door.open_door()
 
 func _on_btn_next_level_released():
-	global.next_level.emit(
-		main_exit_door.next_level, null, main_exit_door
-	)
+	global.go_to_next_level()

@@ -7,9 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://decjww6mvh1fu" path="res://assets/sprites/joystick_mobile/joypad.png" id="6_l5lpf"]
 [ext_resource type="PackedScene" uid="uid://dojjd3ps2ndk" path="res://scene/fade_in_out.tscn" id="7_551ug"]
 [ext_resource type="Texture2D" uid="uid://lqey81cxwfc0" path="res://assets/sprites/double-arrow.png" id="7_krs64"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbqib"]
-size = Vector2(450, 220)
+[ext_resource type="PackedScene" uid="uid://bq4kccnk0a0yc" path="res://scene/options.tscn" id="9_yaequ"]
 
 [node name="canvas_layer_for_all" type="CanvasLayer"]
 script = ExtResource("1_u3hlp")
@@ -58,21 +56,30 @@ position = Vector2(234, 412)
 [node name="mobile_up_down" parent="." instance=ExtResource("4_sslw1")]
 position = Vector2(1292, 540)
 
-[node name="btn_show_hide_mobile" type="TouchScreenButton" parent="."]
+[node name="btn_next_level" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0.305882)
-position = Vector2(1257, 58)
+offset_left = 1144.0
+offset_top = 61.0
+offset_right = 1502.0
+offset_bottom = 261.0
 scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("6_l5lpf")
-shape = SubResource("RectangleShape2D_wbqib")
+icon = ExtResource("7_krs64")
+icon_alignment = 1
 
-[node name="btn_next_level" type="TouchScreenButton" parent="."]
-self_modulate = Color(1, 1, 1, 0.231373)
-position = Vector2(1145, 62)
-scale = Vector2(0.569207, 0.378171)
-texture_normal = ExtResource("7_krs64")
+[node name="btn_options" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0.305882)
+offset_left = 1258.0
+offset_top = 58.0
+offset_right = 1713.0
+offset_bottom = 286.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("6_l5lpf")
+
+[node name="options" parent="." instance=ExtResource("9_yaequ")]
+visible = false
 
 [node name="fade_in_out" parent="." instance=ExtResource("7_551ug")]
 visible = false
 
-[connection signal="released" from="btn_show_hide_mobile" to="." method="_on_touch_screen_button_released"]
-[connection signal="released" from="btn_next_level" to="." method="_on_btn_next_level_released"]
+[connection signal="pressed" from="btn_next_level" to="." method="_on_btn_next_level_pressed"]
+[connection signal="pressed" from="btn_options" to="." method="_on_btn_options_pressed"]

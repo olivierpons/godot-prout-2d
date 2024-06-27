@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq4kccnk0a0yc"]
+
+[ext_resource type="Theme" uid="uid://bt4kflvkw2li7" path="res://theme.tres" id="1_4nsnd"]
+[ext_resource type="Script" path="res://scripts/options.gd" id="1_457r7"]
+
+[sub_resource type="Theme" id="Theme_n2c3x"]
+
+[node name="options" type="Panel"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_457r7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+mouse_filter = 0
+theme = SubResource("Theme_n2c3x")
+theme_override_constants/separation = 22
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme = ExtResource("1_4nsnd")
+text = "Show mobile controls"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_4nsnd")
+
+[node name="hbox_flip_controls" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+mouse_filter = 0
+theme = SubResource("Theme_n2c3x")
+theme_override_constants/separation = 22
+
+[node name="label_flip_controls" type="Label" parent="VBoxContainer/hbox_flip_controls"]
+layout_mode = 2
+mouse_filter = 0
+theme = ExtResource("1_4nsnd")
+text = "Flip mobile controls"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/hbox_flip_controls"]
+layout_mode = 2
+theme = ExtResource("1_4nsnd")
+button_pressed = true
+
+[node name="hbox_buttons" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+mouse_filter = 0
+theme = SubResource("Theme_n2c3x")
+theme_override_constants/separation = 22
+
+[node name="btn_ok" type="Button" parent="VBoxContainer/hbox_buttons"]
+custom_minimum_size = Vector2(300, 90)
+layout_mode = 2
+theme = ExtResource("1_4nsnd")
+text = "Ok"
+
+[node name="btn_cancel" type="Button" parent="VBoxContainer/hbox_buttons"]
+custom_minimum_size = Vector2(300, 90)
+layout_mode = 2
+theme = ExtResource("1_4nsnd")
+text = "Cancel"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/hbox_buttons/btn_ok" to="." method="_on_btn_ok_pressed"]
+[connection signal="pressed" from="VBoxContainer/hbox_buttons/btn_cancel" to="." method="_on_btn_cancel_pressed"]

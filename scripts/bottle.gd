@@ -7,7 +7,7 @@ signal bottle_hit()
 @onready var area_2d = $Area2D
 @onready var timer = $Timer
 @onready var audio_stream_player = $AudioStreamPlayer
-@onready var animation_player = $AnimationPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
