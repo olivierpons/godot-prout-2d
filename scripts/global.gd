@@ -7,6 +7,8 @@ var fade_anim_player: Node
 var mobile_visible: bool = true
 
 @export var scenes: Array[Dictionary] = []
+@export var show_mobile_controls: bool = false
+@export var flip_controls: bool = false
 
 @onready var _anim_player := $AnimationPlayer
 @onready var _track_1 := $Track1

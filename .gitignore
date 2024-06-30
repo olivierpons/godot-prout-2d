@@ -1,4 +1,6 @@
  .godot/
+/export/*
+export/*
 *.import
 *.imported
 *.log

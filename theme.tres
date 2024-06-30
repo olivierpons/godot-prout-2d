@@ -8,6 +8,7 @@
 default_base_scale = 2.0
 default_font = ExtResource("1_dkidd")
 default_font_size = 32
+Button/styles/focus = null
 CheckBox/icons/checked = ExtResource("2_pbky2")
 CheckBox/icons/checked_disabled = ExtResource("1_l3bvv")
 CheckBox/icons/radio_checked = ExtResource("2_pbky2")
