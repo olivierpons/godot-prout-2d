@@ -8,7 +8,7 @@ var timer = null
 
 func _ready():
 	checkbox_show_mobile_controls.button_pressed = global.show_mobile_controls
-	checkbox_flip_controls.button_pressed = global.flip_controls
+	checkbox_flip_controls.button_pressed = global.are_mobile_controls_flipped
 	call_deferred("add_timer")
 
 func _unhandled_input(event):
@@ -24,7 +24,12 @@ func add_timer():
 
 func _on_btn_ok_pressed():
 	global.show_mobile_controls = checkbox_show_mobile_controls.button_pressed
-	global.flip_controls = checkbox_flip_controls.button_pressed
+	global.are_mobile_controls_flipped = checkbox_flip_controls.button_pressed
+	var emitters = get_tree().get_nodes_in_group(
+		"has_signal_update_mobile_controls"
+	)
+	for emitter in emitters:
+		emitter.emit_signal("signal_update_mobile_controls")
 	visible = false
 
 func _on_btn_cancel_pressed():

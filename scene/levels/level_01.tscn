@@ -125,4 +125,7 @@ script = ExtResource("4_vf2ek")
 position = Vector2(-452, -254)
 shape = SubResource("RectangleShape2D_xajao")
 
+[node name="canvas_layer_for_all" parent="." index="11"]
+label_for_level = "Tutorial 18:30:59"
+
 [connection signal="body_entered" from="make_coins_fall" to="make_coins_fall" method="_on_body_entered"]

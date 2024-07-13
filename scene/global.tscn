@@ -182,5 +182,3 @@ script = ExtResource("1_w45ma")
 libraries = {
 "": SubResource("AnimationLibrary_2uiv7")
 }
-
-[connection signal="next_level" from="." to="." method="_on_next_level"]

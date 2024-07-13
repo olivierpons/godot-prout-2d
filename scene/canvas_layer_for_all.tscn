@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://lqey81cxwfc0" path="res://assets/sprites/double-arrow.png" id="7_krs64"]
 [ext_resource type="PackedScene" uid="uid://bq4kccnk0a0yc" path="res://scene/options.tscn" id="9_yaequ"]
 
-[node name="canvas_layer_for_all" type="CanvasLayer"]
+[node name="canvas_layer_for_all" type="CanvasLayer" groups=["has_signal_update_mobile_controls"]]
 script = ExtResource("1_u3hlp")
 mobile_left_right_positions = Array[Vector2]([Vector2(234, 412), Vector2(1159, 412)])
 mobile_up_down_positions = Array[Vector2]([Vector2(1292, 540), Vector2(123, 540)])
@@ -20,8 +20,10 @@ offset_top = 8.0
 offset_right = 495.0
 offset_bottom = 40.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_niwnj")
 theme_override_font_sizes/font_size = 32
 text = "Level (to be filled)"
@@ -32,8 +34,10 @@ offset_top = 44.0
 offset_right = 336.0
 offset_bottom = 76.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_niwnj")
 theme_override_font_sizes/font_size = 32
 text = "Description (to be filled)"
@@ -45,16 +49,26 @@ offset_right = 1385.0
 offset_bottom = 47.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_niwnj")
 theme_override_font_sizes/font_size = 32
 text = "Grab XXX coins."
 vertical_alignment = 1
+
+[node name="fade_in_out" parent="." instance=ExtResource("7_551ug")]
+visible = false
 
 [node name="mobile_left_right" parent="." instance=ExtResource("3_8yda8")]
 position = Vector2(234, 412)
 
 [node name="mobile_up_down" parent="." instance=ExtResource("4_sslw1")]
 position = Vector2(1292, 540)
+
+[node name="options" parent="." instance=ExtResource("9_yaequ")]
+visible = false
 
 [node name="btn_next_level" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0.305882)
@@ -75,11 +89,6 @@ offset_bottom = 286.0
 scale = Vector2(0.3, 0.3)
 icon = ExtResource("6_l5lpf")
 
-[node name="options" parent="." instance=ExtResource("9_yaequ")]
-visible = false
-
-[node name="fade_in_out" parent="." instance=ExtResource("7_551ug")]
-visible = false
-
+[connection signal="signal_update_mobile_controls" from="." to="." method="_on_signal_update_mobile_controls"]
 [connection signal="pressed" from="btn_next_level" to="." method="_on_btn_next_level_pressed"]
 [connection signal="pressed" from="btn_options" to="." method="_on_btn_options_pressed"]

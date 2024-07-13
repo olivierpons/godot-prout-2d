@@ -17,8 +17,8 @@ func _ready():
 
 func _on_timer_timeout() -> void:
 	player.bubble_talk(
-		"Sometimes, I can go down!\n...When the floor is thin!"
+		"Go up if it's too hard!"
 	)
 
 func _on_all_coins_collected():
-	player.bubble_talk("Now, I should go\nto the exit door!")
+	player.bubble_talk("Now the hard part!")

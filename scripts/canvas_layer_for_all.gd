@@ -2,6 +2,7 @@
 extends CanvasLayer
 
 signal signal_btn_next_level()
+signal signal_update_mobile_controls()
 
 @export var label_for_level: String = "Level (to be filled)" : \
 	set = _set_label_for_level, get = _get_label_for_level
@@ -18,6 +19,7 @@ signal signal_btn_next_level()
 @onready var mobile_left_right: Node2D = $mobile_left_right
 @onready var mobile_up_down: Node2D = $mobile_up_down
 @onready var options = $options
+@onready var btn_next_level = $btn_next_level
 
 func get_fade_in_out() -> Node2D:
 	return find_child("fade_in_out", true, false)
@@ -26,15 +28,12 @@ func switch_mobile_controls():
 	mobile_left_right.position = mobile_left_right_positions[1]
 	mobile_left_right.switch_press_zones()
 	mobile_up_down.position = mobile_up_down_positions[1]
-	
+
 func _ready():
 	label_level.text = label_for_level
 	label_desc.text = label_description_level
 	if not Engine.is_editor_hint():
-		mobile_left_right.visible = global.mobile_visible
-		mobile_up_down.visible = global.mobile_visible
-		# Test: it's working:
-		# switch_mobile_controls()
+		emit_signal("signal_update_mobile_controls")
 
 func _get_label_for_level() -> String:
 	return label_for_level
@@ -53,6 +52,7 @@ func _set_label_description_level(new_value: String) -> void:
 		label_desc.text = new_value
 
 func _on_btn_next_level_pressed():
+	btn_next_level.disabled = true
 	emit_signal("signal_btn_next_level")
 
 func _on_btn_options_pressed():
@@ -62,3 +62,10 @@ func _on_btn_options_pressed():
 	if Engine.is_editor_hint():  # in editor = do nothing:
 		return
 	options.visible = true
+
+
+func _on_signal_update_mobile_controls():
+	mobile_left_right.visible = global.show_mobile_controls
+	mobile_up_down.visible = global.show_mobile_controls
+	if global.are_mobile_controls_flipped:
+		switch_mobile_controls()

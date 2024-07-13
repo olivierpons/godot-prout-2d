@@ -265,7 +265,8 @@ offset_left = -390.0
 offset_top = -278.0
 offset_right = -152.0
 offset_bottom = -270.0
-scale = Vector2(1.24676, 1.21628)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("4_pr1yl")
 theme_override_font_sizes/font_size = 8
 text = "Get this potion to see what it does ! =>"
@@ -273,14 +274,18 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Labels"]
 texture_filter = 1
-offset_left = -391.0
-offset_top = -197.0
-offset_right = -153.0
-offset_bottom = -189.0
-scale = Vector2(1.24676, 1.21628)
+anchors_preset = -1
+anchor_right = -0.0635714
+offset_left = -382.0
+offset_top = -196.0
+offset_right = -144.0
+offset_bottom = -188.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("4_pr1yl")
 theme_override_font_sizes/font_size = 8
 text = "You liked it don't ya?"
+horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -326,12 +331,12 @@ shape = SubResource("WorldBoundaryShape2D_bj46j")
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("9_2ihhc")]
-position = Vector2(512, -273)
+position = Vector2(512, -240)
 delay_before_falling = 5000.0
 falling_speed_gravity = 392
 
 [node name="Coin9" parent="Coins" instance=ExtResource("9_2ihhc")]
-position = Vector2(694, -272)
+position = Vector2(635, -243)
 delay_before_falling = 5000.0
 falling_speed_gravity = 392
 
@@ -348,7 +353,6 @@ shape = SubResource("RectangleShape2D_fpl82")
 [node name="exit_door" parent="." instance=ExtResource("11_osg7v")]
 z_index = -1
 position = Vector2(-716, -184)
-next_level = 3
 
 [node name="canvas_layer_for_all" parent="." instance=ExtResource("12_4cff3")]
 label_for_level = "Tutorial"

@@ -5,7 +5,6 @@ signal bottle_hit()
 @export var sounds_hit: Array[AudioStreamMP3]
 @export var explosion: PackedScene
 @onready var area_2d = $Area2D
-@onready var timer = $Timer
 @onready var audio_stream_player = $AudioStreamPlayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 

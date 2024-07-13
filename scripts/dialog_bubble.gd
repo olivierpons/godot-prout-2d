@@ -54,3 +54,8 @@ func get_available_player() -> AudioStreamPlayer2D:
 	add_child(new_player)
 	audio_stream_players.append(new_player)
 	return new_player
+
+
+func _on_tree_exiting():
+	sounds_click.clear()
+	sounds_return.clear()
