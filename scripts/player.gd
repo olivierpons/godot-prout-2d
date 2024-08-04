@@ -66,7 +66,17 @@ func _input(_event):
 		get_tree().quit()
 
 func _physics_process(delta):
-	# Add the gravity.
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+
+		# for state machines
+		#if collider is TileMap:
+		#	var tilemap = collider as TileMap
+		#	var collision_point = collision.get_position()
+		#	var tile_pos = tilemap.local_to_map(collision_point)
+		#	print("tile_pos=", tile_pos)
+
 	if is_descending or not is_on_floor():
 		velocity.y += gravity * delta
 		fall_time += delta
@@ -155,6 +165,13 @@ func _physics_process(delta):
 	# Check for horizontal collisions and reset speed if colliding
 	if is_on_wall():
 		velocity.x = 0
+		if abs(velocity.x) > 10:  # He was fast
+			horizontal_acceleration_time = max(
+				0, horizontal_acceleration_time - delta
+			)
+		else:
+			horizontal_acceleration_time = 0
+		is_accelerating = false
 
 	if is_on_wall() and is_on_floor():
 		position.y += .1
@@ -214,4 +231,4 @@ func _on_speak(what: String):
 
 
 func _on_input_event(viewport, event, shape_idx):
-	print(viewport, event, shape_idx)
+	print("_on_input_event: ", viewport, event, shape_idx)

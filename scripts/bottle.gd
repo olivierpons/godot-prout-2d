@@ -10,16 +10,17 @@ signal bottle_hit()
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
-		body.change_max_horizontal_speed.emit(600.0)
+		body.max_horizontal_speed = 600.0
 		bottle_hit.emit()
-		area_2d.queue_free()
-		var p = explosion.instantiate()
-		p.position = global_position
-		p.rotation = global_rotation
-		p.emitting = true
-		get_tree().current_scene.add_child(p)
-		global.play_rand_sound(audio_stream_player, sounds_hit)
-		animation_player.play("disappear")
-		await animation_player.animation_finished
-		queue_free()
 
+func _on_bottle_hit():
+	area_2d.queue_free()
+	var p = explosion.instantiate()
+	p.position = global_position
+	p.rotation = global_rotation
+	p.emitting = true
+	get_tree().current_scene.add_child(p)
+	global.play_rand_sound(audio_stream_player, sounds_hit)
+	animation_player.play("disappear")
+	await animation_player.animation_finished
+	queue_free()
