@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://ko4cukwkr5fx"]
 
 [ext_resource type="Texture2D" uid="uid://cebe5hcunu1no" path="res://assets/sprites/fruit.png" id="1_jd0yp"]
-[ext_resource type="Script" path="res://scripts/bottle.gd" id="1_max32"]
+[ext_resource type="Script" uid="uid://1otgltxacode" path="res://scripts/bottle.gd" id="1_max32"]
 [ext_resource type="PackedScene" uid="uid://fsmc8wensgor" path="res://scene/explosion.tscn" id="2_lf7l5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y5r2a"]
@@ -80,8 +80,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f1ck4"]
 _data = {
-"RESET": SubResource("Animation_xov1d"),
-"disappear": SubResource("Animation_jp863")
+&"RESET": SubResource("Animation_xov1d"),
+&"disappear": SubResource("Animation_jp863")
 }
 
 [node name="Bottle" type="Node2D"]
@@ -104,7 +104,7 @@ shape = SubResource("CapsuleShape2D_dswax")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_f1ck4")
+&"": SubResource("AnimationLibrary_f1ck4")
 }
 
 [connection signal="bottle_hit" from="." to="." method="_on_bottle_hit"]

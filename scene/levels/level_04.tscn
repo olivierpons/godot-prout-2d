@@ -48,8 +48,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kl13j"]
 _data = {
-"RESET": SubResource("Animation_hiq8p"),
-"move": SubResource("Animation_5yhwp")
+&"RESET": SubResource("Animation_hiq8p"),
+&"move": SubResource("Animation_5yhwp")
 }
 
 [sub_resource type="Animation" id="Animation_6pptm"]
@@ -86,8 +86,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a7rkg"]
 _data = {
-"RESET": SubResource("Animation_6pptm"),
-"move": SubResource("Animation_7ri5f")
+&"RESET": SubResource("Animation_6pptm"),
+&"move": SubResource("Animation_7ri5f")
 }
 
 [node name="Game" type="Node2D"]

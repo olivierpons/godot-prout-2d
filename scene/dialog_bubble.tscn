@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://cyajrbivyt230"]
+[gd_scene format=3 uid="uid://cyajrbivyt230"]
 
-[ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="1_kjaf7"]
+[ext_resource type="Script" uid="uid://c7ug50bm3cymm" path="res://scripts/dialog_bubble.gd" id="1_kjaf7"]
 [ext_resource type="AudioStream" uid="uid://g278ydujevgq" path="res://assets/sounds/bubble/Foley_Object_TypeWriter_Key_Mono_01.mp3" id="2_3el5l"]
 [ext_resource type="Texture2D" uid="uid://cybrceow57v2a" path="res://assets/sprites/dialogs.png" id="2_fj5c1"]
 [ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="2_wx3co"]
@@ -74,7 +74,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_6m3ai"]
 resource_name = "show"
-length = 0.3
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -82,7 +82,7 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.01, 0.01), Vector2(1, 1)]
@@ -102,21 +102,21 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qnnu2"]
 _data = {
-"RESET": SubResource("Animation_6do1u"),
-"hide": SubResource("Animation_e1xge"),
-"show": SubResource("Animation_6m3ai")
+&"RESET": SubResource("Animation_6do1u"),
+&"hide": SubResource("Animation_e1xge"),
+&"show": SubResource("Animation_6m3ai")
 }
 
-[node name="Bubble" type="Node2D"]
+[node name="Bubble" type="Node2D" unique_id=990955212]
 script = ExtResource("1_kjaf7")
 sounds_click = Array[AudioStreamMP3]([ExtResource("2_3el5l"), ExtResource("3_ivau3")])
 sounds_return = Array[AudioStreamMP3]([ExtResource("4_nw6al")])
 text_to_display = "Coucou !"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=594107544]
 wait_time = 0.05
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=244154209]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -132,11 +132,11 @@ size_flags_vertical = 10
 theme_override_constants/separation = -1
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=185103082]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="DialogBubble" type="NinePatchRect" parent="VBoxContainer/MarginContainer"]
+[node name="DialogBubble" type="NinePatchRect" parent="VBoxContainer/MarginContainer" unique_id=1848504007]
 layout_mode = 2
 size_flags_horizontal = 13
 size_flags_vertical = 13
@@ -147,7 +147,7 @@ patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
 
-[node name="MarginContainerLabel" type="MarginContainer" parent="VBoxContainer/MarginContainer"]
+[node name="MarginContainerLabel" type="MarginContainer" parent="VBoxContainer/MarginContainer" unique_id=1800288328]
 layout_mode = 2
 size_flags_horizontal = 13
 size_flags_vertical = 13
@@ -156,7 +156,7 @@ theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 6
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/MarginContainerLabel"]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/MarginContainerLabel" unique_id=1028314923]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -165,23 +165,21 @@ label_settings = SubResource("LabelSettings_32s68")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer" unique_id=955520058]
 custom_minimum_size = Vector2(40, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
-[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Control" unique_id=790233176]
 position = Vector2(6.375, 7)
 scale = Vector2(0.661765, 0.875)
 texture = ExtResource("7_eaxtf")
 region_enabled = true
 region_rect = Rect2(80, 16, 17, 16)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_qnnu2")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1494844525]
+libraries/ = SubResource("AnimationLibrary_qnnu2")
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

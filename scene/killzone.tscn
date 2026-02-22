@@ -1,12 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bddwtlak1oohe"]
+[gd_scene format=3 uid="uid://bddwtlak1oohe"]
 
-[ext_resource type="Script" path="res://scripts/killzone.gd" id="1_losh8"]
+[ext_resource type="Script" uid="uid://nvoln57lwxeb" path="res://scripts/killzone.gd" id="1_losh8"]
 
-[node name="Killzone" type="Area2D"]
+[node name="Killzone" type="Area2D" unique_id=1723864512]
 collision_mask = 2
+input_pickable = false
 script = ExtResource("1_losh8")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1063252117]
 wait_time = 0.6
 one_shot = true
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dojjd3ps2ndk"]
 
-[ext_resource type="Script" path="res://scripts/fade_in_out.gd" id="1_75mdi"]
+[ext_resource type="Script" uid="uid://2j8wi14cfayq" path="res://scripts/fade_in_out.gd" id="1_75mdi"]
 
 [sub_resource type="Animation" id="Animation_vtwej"]
 length = 0.001
@@ -86,9 +86,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hc6gm"]
 _data = {
-"RESET": SubResource("Animation_vtwej"),
-"black_to_normal": SubResource("Animation_lcbyc"),
-"normal_to_black": SubResource("Animation_amqy2")
+&"RESET": SubResource("Animation_vtwej"),
+&"black_to_normal": SubResource("Animation_lcbyc"),
+&"normal_to_black": SubResource("Animation_amqy2")
 }
 
 [node name="FadeInOut" type="ColorRect"]

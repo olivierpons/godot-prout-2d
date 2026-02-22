@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="1_ncffl"]
 [ext_resource type="TileSet" uid="uid://dr6s6qitbkdru" path="res://scene/tileset_game.tres" id="2_dd46c"]
-[ext_resource type="Script" path="res://scripts/tilemap_maze.gd" id="3_lisns"]
+[ext_resource type="Script" uid="uid://7n0d0u1r5jus" path="res://scripts/tilemap_maze.gd" id="3_lisns"]
 [ext_resource type="PackedScene" uid="uid://cspicwn3k6q4e" path="res://scene/player.tscn" id="3_ulsyu"]
 [ext_resource type="PackedScene" uid="uid://bddwtlak1oohe" path="res://scene/killzone.tscn" id="9_p3ovr"]
 [ext_resource type="PackedScene" uid="uid://0gqlmk7mp3ms" path="res://scene/canvas_layer_for_all.tscn" id="10_di51u"]

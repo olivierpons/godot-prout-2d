@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dbwulrbhchhqc"]
 
-[ext_resource type="Script" path="res://scripts/exit_door.gd" id="1_ebc77"]
+[ext_resource type="Script" uid="uid://bs3y36ot15itk" path="res://scripts/exit_door.gd" id="1_ebc77"]
 [ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="1_jh7ym"]
 [ext_resource type="AudioStream" uid="uid://b3b8idnqmijxp" path="res://assets/sounds/SFX_Positive.mp3" id="3_b8q2f"]
 [ext_resource type="AudioStream" uid="uid://4s6ior7p5tid" path="res://assets/sounds/SFX_Victory_Sound.mp3" id="4_3sbwi"]
@@ -12,6 +12,7 @@ emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 1.0
 emission_ring_radius = 1.0
 emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
 gravity = Vector3(0, 0, 0)
 radial_accel_min = 10.0
 radial_accel_max = 10.0
@@ -92,8 +93,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aeiie"]
 _data = {
-"RESET": SubResource("Animation_v7720"),
-"open_door": SubResource("Animation_d28so")
+&"RESET": SubResource("Animation_v7720"),
+&"open_door": SubResource("Animation_d28so")
 }
 
 [node name="exit_door" type="Area2D" groups=["exit"]]

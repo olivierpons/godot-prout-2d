@@ -1,7 +1,5 @@
 extends Node
 
-signal next_level(next_level: int, player: Node, door: Node)
-
 # (!) When new level, new player, and the player initializes this:
 var fade_anim_player: Node
 var show_mobile_controls: bool = false
@@ -107,7 +105,8 @@ func play_rand_sound(audio_stream_player:AudioStreamPlayer2D, tab:Array) -> void
 # from https://www.gdquest.com/tutorial/godot/audio/background-music-transition/
 # properly adapted!
 func crossfade_to(audio_stream: AudioStream) -> void:
-	return
+	# to mute background music, instant return:
+	# return
 	if audio_current == null:  # First time here:
 		_track_2.stream = audio_stream
 		_anim_player.play("fade_in_only_track_2")

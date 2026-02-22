@@ -8,4 +8,3 @@ func get_animation_player():
 func _ready():
 	animation_player.play("black_to_normal")
 	visible = true
-
