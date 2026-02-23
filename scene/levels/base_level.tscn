@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d030ujaei1x65"]
+[gd_scene format=4 uid="uid://d030ujaei1x65"]
 
 [ext_resource type="PackedScene" uid="uid://dbqa0fqutqm5" path="res://scene/game_manager.tscn" id="2_dsu5g"]
 [ext_resource type="AudioStream" uid="uid://ni5rts3mvvvl" path="res://assets/music/Fluttering_Breeze_Full_Track_with_Guitar_1min_20.mp3" id="3_5l117"]
@@ -231,36 +231,43 @@ pattern_0 = SubResource("TileMapPattern_58qa4")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e1f2y"]
 distance = -85.0
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=379552625]
 metadata/_edit_vertical_guides_ = [-146.0]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("main_exit_door") instance=ExtResource("2_dsu5g")]
+[node name="GameManager" parent="." unique_id=1419096377 node_paths=PackedStringArray("main_exit_door") instance=ExtResource("2_dsu5g")]
 main_exit_door = NodePath("../exit_door")
 audio_stream = ExtResource("3_5l117")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=820673255]
 layer = -1
 follow_viewport_enabled = true
 
-[node name="TileMap" type="TileMap" parent="CanvasLayer"]
+[node name="Layer0" type="TileMapLayer" parent="CanvasLayer" unique_id=1940061796]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAC5/9z/AAAAAAkAAAC5/93/AAAAAAkAAAC5/97/AAAAAAkAAAC5/9//AAAAAAkAAAC5/+D/AAAAAAkAAAC5/+H/AAAAAAkAAAC5/+L/AAAAAAkAAAC5/+P/AAAAAAkAAAC5/+T/AAAAAAkAAAC5/+X/AAAAAAkAAAC5/+b/AAAAAAoAAAC5/+f/AAAAAAsAAAC5/+j/AAAAAAsAAAC5/+n/AAAAAAsAAAC5/+r/AAAAAAsAAAC5/+v/AAAAAAsAAAC5/+z/AAAAAAsAAAC5/+3/AAAAAAsAAAC5/+7/AAAAAAsAAAC5/+//AAAAAAsAAAC5//D/AAAAAAwAAAC5//H/AAAAAA0AAAC5//L/AAAAAA0AAAC5//P/AAAAAA0AAAC5//T/AAAAAA0AAAC5//X/AAAAAA0AAAC5//b/AAAAAA0AAAC5//f/AAAAAA4AAAC5//j/AAAAAA8AAAC5//n/AAAAAA8AAAC5//r/AAAAAA8AAAC5//v/AAAAAA8AAAC5//z/AAAAAA8AAAC5//3/AAAAAA8AAAC5//7/AAAAAA8AAAC5////AAAAAA8AAAC5/wAAAAAAAA8AAAC5/wEAAAAAAA8AAAC5/wIAAAAAAA8AAAC5/wMAAAAAAA8AAAC5/wQAAAAAAA8AAABPANz/AAAAAAkAAABPAN3/AAAAAAkAAABPAN7/AAAAAAkAAABPAN//AAAAAAkAAABPAOD/AAAAAAkAAABPAOH/AAAAAAkAAABPAOL/AAAAAAkAAABPAOP/AAAAAAkAAABPAOT/AAAAAAkAAABPAOX/AAAAAAkAAABPAOb/AAAAAAoAAABPAOf/AAAAAAsAAABPAOj/AAAAAAsAAABPAOn/AAAAAAsAAABPAOr/AAAAAAsAAABPAOv/AAAAAAsAAABPAOz/AAAAAAsAAABPAO3/AAAAAAsAAABPAO7/AAAAAAsAAABPAO//AAAAAAsAAABPAPD/AAAAAAwAAABPAPH/AAAAAA0AAABPAPL/AAAAAA0AAABPAPP/AAAAAA0AAABPAPT/AAAAAA0AAABPAPX/AAAAAA0AAABPAPb/AAAAAA0AAABPAPf/AAAAAA4AAABPAPn/AAAAAA8AAABPAPr/AAAAAA8AAABPAPv/AAAAAA8AAABPAPz/AAAAAA8AAABPAP3/AAAAAA8AAABPAP7/AAAAAA8AAABPAP//AAAAAA8AAABPAAAAAAAAAA8AAABPAAEAAAAAAA8AAABPAAIAAAAAAA8AAABPAAMAAAAAAA8AAABPAAQAAAAAAA8AAABPAPj/AAAAAA8AAAA=")
 tile_set = SubResource("TileSet_mxrqo")
-format = 2
-layer_0/tile_data = PackedInt32Array(-2293831, 0, 9, -2228295, 0, 9, -2162759, 0, 9, -2097223, 0, 9, -2031687, 0, 9, -1966151, 0, 9, -1900615, 0, 9, -1835079, 0, 9, -1769543, 0, 9, -1704007, 0, 9, -1638471, 0, 10, -1572935, 0, 11, -1507399, 0, 11, -1441863, 0, 11, -1376327, 0, 11, -1310791, 0, 11, -1245255, 0, 11, -1179719, 0, 11, -1114183, 0, 11, -1048647, 0, 11, -983111, 0, 12, -917575, 0, 13, -852039, 0, 13, -786503, 0, 13, -720967, 0, 13, -655431, 0, 13, -589895, 0, 13, -524359, 0, 14, -458823, 0, 15, -393287, 0, 15, -327751, 0, 15, -262215, 0, 15, -196679, 0, 15, -131143, 0, 15, -65607, 0, 15, -71, 0, 15, 65465, 0, 15, 131001, 0, 15, 196537, 0, 15, 262073, 0, 15, 327609, 0, 15, -2359217, 0, 9, -2293681, 0, 9, -2228145, 0, 9, -2162609, 0, 9, -2097073, 0, 9, -2031537, 0, 9, -1966001, 0, 9, -1900465, 0, 9, -1834929, 0, 9, -1769393, 0, 9, -1703857, 0, 10, -1638321, 0, 11, -1572785, 0, 11, -1507249, 0, 11, -1441713, 0, 11, -1376177, 0, 11, -1310641, 0, 11, -1245105, 0, 11, -1179569, 0, 11, -1114033, 0, 11, -1048497, 0, 12, -982961, 0, 13, -917425, 0, 13, -851889, 0, 13, -786353, 0, 13, -720817, 0, 13, -655281, 0, 13, -589745, 0, 14, -458673, 0, 15, -393137, 0, 15, -327601, 0, 15, -262065, 0, 15, -196529, 0, 15, -130993, 0, 15, -65457, 0, 15, 79, 0, 15, 65615, 0, 15, 131151, 0, 15, 196687, 0, 15, 262223, 0, 15, -524209, 0, 15)
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Background" type="TileMapLayer" parent="." unique_id=551987209]
+use_parent_material = true
 position = Vector2(-24, 24)
 tile_set = ExtResource("6_mgghn")
-format = 2
-layer_0/name = "Background"
-layer_1/name = "Mid"
-layer_1/tile_data = PackedInt32Array(-786463, 65536, 18, -786462, 131072, 18, -786465, 65536, 18, -786464, 131072, 18, -786466, 0, 18, -786461, 196608, 18, -851997, 196608, 17, -917533, 196608, 17, -983069, 196608, 17, -1048605, 196608, 17, -1114141, 196608, 17, -1179677, 196608, 17, -1245213, 196608, 17, -852002, 0, 17, -917538, 0, 17, -983074, 0, 17, -1048610, 0, 17, -1114146, 0, 17, -1179682, 0, 17, -1245218, 0, 17)
-layer_2/name = "Foreground"
-layer_2/z_index = 10
 
-[node name="Player" parent="." instance=ExtResource("7_yy85d")]
+[node name="Mid" type="TileMapLayer" parent="." unique_id=326411124]
+use_parent_material = true
+position = Vector2(-24, 24)
+tile_map_data = PackedByteArray("AADh//P/AAABABIAAADi//P/AAACABIAAADf//P/AAABABIAAADg//P/AAACABIAAADe//P/AAAAABIAAADj//P/AAADABIAAADj//L/AAADABEAAADj//H/AAADABEAAADj//D/AAADABEAAADj/+//AAADABEAAADj/+7/AAADABEAAADj/+3/AAADABEAAADj/+z/AAADABEAAADe//L/AAAAABEAAADe//H/AAAAABEAAADe//D/AAAAABEAAADe/+//AAAAABEAAADe/+7/AAAAABEAAADe/+3/AAAAABEAAADe/+z/AAAAABEAAAA=")
+tile_set = ExtResource("6_mgghn")
+
+[node name="Foreground" type="TileMapLayer" parent="." unique_id=1182811934]
+z_index = 10
+use_parent_material = true
+position = Vector2(-24, 24)
+tile_set = ExtResource("6_mgghn")
+
+[node name="Player" parent="." unique_id=1041838629 instance=ExtResource("7_yy85d")]
 position = Vector2(-539, -247)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=435291426]
 position = Vector2(0, -11)
 zoom = Vector2(4, 4)
 process_callback = 0
@@ -268,24 +275,24 @@ limit_bottom = 160
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 
-[node name="Killzone" parent="." instance=ExtResource("8_xcv8o")]
+[node name="Killzone" parent="." unique_id=1744087247 instance=ExtResource("8_xcv8o")]
 position = Vector2(176, 15)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1140314536]
 shape = SubResource("WorldBoundaryShape2D_e1f2y")
 
-[node name="Labels" type="Node" parent="."]
+[node name="Labels" type="Node" parent="." unique_id=1350173109]
 
-[node name="Monsters" type="Node" parent="."]
+[node name="Monsters" type="Node" parent="." unique_id=784044366]
 
-[node name="Coins" type="Node" parent="."]
+[node name="Coins" type="Node" parent="." unique_id=1918429624]
 
-[node name="Platforms" type="Node" parent="."]
+[node name="Platforms" type="Node" parent="." unique_id=1177102059]
 
-[node name="exit_door" parent="." instance=ExtResource("11_qi2co")]
+[node name="exit_door" parent="." unique_id=1881317166 instance=ExtResource("11_qi2co")]
 z_index = -1
 position = Vector2(-501, -184)
 
-[node name="canvas_layer_for_all" parent="." instance=ExtResource("12_e824k")]
+[node name="canvas_layer_for_all" parent="." unique_id=1721045197 instance=ExtResource("12_e824k")]
 label_for_level = "Tutorial"
 label_description_level = ""

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0q8hcs8i3air"]
+[gd_scene format=3 uid="uid://b0q8hcs8i3air"]
 
 [ext_resource type="Texture2D" uid="uid://co5fvleos4nhe" path="res://assets/sprites/world_dungeon.png" id="1_6w2mx"]
 [ext_resource type="Script" uid="uid://b1eam75mwx8vj" path="res://scripts/clock.gd" id="1_ihnfu"]
@@ -56,20 +56,21 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dpv2"]
-size = Vector2(4, 15.75)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5tjmn"]
+radius = 6.0
+height = 16.0
 
-[node name="Clock" type="Node2D"]
+[node name="Clock" type="Node2D" unique_id=2060874079]
 script = ExtResource("1_ihnfu")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=265234532]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_56wsr")
 autoplay = "default"
 frame_progress = 0.540327
 
-[node name="Killzone" parent="." instance=ExtResource("2_n8ruq")]
+[node name="Killzone" parent="." unique_id=972840732 instance=ExtResource("2_n8ruq")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, -8.125)
-shape = SubResource("RectangleShape2D_3dpv2")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=513122214]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_5tjmn")
