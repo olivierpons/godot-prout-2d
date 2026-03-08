@@ -21,51 +21,67 @@ func out(msg: String) -> void:
 		msg_previous = msg
 		print(msg)
 
-func go_to_next_level(player: Node=null, door: Node=null):
+func go_to_next_level(
+	player: Node = null,
+	_door: Node = null,
+) -> void:
 	assert(scenes.size() > 0, "No scenes defined")
 	current_level_index += 1
 	if current_level_index >= scenes.size():
 		current_level_index = 0
 
-	var next_def: LevelDef = scenes[current_level_index]
-	var next_scene = load(next_def.scene_path)
-	assert(next_scene, "Failed to load scene: " + next_def.scene_path)
+	var next_def: LevelDef = (
+		scenes[current_level_index]
+	)
+	var next_scene: Resource = load(
+		next_def.scene_path
+	)
+	assert(
+		next_scene,
+		"Failed to load scene: "
+		+ next_def.scene_path,
+	)
 	Engine.time_scale = 0.4
 	if player:
 		player.is_waiting_end_level = true
 		player.velocity = Vector2(0, 0)
-	if door:
-		door.audio_stream_player_exit.play()
-	if not fade_anim_player.animation_finished.is_connected(
-		_on_animation_finished
-	):
-		fade_anim_player.animation_finished.connect(
-			_on_animation_finished
-		)
+	if not fade_anim_player.animation_finished\
+		.is_connected(_on_animation_finished):
+		fade_anim_player.animation_finished\
+			.connect(_on_animation_finished)
 	fade_anim_player.play("normal_to_black")
 
 
-func _on_animation_finished(anim_name):
+func _on_animation_finished(
+	anim_name: StringName,
+) -> void:
 	if anim_name == "normal_to_black":
-		fade_anim_player.animation_finished.disconnect(
-			_on_animation_finished
-		)
+		fade_anim_player.animation_finished\
+			.disconnect(_on_animation_finished)
 		Engine.time_scale = 1.0
-		get_tree().change_scene_to_file(scenes[current_level_index].scene_path)
+		get_tree().change_scene_to_file(
+			scenes[current_level_index].scene_path
+		)
 
-func play_rand_sound(audio_stream_player:AudioStreamPlayer2D, tab:Array) -> void:
-	var sound:AudioStreamMP3 = tab[randi() % tab.size()]
+func play_rand_sound(
+	audio_stream_player: AudioStreamPlayer2D,
+	tab: Array,
+) -> void:
+	var sound: AudioStreamMP3 = (
+		tab[randi() % tab.size()]
+	)
 	audio_stream_player.stream = sound
 	audio_stream_player.play()
 
 # from https://www.gdquest.com/tutorial/godot/audio/background-music-transition/
-# properly adapted!
-func crossfade_to(audio_stream: AudioStream) -> void:
-	# to mute background music, instant return:
-	# return
-	if audio_current == null:  # First time here:
+func crossfade_to(
+	audio_stream: AudioStream,
+) -> void:
+	if audio_current == null:
 		_track_2.stream = audio_stream
-		_anim_player.play("fade_in_only_track_2")
+		_anim_player.play(
+			"fade_in_only_track_2"
+		)
 		_track_2.play()
 		audio_current = _track_2
 	elif audio_current == _track_1:

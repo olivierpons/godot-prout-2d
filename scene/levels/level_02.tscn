@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dcql416vqvwe3" path="res://scripts/level_02_tutorial.gd" id="2_w2jhi"]
 [ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="3_jvbbb"]
 [ext_resource type="FontFile" uid="uid://bs6mhkgo5fbma" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="8_l713k"]
-[ext_resource type="PackedScene" uid="uid://b0q8hcs8i3air" path="res://scene/monsters/clock.tscn" id="9_oymob"]
+[ext_resource type="PackedScene" uid="uid://b0q8hcs8i3air" path="res://entities/clock.tscn" id="9_oymob"]
 [ext_resource type="PackedScene" uid="uid://dac5wao2fkvh6" path="res://scene/coin.tscn" id="10_th7tw"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_58qa4"]

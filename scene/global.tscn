@@ -1,6 +1,47 @@
 [gd_scene format=3 uid="uid://kwenmeocnk1u"]
 
 [ext_resource type="Script" uid="uid://cnrhlfhwqwr8s" path="res://scripts/global.gd" id="1_w45ma"]
+[ext_resource type="Script" uid="uid://b6a5njoi2cvnr" path="res://scripts/level_def.gd" id="2_3o7an"]
+
+[sub_resource type="Resource" id="Resource_y1wus"]
+script = ExtResource("2_3o7an")
+scene_path = "uid://bls0t4ca1evy5"
+metadata/_custom_type_script = "uid://b6a5njoi2cvnr"
+
+[sub_resource type="Resource" id="Resource_yfrev"]
+script = ExtResource("2_3o7an")
+scene_path = "uid://d0k7nm8qcdbr2"
+metadata/_custom_type_script = "uid://b6a5njoi2cvnr"
+
+[sub_resource type="Resource" id="Resource_kmmji"]
+script = ExtResource("2_3o7an")
+scene_path = "uid://cdvid2atvfnnr"
+metadata/_custom_type_script = "uid://b6a5njoi2cvnr"
+
+[sub_resource type="Resource" id="Resource_4mk8h"]
+script = ExtResource("2_3o7an")
+scene_path = "uid://cdvid2atvfnnr"
+metadata/_custom_type_script = "uid://b6a5njoi2cvnr"
+
+[sub_resource type="Resource" id="Resource_syjia"]
+script = ExtResource("2_3o7an")
+scene_path = "uid://bmsj7mns6nurd"
+metadata/_custom_type_script = "uid://b6a5njoi2cvnr"
+
+[sub_resource type="Resource" id="Resource_45d0n"]
+script = ExtResource("2_3o7an")
+scene_path = "uid://bpmtayehk5j2h"
+metadata/_custom_type_script = "uid://b6a5njoi2cvnr"
+
+[sub_resource type="Resource" id="Resource_54xqj"]
+script = ExtResource("2_3o7an")
+scene_path = "uid://d2tlu4kl4mufv"
+metadata/_custom_type_script = "uid://b6a5njoi2cvnr"
+
+[sub_resource type="Resource" id="Resource_mymt4"]
+script = ExtResource("2_3o7an")
+scene_path = "uid://buy8x3y4cvoqt"
+metadata/_custom_type_script = "uid://b6a5njoi2cvnr"
 
 [sub_resource type="Animation" id="Animation_v1rce"]
 length = 0.001
@@ -173,6 +214,7 @@ _data = {
 
 [node name="global" type="Node" unique_id=85920951]
 script = ExtResource("1_w45ma")
+scenes = Array[ExtResource("2_3o7an")]([SubResource("Resource_y1wus"), SubResource("Resource_yfrev"), SubResource("Resource_kmmji"), SubResource("Resource_4mk8h"), SubResource("Resource_syjia"), SubResource("Resource_45d0n"), SubResource("Resource_54xqj"), SubResource("Resource_mymt4")])
 
 [node name="Track1" type="AudioStreamPlayer" parent="." unique_id=1389830584]
 

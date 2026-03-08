@@ -2,21 +2,29 @@ extends Node
 
 signal all_coins_collected()
 
-@export var main_exit_door: Node
+@export var main_exit_door: Entity
 
 @export var debug: bool = false
 @export var audio_stream: AudioStream = null
 
-@onready var timer_open_door = $TimerOpenDoor
-@onready var game = $".."
-@onready var canvas_layer_for_all = $"../canvas_layer_for_all"
+@onready var timer_open_door: Timer = (
+	$TimerOpenDoor
+)
+@onready var game: Node = $".."
+@onready var canvas_layer_for_all: Node = (
+	$"../canvas_layer_for_all"
+)
 
 var _label_score: Label = null
-var to_collect = 0
+var to_collect: int = 0
 
-func refresh_collected(collected: int=0) -> int:
+func refresh_collected(
+	collected: int = 0,
+) -> int:
 	to_collect -= collected
-	_label_score.text = "Grab " + str(to_collect) + " coin"
+	_label_score.text = (
+		"Grab " + str(to_collect) + " coin"
+	)
 	if to_collect > 1:
 		_label_score.text += "s"
 	elif to_collect == 1:
@@ -24,20 +32,25 @@ func refresh_collected(collected: int=0) -> int:
 	else:
 		_label_score.text = "Find exit now!"
 		timer_open_door.start()
-		# Whoever wants to react to this signal:
-		emit_signal("all_coins_collected")
-	return to_collect 
+		all_coins_collected.emit()
+	return to_collect
 
-func _ready():
+
+func _ready() -> void:
 	if canvas_layer_for_all:
-		canvas_layer_for_all.signal_btn_next_level.connect(
-			_on_btn_next_level_released
-		)
+		canvas_layer_for_all\
+			.signal_btn_next_level.connect(
+				_on_btn_next_level_released
+			)
 	else:
-		push_error("WTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
+		push_error(
+			"GameManager: canvas_layer_for_all "
+			+ "not found"
+		)
 	if debug:
-		var one_coin_left = false
-		for coin in get_tree().get_nodes_in_group("coin"):
+		var one_coin_left: bool = false
+		for coin: Node in get_tree()\
+			.get_nodes_in_group("coin"):
 			if not one_coin_left:
 				one_coin_left = true
 				continue
@@ -50,30 +63,42 @@ func _ready():
 		return
 
 	global.crossfade_to(audio_stream)
-	# (!) initialize global fade_in_out_node each time the player spawns:
 	global.fade_anim_player = (
 		get_tree().root
-			.find_child("canvas_layer_for_all", true, false)
+			.find_child(
+				"canvas_layer_for_all",
+				true, false,
+			)
 			.get_fade_in_out()
 			.get_animation_player()
 	)
-	_label_score = game.find_child("LabelScore", true, false)
+	_label_score = game.find_child(
+		"LabelScore", true, false
+	)
 	call_deferred("_count_coins")
 
-func _count_coins():
+
+func _count_coins() -> void:
 	to_collect = 0
-	for coin in get_tree().get_nodes_in_group("coin"):
+	for coin: Node in get_tree()\
+		.get_nodes_in_group("coin"):
 		if not coin.is_queued_for_deletion():
 			to_collect += 1
 	refresh_collected()
 
-func _input(event):
+
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("restart_level"):
 		get_tree().reload_current_scene()
 
-func _on_timer_open_door_timeout():
-	if main_exit_door:
-		main_exit_door.open_door()
 
-func _on_btn_next_level_released():
+func _on_timer_open_door_timeout() -> void:
+	if (
+		main_exit_door
+		and main_exit_door.state_door
+	):
+		main_exit_door.state_door.open()
+
+
+func _on_btn_next_level_released() -> void:
 	global.go_to_next_level()

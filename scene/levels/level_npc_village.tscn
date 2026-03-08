@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://d030ujaei1x65" path="res://scene/levels/base_level.tscn" id="1_7umes"]
 [ext_resource type="Script" uid="uid://bhkrg5irclhju" path="res://scripts/level_npc_village.gd" id="2_cceif"]
-[ext_resource type="PackedScene" uid="uid://vxcy0ujm0ek" path="res://scene/npcs/npc_frog.tscn" id="3_ad4mb"]
-[ext_resource type="PackedScene" uid="uid://x225hdqjpmnj" path="res://scene/npcs/npc_chicken.tscn" id="4_vdng0"]
-[ext_resource type="PackedScene" uid="uid://bsxdcnj83yhbb" path="res://scene/npcs/npc_mushroom.tscn" id="5_2dlgg"]
-[ext_resource type="PackedScene" uid="uid://bx3rwhmd4fmaa" path="res://scene/npcs/npc_skeleton.tscn" id="6_d5t56"]
+[ext_resource type="PackedScene" uid="uid://vxcy0ujm0ek" path="res://entities/frog.tscn" id="3_ad4mb"]
+[ext_resource type="PackedScene" uid="uid://x225hdqjpmnj" path="res://entities/chicken.tscn" id="4_vdng0"]
+[ext_resource type="PackedScene" uid="uid://bsxdcnj83yhbb" path="res://entities/mushroom_gentle.tscn" id="5_2dlgg"]
+[ext_resource type="PackedScene" uid="uid://bx3rwhmd4fmaa" path="res://entities/skeleton.tscn" id="6_d5t56"]
 
 [node name="Game" unique_id=379552625 instance=ExtResource("1_7umes")]
 script = ExtResource("2_cceif")

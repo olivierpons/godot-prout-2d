@@ -1,24 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbwulrbhchhqc"]
+[gd_scene format=3 uid="uid://dbwulrbhchhqc"]
 
-[ext_resource type="Script" uid="uid://bs3y36ot15itk" path="res://scripts/exit_door.gd" id="1_ebc77"]
 [ext_resource type="Texture2D" uid="uid://dqxs6pnmklux0" path="res://assets/sprites/world_tileset.png" id="1_jh7ym"]
+[ext_resource type="Script" uid="uid://bnqyxkg35c5jj" path="res://entities_tmp/entity.gd" id="1_kioeo"]
 [ext_resource type="AudioStream" uid="uid://b3b8idnqmijxp" path="res://assets/sounds/SFX_Positive.mp3" id="3_b8q2f"]
 [ext_resource type="AudioStream" uid="uid://4s6ior7p5tid" path="res://assets/sounds/SFX_Victory_Sound.mp3" id="4_3sbwi"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v7b3h"]
-particle_flag_disable_z = true
-emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 1.0
-emission_ring_radius = 1.0
-emission_ring_inner_radius = 0.0
-emission_ring_cone_angle = 90.0
-gravity = Vector3(0, 0, 0)
-radial_accel_min = 10.0
-radial_accel_max = 10.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnq1h"]
-size = Vector2(14, 26)
+[ext_resource type="Script" uid="uid://dmbg46ocb4c4l" path="res://entities_tmp/components/interaction/state_door.gd" id="6_5ad83"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6fm8"]
 atlas = ExtResource("1_jh7ym")
@@ -47,11 +33,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnq1h"]
+size = Vector2(16, 27)
+
 [sub_resource type="Animation" id="Animation_v7720"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AudioStreamOpenDoor:playing")
+tracks/0/path = NodePath("exit_door/AudioStreamOpenDoor:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -67,7 +57,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AudioStreamOpenDoor:playing")
+tracks/0/path = NodePath("exit_door/AudioStreamOpenDoor:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -79,7 +69,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D")
+tracks/1/path = NodePath("exit_door/AnimatedSprite2D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -97,35 +87,59 @@ _data = {
 &"open_door": SubResource("Animation_d28so")
 }
 
-[node name="exit_door" type="Area2D" groups=["exit"]]
-collision_mask = 2
-script = ExtResource("1_ebc77")
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v7b3h"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 10.0
+radial_accel_max = 10.0
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(0, -13)
-emitting = false
-amount = 500
-process_material = SubResource("ParticleProcessMaterial_v7b3h")
-lifetime = 40.0
+[node name="exit_door" type="Node2D" unique_id=1776108036 node_paths=PackedStringArray("state_door")]
+script = ExtResource("1_kioeo")
+entity_name = "exit_door"
+state_door = NodePath("StateDoor")
+metadata/_custom_type_script = "uid://bnqyxkg35c5jj"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -13)
-shape = SubResource("RectangleShape2D_hnq1h")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=108319651]
 sprite_frames = SubResource("SpriteFrames_5jxmq")
 animation = &"locked"
 offset = Vector2(0, -16)
 
-[node name="AudioStreamOpenDoor" type="AudioStreamPlayer2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1568391927 groups=["exit"]]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1621243810]
+position = Vector2(0, -13.5)
+shape = SubResource("RectangleShape2D_hnq1h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1307542288]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_aeiie")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=706430455]
+position = Vector2(0, -13)
+emitting = false
+amount = 500
+lifetime = 40.0
+process_material = SubResource("ParticleProcessMaterial_v7b3h")
+
+[node name="AudioStreamOpenDoor" type="AudioStreamPlayer2D" parent="." unique_id=1873325939]
 stream = ExtResource("3_b8q2f")
 
-[node name="AudioStreamPlayerExit" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayerExit" type="AudioStreamPlayer2D" parent="." unique_id=1228301156]
 stream = ExtResource("4_3sbwi")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_aeiie")
-}
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="StateDoor" type="Node" parent="." unique_id=1032180620 node_paths=PackedStringArray("area", "animation_player", "sprite", "particles", "audio_open", "audio_exit")]
+script = ExtResource("6_5ad83")
+area = NodePath("../Area2D")
+animation_player = NodePath("../AnimationPlayer")
+sprite = NodePath("../AnimatedSprite2D")
+particles = NodePath("../GPUParticles2D")
+audio_open = NodePath("../AudioStreamOpenDoor")
+audio_exit = NodePath("../AudioStreamPlayerExit")
+metadata/_custom_type_script = "uid://dmbg46ocb4c4l"

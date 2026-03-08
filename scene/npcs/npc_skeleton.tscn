@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://bx3rwhmd4fmaa"]
-
-[ext_resource type="PackedScene" uid="uid://lv7jco0teukg" path="res://scene/npcs/npc.tscn" id="1_h08fb"]
-
-[node name="NpcSkeleton" unique_id=1873896215 instance=ExtResource("1_h08fb")]
