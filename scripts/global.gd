@@ -10,52 +10,8 @@ var are_mobile_controls_flipped: bool = false
 @onready var _track_2 := $Track2
 @onready var audio_current: AudioStreamPlayer = null
 
-var scenes: Array[Dictionary] = [
-	{
-		"path": "res://scene/levels/level_01.tscn", 
-		"message": "",
-	},
-	{
-		"path": "res://scene/levels/level_02_tutorial.tscn", 
-		"message": "",
-	},
-	{
-		"path": "res://scene/levels/level_03_tutorial.tscn", 
-		"message": "",
-	},
-	{
-		"path": "res://scene/levels/level_02.tscn", 
-		"message": "",
-	},
-	{
-		"path": "res://scene/levels/level_03.tscn", 
-		"message": "",
-	},
-	{
-		"path": "res://scene/levels/level_04.tscn", 
-		"message": "4",
-	},
-	{
-		"path": "res://scene/levels/level_05.tscn", 
-		"message": "5",
-	},
-	{
-		"path": "res://scene/levels/level_06.tscn", 
-		"message": "6",
-	},
-	{
-		"path": "res://scene/levels/level_07.tscn", 
-		"message": "7",
-	},
-	{
-		"path": "res://scene/levels/level_08.tscn", 
-		"message": "8",
-	},
-	{
-		"path": "res://scene/levels/level_thibault_01.tscn", 
-		"message": "Thibault 1",
-	}
-]
+@export var scenes: Array[LevelDef] = []
+
 var current_level_index: int = 0
 
 
@@ -71,9 +27,9 @@ func go_to_next_level(player: Node=null, door: Node=null):
 	if current_level_index >= scenes.size():
 		current_level_index = 0
 
-	var next_scene_obj = scenes[current_level_index]
-	var next_scene = load(next_scene_obj["path"])
-	assert(next_scene, "Failed to load scene: " + next_scene_obj["path"]			)
+	var next_def: LevelDef = scenes[current_level_index]
+	var next_scene = load(next_def.scene_path)
+	assert(next_scene, "Failed to load scene: " + next_def.scene_path)
 	Engine.time_scale = 0.4
 	if player:
 		player.is_waiting_end_level = true
@@ -95,7 +51,7 @@ func _on_animation_finished(anim_name):
 			_on_animation_finished
 		)
 		Engine.time_scale = 1.0
-		get_tree().change_scene_to_file(scenes[current_level_index]["path"])
+		get_tree().change_scene_to_file(scenes[current_level_index].scene_path)
 
 func play_rand_sound(audio_stream_player:AudioStreamPlayer2D, tab:Array) -> void:
 	var sound:AudioStreamMP3 = tab[randi() % tab.size()]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://x225hdqjpmnj"]
+
+[ext_resource type="PackedScene" uid="uid://lv7jco0teukg" path="res://scene/npcs/npc.tscn" id="1_gyg2x"]
+
+[node name="NpcChicken" unique_id=1873896215 instance=ExtResource("1_gyg2x")]
+
+[node name="CollisionShape2D" parent="InteractionArea" parent_id_path=PackedInt32Array(1179632664) index="0" unique_id=1848635258]
+position = Vector2(-1, 0)

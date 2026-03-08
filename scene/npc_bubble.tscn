@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b8rlnmaxmkkca"]
+
+[ext_resource type="Script" uid="uid://dv83602k00c4t" path="res://scripts/npc_bubble.gd" id="1_toj7c"]
+[ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="2_q6vyl"]
+
+[node name="NpcBubble" type="Node2D" unique_id=934822329]
+script = ExtResource("1_toj7c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1165811714]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 607.0
+offset_bottom = 207.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1299182137]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer" unique_id=1830029512]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_q6vyl")
+
+[node name="PromptLabel" type="Label" parent="VBoxContainer" unique_id=1140063423]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_q6vyl")
+text = "▼"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=792227249]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=979678931]

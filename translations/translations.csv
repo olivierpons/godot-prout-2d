@@ -1,0 +1,6 @@
+key,en,fr,es
+PROMPT_INTERACT,Press %s,Appuie sur %s,Pulsa %s
+PROMPT_TALK,Talk,Parler,Hablar
+LEVEL_GRAB_COINS,Grab %d coin,Attrape %d pièce,Recoge %d moneda
+LEVEL_GRAB_COINS_PLURAL,Grab %d coins,Attrape %d pièces,Recoge %d monedas
+LEVEL_FIND_EXIT,Find exit now!,Trouve la sortie !,¡Encuentra la salida!

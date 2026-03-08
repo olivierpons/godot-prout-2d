@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://lv7jco0teukg"]
+
+[ext_resource type="Script" uid="uid://dofb5ipe3y7kp" path="res://scripts/npc.gd" id="1_np5a4"]
+[ext_resource type="PackedScene" uid="uid://cyajrbivyt230" path="res://scene/dialog_bubble.tscn" id="2_ab2no"]
+[ext_resource type="FontFile" uid="uid://dgfh8ygbmywbn" path="res://assets/fonts/PixelOperator8.ttf" id="3_8oust"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ab2no"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ab2no"]
+
+[node name="Npc" type="Node2D" unique_id=1873896215]
+script = ExtResource("1_np5a4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1572995175]
+sprite_frames = SubResource("SpriteFrames_ab2no")
+animation = &"idle"
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1179632664]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1848635258]
+shape = SubResource("RectangleShape2D_ab2no")
+
+[node name="Bubble" parent="." unique_id=990955212 instance=ExtResource("2_ab2no")]
+
+[node name="PromptLabel" type="Label" parent="." unique_id=2033647979]
+offset_left = -35.0
+offset_right = 85.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("3_8oust")
+text = "Press \"E\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_body_exited"]

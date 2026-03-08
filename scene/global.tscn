@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://kwenmeocnk1u"]
+[gd_scene format=3 uid="uid://kwenmeocnk1u"]
 
 [ext_resource type="Script" uid="uid://cnrhlfhwqwr8s" path="res://scripts/global.gd" id="1_w45ma"]
 
@@ -171,14 +171,12 @@ _data = {
 &"fade_to_track_2": SubResource("Animation_eur71")
 }
 
-[node name="global" type="Node"]
+[node name="global" type="Node" unique_id=85920951]
 script = ExtResource("1_w45ma")
 
-[node name="Track1" type="AudioStreamPlayer" parent="."]
+[node name="Track1" type="AudioStreamPlayer" parent="." unique_id=1389830584]
 
-[node name="Track2" type="AudioStreamPlayer" parent="."]
+[node name="Track2" type="AudioStreamPlayer" parent="." unique_id=1699792823]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_2uiv7")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1997971820]
+libraries/ = SubResource("AnimationLibrary_2uiv7")
