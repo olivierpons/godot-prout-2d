@@ -6,6 +6,7 @@ export/*
 *.log
 *.reimported
 *.tmp
+tmp.txt
 ++ b/.gitignore
 -- a/.gitignore
 .DS_Store
