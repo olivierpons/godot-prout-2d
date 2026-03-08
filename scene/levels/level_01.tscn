@@ -296,48 +296,30 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Coin" parent="Coins" parent_id_path=PackedInt32Array(1918429624) index="0" unique_id=699683433 instance=ExtResource("3_unrjs")]
 position = Vector2(-314, -346)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
 
 [node name="Coin2" parent="Coins" parent_id_path=PackedInt32Array(1918429624) index="1" unique_id=872675824 instance=ExtResource("3_unrjs")]
 position = Vector2(-287, -358)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
 
 [node name="Coin3" parent="Coins" parent_id_path=PackedInt32Array(1918429624) index="2" unique_id=929327803 instance=ExtResource("3_unrjs")]
 position = Vector2(-269, -392)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
 
 [node name="Coin4" parent="Coins" parent_id_path=PackedInt32Array(1918429624) index="3" unique_id=217340980 instance=ExtResource("3_unrjs")]
 position = Vector2(-237, -422)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
 
 [node name="Coin5" parent="Coins" parent_id_path=PackedInt32Array(1918429624) index="4" unique_id=1040127117 instance=ExtResource("3_unrjs")]
 position = Vector2(-214, -452)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
 
 [node name="Coin6" parent="Coins" parent_id_path=PackedInt32Array(1918429624) index="5" unique_id=1267175534 instance=ExtResource("3_unrjs")]
 position = Vector2(-179, -481)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
 
 [node name="Coin7" parent="Coins" parent_id_path=PackedInt32Array(1918429624) index="6" unique_id=2031394796 instance=ExtResource("3_unrjs")]
 position = Vector2(165, -192)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
 
 [node name="Coin8" parent="Coins" parent_id_path=PackedInt32Array(1918429624) index="7" unique_id=1055238687 instance=ExtResource("3_unrjs")]
 position = Vector2(-156, -505)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
 
 [node name="Coin9" parent="Coins" parent_id_path=PackedInt32Array(1918429624) index="8" unique_id=600664671 instance=ExtResource("3_unrjs")]
 position = Vector2(-124, -545)
-delay_before_falling = 5000.0
-falling_speed_gravity = 392
 
 [node name="make_coins_fall" type="Area2D" parent="." index="10" unique_id=577364169]
 collision_mask = 2

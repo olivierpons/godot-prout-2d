@@ -18,9 +18,7 @@ signal all_coins_collected()
 var _label_score: Label = null
 var to_collect: int = 0
 
-func refresh_collected(
-	collected: int = 0,
-) -> int:
+func refresh_collected(collected: int = 0) -> int:
 	to_collect -= collected
 	_label_score.text = (
 		"Grab " + str(to_collect) + " coin"
